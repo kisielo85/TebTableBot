@@ -61,32 +61,17 @@ client.on("ready", async () => {
 });
 
 client.on('error', console.error);
-
+/*
 client.on('messageCreate', msg => {
     if(msg.author.id !== '1161186269406179359'){ // jeżeli to nie wiadomosc bota
-        console.log(dm_list)
 
-        msg.content = msg.content.toLowerCase()
-
-        if(msg.content.startsWith('!help')){
-            msg.reply('!dm me wysyła wiadomośći gdzy plan sie zmieni, zwolni sie lekcja itp.\n!stop dm przestałe wysyłać powiadomiena o planu lekcjach')
-        }
-
-
-
-        if(match = msg.content.match('!dm me (.*)')){ // !dm me <klasa> dodaje do listy
-
-            
-        }
-
-        if(msg.content.startsWith('!stop dm')){ // stop dm usuwa zy listy
-
-        }
     }
 })
+*/
 
 
-client.login('MTE2MTE4NjI2OTQwNjE3OTM1OQ.GmI-Cm.gQq5Kp47SHwEkCXgsK8QH0OR-a6nzy8jxjPR_M')
+
+// Komendy
 
 client.on('interactionCreate', async (msg) => {
     if(!msg.isChatInputCommand()) return;
@@ -110,6 +95,7 @@ client.on('interactionCreate', async (msg) => {
         }
         console.log(klasa)
     }
+
     if(msg.commandName === "stop"){
         let found = false;
         dm_list.find((id, index) => {
@@ -129,3 +115,4 @@ client.on('interactionCreate', async (msg) => {
         
 })
 
+client.login('MTE2MTE4NjI2OTQwNjE3OTM1OQ.GmI-Cm.gQq5Kp47SHwEkCXgsK8QH0OR-a6nzy8jxjPR_M')
