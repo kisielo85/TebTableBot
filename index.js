@@ -1,4 +1,5 @@
 // Setup
+const tableData = require('./tableData.js')
 const axios = require('axios');
 const fs    = require('fs');
 const {Client, GatewayIntentBits, Partials, ApplicationCommandOptionType} = require("discord.js");
@@ -58,6 +59,10 @@ client.on("ready", async () => {
             name: 'stop',
             description: 'możesz sie usunąć z listy powiadomień'
       });
+      await client.application.commands.create({
+        name: 'test',
+        description: 'ur a sussy baka'
+  });
 });
 
 client.on('error', console.error);
@@ -112,7 +117,28 @@ client.on('interactionCreate', async (msg) => {
             msg.reply('nie ma cie na liście')
         }
     }
-        
-})
 
+    // wybór klasy, to by sie przydało rozbić na 3 wiadomości z reakcjami/przyciskami
+    // przy grupach powinna być opcja zaznaczenia kilku grup,
+    // zaznaczenie żadnej grupy równoznaczne z zaznaczeniem każdej
+    if(msg.commandName === "test"){
+        out=""
+        //roczniki
+        for (const r in tableData.classes){
+            out+='``klasy '+r+'``\n'
+
+            //klasy
+            for (const c of tableData.classes[r]){
+                out+=`**${c.short}**\n`
+
+                //grupy
+                for (const g of c.groups){
+                    out+=`- ${g}\n`
+                }
+            }
+        }
+        msg.reply(out)
+    }
+    
+})
 client.login('MTE2MTE4NjI2OTQwNjE3OTM1OQ.GmI-Cm.gQq5Kp47SHwEkCXgsK8QH0OR-a6nzy8jxjPR_M')

@@ -1,0 +1,943 @@
+{
+  "teachers": {
+    "-3": {
+      "short": "AA"
+    },
+    "-4": {
+      "short": "RB"
+    },
+    "-93": {
+      "short": "BBS"
+    },
+    "-7": {
+      "short": "Bu"
+    },
+    "-8": {
+      "short": "AB"
+    },
+    "-9": {
+      "short": "DC"
+    },
+    "-59": {
+      "short": "OC"
+    },
+    "-99": {
+      "short": "OD"
+    },
+    "-100": {
+      "short": "SD"
+    },
+    "-12": {
+      "short": "MD"
+    },
+    "-101": {
+      "short": "AG"
+    },
+    "-13": {
+      "short": "KG"
+    },
+    "-95": {
+      "short": "MJa"
+    },
+    "-15": {
+      "short": "PJ"
+    },
+    "-73": {
+      "short": "DJ"
+    },
+    "-16": {
+      "short": "AK"
+    },
+    "-18": {
+      "short": "EK"
+    },
+    "-96": {
+      "short": "AKS"
+    },
+    "-19": {
+      "short": "RK"
+    },
+    "-102": {
+      "short": "JK"
+    },
+    "-74": {
+      "short": "NK"
+    },
+    "-20": {
+      "short": "KK"
+    },
+    "-103": {
+      "short": "KA"
+    },
+    "-104": {
+      "short": "ML"
+    },
+    "-21": {
+      "short": "MŁ"
+    },
+    "-22": {
+      "short": "AM"
+    },
+    "-105": {
+      "short": "Mk"
+    },
+    "-106": {
+      "short": "Mt"
+    },
+    "-107": {
+      "short": "MP"
+    },
+    "-91": {
+      "short": "Mi"
+    },
+    "-24": {
+      "short": "PM"
+    },
+    "-60": {
+      "short": "MA"
+    },
+    "-26": {
+      "short": "MM"
+    },
+    "-48": {
+      "short": "Do"
+    },
+    "-97": {
+      "short": "JN"
+    },
+    "-94": {
+      "short": "AN"
+    },
+    "-108": {
+      "short": "DN"
+    },
+    "-83": {
+      "short": "EOJ"
+    },
+    "-29": {
+      "short": "Pk"
+    },
+    "-1": {
+      "short": "MO"
+    },
+    "-30": {
+      "short": "AP"
+    },
+    "-31": {
+      "short": "DPZ"
+    },
+    "-51": {
+      "short": "PD"
+    },
+    "-76": {
+      "short": "OPK"
+    },
+    "-78": {
+      "short": "MS"
+    },
+    "-109": {
+      "short": "ES"
+    },
+    "-81": {
+      "short": "KŚ"
+    },
+    "-80": {
+      "short": "IS"
+    },
+    "-85": {
+      "short": "ZT"
+    },
+    "-40": {
+      "short": "WT"
+    },
+    "-89": {
+      "short": "wakat"
+    },
+    "-110": {
+      "short": "f"
+    },
+    "-111": {
+      "short": "m"
+    },
+    "-112": {
+      "short": "vf"
+    },
+    "-113": {
+      "short": "vi"
+    },
+    "-82": {
+      "short": "JW"
+    },
+    "-87": {
+      "short": "PW"
+    },
+    "-90": {
+      "short": ".."
+    },
+    "-67": {
+      "short": "SW"
+    },
+    "-43": {
+      "short": "AW"
+    },
+    "-44": {
+      "short": "MW"
+    },
+    "-98": {
+      "short": "KW"
+    },
+    "-114": {
+      "short": "Wo"
+    },
+    "-45": {
+      "short": "ŁW"
+    },
+    "-88": {
+      "short": "MWy"
+    },
+    "-46": {
+      "short": "WA"
+    },
+    "-115": {
+      "short": "WS"
+    },
+    "-47": {
+      "short": "WZ"
+    },
+    "-84": {
+      "short": "MŻ"
+    },
+    "-2": {
+      "short": "AŻ"
+    }
+  },
+  "subjects": {
+    "1": {
+      "short": "Zac",
+      "name": "Zachowanie"
+    },
+    "-119": {
+      "short": ""
+    },
+    "-118": {
+      "short": ""
+    },
+    "-1": {
+      "short": "aso",
+      "name": "Administracja systemami operacyjnymi"
+    },
+    "-84": {
+      "short": "adm. BD",
+      "name": "Administrowanie bazami danych"
+    },
+    "-2": {
+      "short": "anatomia",
+      "name": "Anatomia i fizjologia zwierząt"
+    },
+    "-3": {
+      "short": "adim",
+      "name": "Aplikacje desktopowe i mobilne"
+    },
+    "-86": {
+      "short": "apl. mob. + zaaw. web.",
+      "name": "Aplikacje mobilne oraz zaawansowane webowe"
+    },
+    "-98": {
+      "short": "apl. webowe",
+      "name": "Aplikacje webowe"
+    },
+    "-4": {
+      "short": "bazy",
+      "name": "Bazy danych"
+    },
+    "-5": {
+      "short": "bhp",
+      "name": "Bezpieczeństwo i higiena pracy"
+    },
+    "-6": {
+      "short": "biol",
+      "name": "Biologia"
+    },
+    "-7": {
+      "short": "biol R",
+      "name": "Biologia rozszerzona"
+    },
+    "-104": {
+      "short": "biz",
+      "name": "Biznes i zarządzanie"
+    },
+    "-113": {
+      "short": "bizn. w pr.",
+      "name": "Biznes w praktyce"
+    },
+    "-82": {
+      "short": "esport",
+      "name": "Branża e-sportowa"
+    },
+    "-74": {
+      "short": "esport_dzi",
+      "name": "Branża e-sportowa: Dziennikarstwo"
+    },
+    "-77": {
+      "short": "esport_3d",
+      "name": "Branża e-sportowa: Grafika 3D"
+    },
+    "-73": {
+      "short": "esport_mar",
+      "name": "Branża e-sportowa: Marketing"
+    },
+    "-75": {
+      "short": "esport_mul",
+      "name": "Branża e-sportowa: Multimedia"
+    },
+    "-78": {
+      "short": "esport_gry",
+      "name": "Branża e-sportowa: Projektowanie gier komputerowych"
+    },
+    "-72": {
+      "short": "esport_psy",
+      "name": "Branża e-sportowa: Psychologia"
+    },
+    "-76": {
+      "short": "esport_sisk",
+      "name": "Branża e-sportowa: Systemy i sieci komputerowe"
+    },
+    "-79": {
+      "short": "esport_proj",
+      "name": "Branża e-sportowa: Zarządzanie projektowe"
+    },
+    "-8": {
+      "short": "chemia",
+      "name": "Chemia"
+    },
+    "-9": {
+      "short": "chemia R",
+      "name": "Chemia rozszerzona"
+    },
+    "-10": {
+      "short": "chów",
+      "name": "Chów zwierząt"
+    },
+    "-11": {
+      "short": "chów P",
+      "name": "Chów zwierząt w praktyce"
+    },
+    "-12": {
+      "short": "cyfr. obr. obr.",
+      "name": "Cyfrowa obróbka obrazu"
+    },
+    "-13": {
+      "short": "cyfr. techn. mult.",
+      "name": "Cyfrowe technologie multimedialne"
+    },
+    "-14": {
+      "short": "diag. wet.",
+      "name": "Diagnostyka weterynaryjna"
+    },
+    "-15": {
+      "short": "diag. wet. P",
+      "name": "Diagnostyka weterynaryjna w praktyce"
+    },
+    "-81": {
+      "short": "dz",
+      "name": "Doradztwo zawodowe"
+    },
+    "-99": {
+      "short": "dyżur",
+      "name": "Dyżur"
+    },
+    "-16": {
+      "short": "dział. gosp.",
+      "name": "Działalność gospodarcza"
+    },
+    "-114": {
+      "short": "dz 2.0",
+      "name": "Dziennikarstwo 2.0"
+    },
+    "-17": {
+      "short": "edb",
+      "name": "Edukacja dla bezpieczeństwa"
+    },
+    "-18": {
+      "short": "elsk",
+      "name": "Eksploatacja lokalnych sieci komputerowych"
+    },
+    "-19": {
+      "short": "eutk",
+      "name": "Eksploatacja urządzeń techniki komputerowej"
+    },
+    "-102": {
+      "short": "egk",
+      "name": "Elementy grafiki komputerowej"
+    },
+    "-109": {
+      "short": "el. prawa",
+      "name": "Elementy prawa, etyki i psychologii w reklamie"
+    },
+    "-20": {
+      "short": "etyka",
+      "name": "Etyka"
+    },
+    "-21": {
+      "short": "filozofia",
+      "name": "Filozofia"
+    },
+    "-22": {
+      "short": "fiz",
+      "name": "Fizyka"
+    },
+    "-23": {
+      "short": "geo",
+      "name": "Geografia"
+    },
+    "-24": {
+      "short": "geo R",
+      "name": "Geografia rozszerzona"
+    },
+    "-25": {
+      "short": "historia",
+      "name": "Historia"
+    },
+    "-26": {
+      "short": "his",
+      "name": "Historia i społeczeństwo"
+    },
+    "-85": {
+      "short": "hit",
+      "name": "Historia i teraźniejszość"
+    },
+    "-105": {
+      "short": "hist. szt.",
+      "name": "Historia sztuki rozszerzona"
+    },
+    "-27": {
+      "short": "inf",
+      "name": "Informatyka"
+    },
+    "-28": {
+      "short": "inf R",
+      "name": "Informatyka rozszerzona"
+    },
+    "-29": {
+      "short": "ang",
+      "name": "Język angielski"
+    },
+    "-30": {
+      "short": "ang R",
+      "name": "Język angielski rozszerzony"
+    },
+    "-31": {
+      "short": "j. ang. zaw.",
+      "name": "Język angielski zawodowy"
+    },
+    "-32": {
+      "short": "niem",
+      "name": "Język niemiecki"
+    },
+    "-33": {
+      "short": "pol",
+      "name": "Język polski"
+    },
+    "-100": {
+      "short": "J.pol_do",
+      "name": "Język polski dla obcokrajowców"
+    },
+    "-106": {
+      "short": "pol R",
+      "name": "Język polski rozszerzony"
+    },
+    "-36": {
+      "short": "kontr. nadz. wet.",
+      "name": "Kontrola i nadzór weterynaryjny"
+    },
+    "-37": {
+      "short": "kontr. nadz. wet. P",
+      "name": "Kontrola i nadzór weterynaryjny w praktyce"
+    },
+    "-38": {
+      "short": "lsk",
+      "name": "Lokalne sieci komputerowe"
+    },
+    "-39": {
+      "short": "lsbd",
+      "name": "Lokalne systemy baz danych"
+    },
+    "-40": {
+      "short": "mat",
+      "name": "Matematyka"
+    },
+    "-101": {
+      "short": "Md",
+      "name": "Matematyka dodatkowa"
+    },
+    "-41": {
+      "short": "mat R",
+      "name": "Matematyka rozszerzona"
+    },
+    "-110": {
+      "short": "media społ.",
+      "name": "Media społecznościowe"
+    },
+    "-87": {
+      "short": "Migracja",
+      "name": "Migracja"
+    },
+    "-88": {
+      "short": "ob. apl. desk.",
+      "name": "Obiektowe aplikacje desktopowe"
+    },
+    "-108": {
+      "short": "pl. kamp. rekl.",
+      "name": "Planowanie kampanii reklamowej"
+    },
+    "-42": {
+      "short": "podst. dz. gosp.",
+      "name": "Podstawy działalności gospodarczej"
+    },
+    "-97": {
+      "short": "podst. inf.",
+      "name": "Podstawy informatyki"
+    },
+    "-43": {
+      "short": "podst. progr.",
+      "name": "Podstawy programowania"
+    },
+    "-115": {
+      "short": "proj. graf.",
+      "name": "Podstawy projektowania graficznego"
+    },
+    "-44": {
+      "short": "pp",
+      "name": "Podstawy przedsiębiorczości"
+    },
+    "-45": {
+      "short": "podst. rekl.",
+      "name": "Podstawy reklamy"
+    },
+    "-116": {
+      "short": "robotyka",
+      "name": "Podstawy robotyki"
+    },
+    "-70": {
+      "short": "Praktyka zawodowa",
+      "name": "Praktyka zawodowa"
+    },
+    "-46": {
+      "short": "prof.",
+      "name": "Profilaktyka i leczenie chorób zwierząt"
+    },
+    "-47": {
+      "short": "prof. P",
+      "name": "Profilaktyka i leczenie chorób zwierząt w praktyce"
+    },
+    "-89": {
+      "short": "prog. test. apl. mob.",
+      "name": "Programowanie i testowanie aplikacji mobilnych oraz zaawansowanych webowych"
+    },
+    "-90": {
+      "short": "progr. test. ob.",
+      "name": "Programowanie i testowanie obiektowych aplikacji desktopowych"
+    },
+    "-48": {
+      "short": "proj. rekl.",
+      "name": "Projektowanie reklamy"
+    },
+    "-49": {
+      "short": "proj. mult.",
+      "name": "Projekty multimedialne"
+    },
+    "-50": {
+      "short": "przep. r. dr.",
+      "name": "Przepisy ruchu drogowego"
+    },
+    "-51": {
+      "short": "przyg. prog.",
+      "name": "Przygotowanie do zawodu programisty"
+    },
+    "-80": {
+      "short": "pmc",
+      "name": "Przygotowanie materiałów cyfrowych"
+    },
+    "-111": {
+      "short": "real. kamp.",
+      "name": "Realizacja kampanii reklamowej"
+    },
+    "-52": {
+      "short": "rel",
+      "name": "Religia"
+    },
+    "-53": {
+      "short": "rozród",
+      "name": "Rozród i inseminacja zwierząt"
+    },
+    "-54": {
+      "short": "rozród P",
+      "name": "Rozród i inseminacja zwierząt w praktyce"
+    },
+    "-112": {
+      "short": "skut. kamp.",
+      "name": "Skuteczność i efektywność kampanii reklamowej"
+    },
+    "-55": {
+      "short": "str. apl. int.",
+      "name": "Strony i aplikacje internetowe"
+    },
+    "-56": {
+      "short": "so",
+      "name": "Systemy operacyjne"
+    },
+    "-103": {
+      "short": "szkolenie",
+      "name": "Szkolenie TIK / KNO"
+    },
+    "-91": {
+      "short": "SI",
+      "name": "Sztuczna inteligencja"
+    },
+    "-57": {
+      "short": "techn. fot.",
+      "name": "Techniki fotograficzne"
+    },
+    "-58": {
+      "short": "techn. rekl.",
+      "name": "Techniki reklamy"
+    },
+    "-107": {
+      "short": "tech. chm.",
+      "name": "Technologie chmurowe"
+    },
+    "-59": {
+      "short": "teor. obr. fot.",
+      "name": "Teoria obrazu fotograficznego"
+    },
+    "-92": {
+      "short": "tw. apl. deskt.",
+      "name": "Tworzenie aplikacji desktopowych"
+    },
+    "-96": {
+      "short": "tw. apl. mob.",
+      "name": "Tworzenie aplikacji mobilnych"
+    },
+    "-93": {
+      "short": "tw. apl. web.",
+      "name": "Tworzenie aplikacji webowych"
+    },
+    "-60": {
+      "short": "tw. adm. bd",
+      "name": "Tworzenie i administrowanie bazami danych"
+    },
+    "-61": {
+      "short": "tw. zarz. bd",
+      "name": "Tworzenie i zarządzanie bazami danych"
+    },
+    "-62": {
+      "short": "tsai",
+      "name": "Tworzenie stron i aplikacji internetowych"
+    },
+    "-94": {
+      "short": "tw. str.",
+      "name": "Tworzenie stron i programowanie aplikacji internetowych"
+    },
+    "-63": {
+      "short": "urz. sprzęt",
+      "name": "Urządzenia i sprzęt w fotografii"
+    },
+    "-64": {
+      "short": "utk",
+      "name": "Urządzenia techniki komputerowej"
+    },
+    "-95": {
+      "short": "wos",
+      "name": "Wiedza o społeczeństwie"
+    },
+    "-65": {
+      "short": "wiai",
+      "name": "Witryny i aplikacje internetowe"
+    },
+    "-117": {
+      "short": "krymin",
+      "name": "Wprowadzenie do kryminalistyki"
+    },
+    "-66": {
+      "short": "wdż",
+      "name": "Wychowanie do życia w rodzinie"
+    },
+    "-67": {
+      "short": "wf",
+      "name": "Wychowanie fizyczne"
+    },
+    "-68": {
+      "short": "wytw. el. prz. rekl.",
+      "name": "Wytwarzanie elementów przekazu reklamowego"
+    },
+    "-69": {
+      "short": "gzw",
+      "name": "Zajęcia z wychowawcą"
+    }
+  },
+  "classrooms": {
+    "-1": {
+      "short": "005F"
+    },
+    "-62": {
+      "short": "102F"
+    },
+    "-2": {
+      "short": "104F"
+    },
+    "-3": {
+      "short": "105F"
+    },
+    "-4": {
+      "short": "106F"
+    },
+    "-53": {
+      "short": "204F"
+    },
+    "-5": {
+      "short": "205F"
+    },
+    "-6": {
+      "short": "208F"
+    },
+    "-63": {
+      "short": "301F"
+    },
+    "-64": {
+      "short": "302F"
+    },
+    "-65": {
+      "short": "303F"
+    },
+    "-66": {
+      "short": "304F"
+    },
+    "-67": {
+      "short": "305F"
+    },
+    "-9": {
+      "short": "B10H"
+    },
+    "-10": {
+      "short": "B11H"
+    },
+    "-11": {
+      "short": "B12H"
+    },
+    "-12": {
+      "short": "B13H"
+    },
+    "-13": {
+      "short": "B14H"
+    },
+    "-14": {
+      "short": "B15H"
+    },
+    "-15": {
+      "short": "B16H"
+    },
+    "-76": {
+      "short": "B17H"
+    },
+    "-77": {
+      "short": "B18H"
+    },
+    "-78": {
+      "short": "B19H"
+    },
+    "-7": {
+      "short": "B1H"
+    },
+    "-79": {
+      "short": "B20H"
+    },
+    "-80": {
+      "short": "B21H"
+    },
+    "-84": {
+      "short": "B3H"
+    },
+    "-55": {
+      "short": "B8H"
+    },
+    "-56": {
+      "short": "B9H"
+    },
+    "-81": {
+      "short": "C10H"
+    },
+    "-82": {
+      "short": "C11H"
+    },
+    "-83": {
+      "short": "C12H"
+    },
+    "-23": {
+      "short": "C13H"
+    },
+    "-24": {
+      "short": "C14H"
+    },
+    "-17": {
+      "short": "C2H"
+    },
+    "-18": {
+      "short": "C4H"
+    },
+    "-19": {
+      "short": "C5H"
+    },
+    "-20": {
+      "short": "C6H"
+    },
+    "-70": {
+      "short": "C7H"
+    },
+    "-21": {
+      "short": "C9H"
+    },
+    "-37": {
+      "short": "D:-1F"
+    },
+    "-38": {
+      "short": "D:0F"
+    },
+    "-39": {
+      "short": "D:1F"
+    },
+    "-40": {
+      "short": "D:2F"
+    },
+    "-68": {
+      "short": "D:3F"
+    },
+    "-41": {
+      "short": "D:B"
+    },
+    "-42": {
+      "short": "D:C"
+    },
+    "-43": {
+      "short": "D:ś"
+    },
+    "-44": {
+      "short": "D:w"
+    },
+    "-50": {
+      "short": "Hasta La Vista ul. Góralska 5"
+    },
+    "-32": {
+      "short": "Hasta La Vista ul. Góralska 5 od 7:30"
+    }
+  },
+  "classes": {
+    "-43": {
+      "short": "1Lep",
+      "name": "1Lep Liceum"
+    },
+    "-44": {
+      "short": "1Lgm",
+      "name": "1Lgm Liceum"
+    },
+    "-45": {
+      "short": "1Lk",
+      "name": "1Lk Liceum"
+    },
+    "-35": {
+      "short": "1Te",
+      "name": "1Te Technikum"
+    },
+    "-36": {
+      "short": "1Tf",
+      "name": "1Tf Technikum"
+    },
+    "-37": {
+      "short": "1Ti",
+      "name": "1Ti Technikum"
+    },
+    "-38": {
+      "short": "1Tp",
+      "name": "1Tp Technikum"
+    },
+    "-39": {
+      "short": "1Tr",
+      "name": "1Tr Technikum"
+    },
+    "-40": {
+      "short": "1Tsa",
+      "name": "1Tsa Technikum"
+    },
+    "-41": {
+      "short": "1Tsb",
+      "name": "1Tsb Technikum"
+    },
+    "-42": {
+      "short": "1Tw",
+      "name": "1Tw Technikum"
+    },
+    "-20": {
+      "short": "2Tei",
+      "name": "2Tei Technikum"
+    },
+    "-23": {
+      "short": "2Ter",
+      "name": "2Ter Technikum"
+    },
+    "-21": {
+      "short": "2Tf",
+      "name": "2Tf Technikum"
+    },
+    "-22": {
+      "short": "2Tp",
+      "name": "2Tp Technikum"
+    },
+    "-24": {
+      "short": "2Ts",
+      "name": "2Ts Technikum"
+    },
+    "-1": {
+      "short": "3Tea",
+      "name": "3Tea Technikum"
+    },
+    "-2": {
+      "short": "3Teb",
+      "name": "3Teb Technikum"
+    },
+    "-3": {
+      "short": "3Tfr",
+      "name": "3Tfr Technikum"
+    },
+    "-4": {
+      "short": "3Tiw",
+      "name": "3Tiw Technikum"
+    },
+    "-5": {
+      "short": "3Tp",
+      "name": "3Tp Technikum"
+    },
+    "-7": {
+      "short": "4Teip",
+      "name": "4Teip Technikum"
+    },
+    "-25": {
+      "short": "4Tew",
+      "name": "4Tew Technikum"
+    },
+    "-8": {
+      "short": "4Tf",
+      "name": "4Tf Technikum"
+    },
+    "-27": {
+      "short": "5Te/5",
+      "name": "5Te/5 Technikum"
+    },
+    "-28": {
+      "short": "5Tew/5",
+      "name": "5Tew/5 Technikum"
+    },
+    "-29": {
+      "short": "5Tfi/5",
+      "name": "5Tfi/5 Technikum"
+    }
+  }
+}

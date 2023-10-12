@@ -1,0 +1,117 @@
+const config = require('./config.json')
+const fs = require('fs');
+const axios = require('axios');
+
+// zwraca daty początku i końca aktualnego tygodnia
+function getDate(next=false){
+  date = new Date();
+  var out = {}
+  out.year=date.getFullYear()
+  if (next) date.setDate(date.getDate() + 7);
+
+  function add0(x){ return String(x).padStart(2,'0') }
+
+  //poczatek tygodnia
+  date.setDate(date.getDate() - date.getDay()+1);
+  // od, do
+  out.from=`${date.getFullYear()}-${add0(date.getMonth()+1)}-${add0(date.getDate())}`
+  date.setDate(date.getDate() + 6);
+  out.to=`${date.getFullYear()}-${add0(date.getMonth()+1)}-${add0(date.getDate())}`
+
+  return out
+}
+
+
+// zwraca tabele: classes, teachers, classrooms
+async function getTable(tableName, id){
+  d=getDate()
+  const requestData = {
+    __args:[ null,
+      {
+        "year": d.year,
+        "datefrom": d.from,
+        "dateto": d.to,
+        "table": tableName,
+        "id": String(id),
+        "showColors": true,
+        "showIgroupsInClasses": false,
+        "showOrig": true
+      }
+  ], __gsh:"00000000"
+  };
+
+  const response = await axios.post('https://tebwroclaw.edupage.org/timetable/server/currenttt.js?__func=curentttGetData', requestData)
+  return response.data.r.ttitems
+}
+
+// pobiera id klas, nauczycieli itp. do idList
+// zapisuje klasy razem z grupami w classes
+idList={}
+classes={}
+async function loadInitialData(){
+  d=getDate()
+  const requestData = {
+    __args:['null',d.year,{
+      "vt_filter":{
+        "datefrom":d.from,
+        "dateto":d.to
+      }},
+      {"op":"fetch","needed_part":{"teachers":["short"],"classes":["short","name"],"classrooms":["short"],"subjects":["short","name"]}}]
+    , __gsh:"00000000"
+  };
+
+    const response = await axios.post('https://tebwroclaw.edupage.org/rpr/server/maindbi.js?__func=mainDBIAccessor', requestData)
+    
+    // tabele z danymi: teachers / subjects / classrooms / classes    
+    for (const table of response.data.r.tables){
+        idList[table.id]={}
+
+        for (const row of table.data_rows){
+            idList[table.id][row.id]={short:row.short}
+            if (row.name)
+                idList[table.id][row.id].name=row.name
+        }
+    }
+
+    // zapis wszystkich klas z podziałem na roczniki
+    for (const c in idList.classes){
+        n=idList.classes[c].short
+        process.stdout.write(n+' ');
+        
+        //rocznik
+        r=n[0]
+        if (!classes[r]) classes[r]=[]
+
+        // pobieranie grup w klasie
+        cards=await getTable("classes",c)
+        groups=[]
+        for (const c of cards){
+            for (const g of c.groupnames){
+                if (g!='' && !groups.includes(g))
+                    groups.push(g)
+            }
+        }
+
+        classes[r].push({
+            id:c,
+            short:n,
+            name:idList.classes[c].name,
+            groups:groups
+        })
+    }
+}
+
+if (!config.debug){
+  loadInitialData().then( ()=>{
+    //fs.writeFileSync('sample_data/idList.json', JSON.stringify(idList, null, 2))
+    //fs.writeFileSync('sample_data/classes.json', JSON.stringify(classes, null, 2))
+  })
+}else{
+  classes = JSON.parse(fs.readFileSync('sample_data/classes.json', 'utf-8'))
+  idList = JSON.parse(fs.readFileSync('sample_data/classes.json', 'utf-8'))
+}
+
+module.exports = {
+  classes,
+  idList
+};
