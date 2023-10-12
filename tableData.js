@@ -3,7 +3,7 @@ const fs = require('fs');
 const axios = require('axios');
 
 // zwraca daty początku i końca aktualnego tygodnia
-function getDate(next=false){
+function getDate(next=false,oneDay=false){
   date = new Date();
   var out = {}
   out.year=date.getFullYear()
@@ -11,20 +11,25 @@ function getDate(next=false){
 
   function add0(x){ return String(x).padStart(2,'0') }
 
-  //poczatek tygodnia
-  date.setDate(date.getDate() - date.getDay()+1);
+  // jeśli ma pobrać cały tydzień - bierze poniedziałek
+  if (!oneDay)
+    date.setDate(date.getDate() - date.getDay()+1);
+  
   // od, do
   out.from=`${date.getFullYear()}-${add0(date.getMonth()+1)}-${add0(date.getDate())}`
-  date.setDate(date.getDate() + 6);
-  out.to=`${date.getFullYear()}-${add0(date.getMonth()+1)}-${add0(date.getDate())}`
-
+  if (oneDay){ out.to = out.from }
+  else{
+    date.setDate(date.getDate() + 6);
+    out.to=`${date.getFullYear()}-${add0(date.getMonth()+1)}-${add0(date.getDate())}`
+  }
+  console.log(out)
   return out
 }
 
 
 // zwraca tabele: classes, teachers, classrooms
-async function getTable(tableName, id){
-  d=getDate()
+async function getTable(tableName, id,nextWeek=false,oneDay=false){
+  d=getDate(nextWeek,oneDay)
   const requestData = {
     __args:[ null,
       {
@@ -108,10 +113,40 @@ if (!config.debug){
   })
 }else{
   classes = JSON.parse(fs.readFileSync('sample_data/classes.json', 'utf-8'))
-  idList = JSON.parse(fs.readFileSync('sample_data/classes.json', 'utf-8'))
+  idList = JSON.parse(fs.readFileSync('sample_data/idList.json', 'utf-8'))
 }
 
 module.exports = {
   classes,
   idList
 };
+
+// szuka klasy/nauczyciela
+async function where(name){
+  
+  // szukanie po nauczycielach, klasach, salach
+  found={}
+  for (const type in idList){
+    if (!['teachers', 'classes', 'classrooms'].includes(type)) continue
+
+    for (id in idList[type]){
+      short=idList[type][id].short.toLowerCase()
+      nm=name.toLowerCase()
+
+      // jeśli bez literki F lub H, to też wyszuka
+      if (short==nm || (type=='classrooms' && (short.slice(0, -1) == nm))){
+        found.id=id
+        found.type=type
+        if (idList[type][id].name){ found.name=idList[type][id].name }
+        else {found.name=idList[type][id].short}
+        break
+      }
+    }
+  }
+  if (found=={}) return false
+
+  // pobieranie planu
+  getTable(found.type,found.id,false,true).then(a=>
+    console.log(a)
+  )
+}
