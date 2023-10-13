@@ -118,7 +118,8 @@ if (!config.debug){
 
 module.exports = {
   classes,
-  idList
+  idList,
+  loadInitialData
 };
 
 // szuka klasy/nauczyciela
