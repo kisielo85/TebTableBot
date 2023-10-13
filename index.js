@@ -94,31 +94,29 @@ client.on('interactionCreate', async (msg) => {
 
     if(msg.isButton()){ // jeżeli interakcja to przycisk
         console.log(await msg.message.delete())
-        if(rocznikBtn = msg.customId.match(/r(\d+)/)){
+        if(rocznikBtn = msg.customId.match(/r(\d+)/)){ // jeżeli urzytkownik wybiera aktualnie rocznik/rok 1 2 3 4 5
+            let klasy = [] 
 
-
-
-            let profile = []
-            for(let a of tableData.classes[''+rocznikBtn[1]]){
-                    profile.push(new ButtonBuilder()
+            for(let a of tableData.classes[''+rocznikBtn[1]]){ // tworzy przyciski do array klasy
+                    klasy.push(new ButtonBuilder()
                     .setCustomId('k'+a.id)
                     .setLabel(a.short)
                     .setStyle(ButtonStyle.Secondary)
                     );
-            }
+            } 
+
             let ileMsg = tableData.classes[''+rocznikBtn[1]].length / 5;
-            ileMsg - parseInt(ileMsg) > 0 ? parseInt(ileMsg) + 1 : parseInt(ileMsg)
+            ileMsg - parseInt(ileMsg) > 0 ? parseInt(ileMsg) + 1 : parseInt(ileMsg) // ile wiadomości ma być po 5 np 26 to 6 wiadomości po 5 przycisków
+
             msg.user.send(`Wybierz klase`)
-            for(let i = 0; i<ileMsg; i++){
+            for(let i = 0; i<ileMsg; i++){ // loop by dodawał 5 przysków tylko do jednej wiadomośći z stworzynych przycisków
                 await msg.user.send({
-                    components: [new ActionRowBuilder().addComponents(profile.slice(5*i, 5*i+5))],
+                    components: [new ActionRowBuilder().addComponents(klasy.slice(5*i, 5*i+5))],
                 })
             }
         }
 
-        console.log(msg.customId)
-
-        if(msg.customId.match(/k(\d+)/) || msg.customId.match(/k-(\d+)/)){
+        if(msg.customId.match(/k(\d+)/) || msg.customId.match(/k-(\d+)/)){ // jeżeli urzytkownik wybiera klase 1Tp 3Te itp. k-43 = k<id klasy>
             await msg.message.delete()
             console.log(msg.customId.match(/k-(\d+)/))
         }
