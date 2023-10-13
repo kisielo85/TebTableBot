@@ -19,7 +19,7 @@ const client = new Client({
 
 // Main
 client.on("ready", async () => {
-    console.log(client.user.username + " Loggen in");
+    console.log(client.user.username + " Logged in");
     
     await client.application.commands.create({
         name: 'lekcje',
@@ -60,12 +60,6 @@ client.on("ready", async () => {
         name: 'stop',
         description: 'możesz sie usunąć z listy powiadomień'
     });
-
-    await client.application.commands.create({
-        name: 'test',
-        description: 'ur a sussy baka'
-    });
-
 });
 
 client.on('error', console.error);
@@ -92,35 +86,53 @@ for(let i = 1; i <= 5; i++){
 // Komendy
 client.on('interactionCreate', async (msg) => {
 
-    if(msg.isButton()){ // jeżeli interakcja to przycisk
-        console.log(await msg.message.delete())
-        if(rocznikBtn = msg.customId.match(/r(\d+)/)){ // jeżeli urzytkownik wybiera aktualnie rocznik/rok 1 2 3 4 5
-            let klasy = [] 
+    // jeżeli interakcja to przycisk
+    if(msg.isButton()){
+        await delMsg(msg.channel)
 
-            for(let a of tableData.classes[''+rocznikBtn[1]]){ // tworzy przyciski do array klasy
-                    klasy.push(new ButtonBuilder()
-                    .setCustomId('k'+a.id)
-                    .setLabel(a.short)
-                    .setStyle(ButtonStyle.Secondary)
-                    );
+        // wybrany rocznik
+        if(rocznikBtn = msg.customId.match(/r(\d+)/)){
+            
+            // przyciski z klasami
+            let klasy = []
+            for(let [c_id, c] of Object.entries(tableData.idList.classes)){
+                if (c.year != rocznikBtn[1]){ continue } // pomija inne roczniki
+                
+                klasy.push(new ButtonBuilder()
+                .setCustomId('k'+c_id)
+                .setLabel(c.short)
+                .setStyle(ButtonStyle.Secondary)
+                );
             } 
 
-            let ileMsg = tableData.classes[''+rocznikBtn[1]].length / 5;
-            ileMsg - parseInt(ileMsg) > 0 ? parseInt(ileMsg) + 1 : parseInt(ileMsg) // ile wiadomości ma być po 5 np 26 to 6 wiadomości po 5 przycisków
-
-            msg.user.send(`Wybierz klase`)
-            for(let i = 0; i<ileMsg; i++){ // loop by dodawał 5 przysków tylko do jednej wiadomośći z stworzynych przycisków
-                await msg.user.send({
-                    components: [new ActionRowBuilder().addComponents(klasy.slice(5*i, 5*i+5))],
-                })
-            }
+            msg.channel.send(`Wybierz klase`)
+            placeButtons(klasy,msg.channel)
         }
 
-        if(msg.customId.match(/k(\d+)/) || msg.customId.match(/k-(\d+)/)){ // jeżeli urzytkownik wybiera klase 1Tp 3Te itp. k-43 = k<id klasy>
-            await msg.message.delete()
+        // wybrana klasa
+        if(msg.customId.match(/k(\d+)/) || msg.customId.match(/k-(\d+)/)){
+            /* 
+                trzeba zrobić żeby można było zaznaczyć kilka grup,
+                i zatwierdzić jakimś przyciskiem
+            */
             console.log(msg.customId.match(/k-(\d+)/))
+
+            g_id='-'+msg.customId.match(/k-(\d+)/)[1]
+            
+            // przyciski grup
+            let groups = [] 
+            for(let g of tableData.idList.classes[g_id].groups){
+                groups.push(new ButtonBuilder()
+                .setCustomId('g-'+g)
+                .setLabel(g)
+                .setStyle(ButtonStyle.Secondary)
+                );
+            }
+
+            msg.channel.send(`Wybierz grupy w których jesteś`)
+            placeButtons(groups, msg.channel)
         }
- 
+        
         return
     }
 
@@ -131,8 +143,7 @@ client.on('interactionCreate', async (msg) => {
 
         let data = await msg.reply({
             content: `Wybierz rocznik by dostać wybrane powiadomienia`,
-            components: [row],
-            ephemeral: true
+            components: [row]
         })
         if(tableData[msg.user.id]){
 
@@ -179,31 +190,28 @@ client.on('interactionCreate', async (msg) => {
             msg.reply('nie ma cie na liście')
         }
     }
-
-    // wybór klasy, to by sie przydało rozbić na 3 wiadomości z reakcjami/przyciskami
-    // przy grupach powinna być opcja zaznaczenia kilku grup,
-    // zaznaczenie żadnej grupy równoznaczne z zaznaczeniem każdej
-    if(msg.commandName === "test"){
-        out=""
-        //roczniki
-        for (const r in tableData.classes){
-            out+='``klasy '+r+'``\n'
-
-            //klasy
-            for (const c of tableData.classes[r]){
-                out+=`**${c.short}**\n`
-
-                //grupy
-                for (const g of c.groups){
-                    out+=`- ${g}\n`
-                }
-            }
-        }
-        msg.reply(out)
-    }
-
 })
 
+// usuwa swoje najnowsze wiadomości, aż trafi na jakąś która ma content
+async function delMsg(channel){
+    stopDel=false
+    const messages = await channel.messages.fetch({'limit':20})
+    messages.forEach(msg => {
+        // jeśli wiadomośc jest od bota, i nie ma końca pętli
+        if (msg.author.id == client.user.id && !stopDel){
+            if (msg.content != ''){ stopDel=true }
+            msg.delete()
+        }
+    })
+}
 
+// stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
+async function placeButtons(buttons, channel){
+    for(let i = 0; i < buttons.length / 5; i++){
+        await channel.send({
+            components: [new ActionRowBuilder().addComponents(buttons.slice(5*i, 5*i+5))],
+        })
+    }
+}
 
 client.login('MTE2MTE4NjI2OTQwNjE3OTM1OQ.GmI-Cm.gQq5Kp47SHwEkCXgsK8QH0OR-a6nzy8jxjPR_M')

@@ -833,111 +833,276 @@
   "classes": {
     "-43": {
       "short": "1Lep",
-      "name": "1Lep Liceum"
+      "name": "1Lep Liceum",
+      "groups": [
+        "politech",
+        "ekonom",
+        "pol obcy",
+        "rel"
+      ],
+      "year": 1
     },
     "-44": {
       "short": "1Lgm",
-      "name": "1Lgm Liceum"
+      "name": "1Lgm Liceum",
+      "groups": [
+        "graf",
+        "mik",
+        "pol obcy",
+        "rel"
+      ],
+      "year": 1
     },
     "-45": {
       "short": "1Lk",
-      "name": "1Lk Liceum"
+      "name": "1Lk Liceum",
+      "groups": [
+        "pol obcy"
+      ],
+      "year": 1
     },
     "-35": {
       "short": "1Te",
-      "name": "1Te Technikum"
+      "name": "1Te Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "pol obcy"
+      ],
+      "year": 1
     },
     "-36": {
       "short": "1Tf",
-      "name": "1Tf Technikum"
+      "name": "1Tf Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "pol obcy",
+        "rel"
+      ],
+      "year": 1
     },
     "-37": {
       "short": "1Ti",
-      "name": "1Ti Technikum"
+      "name": "1Ti Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "pol obcy",
+        "rel"
+      ],
+      "year": 1
     },
     "-38": {
       "short": "1Tp",
-      "name": "1Tp Technikum"
+      "name": "1Tp Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "pol obcy",
+        "rel"
+      ],
+      "year": 1
     },
     "-39": {
       "short": "1Tr",
-      "name": "1Tr Technikum"
+      "name": "1Tr Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "pol obcy"
+      ],
+      "year": 1
     },
     "-40": {
       "short": "1Tsa",
-      "name": "1Tsa Technikum"
+      "name": "1Tsa Technikum",
+      "groups": [
+        "2. Grupa",
+        "1. Grupa",
+        "pol obcy"
+      ],
+      "year": 1
     },
     "-41": {
       "short": "1Tsb",
-      "name": "1Tsb Technikum"
+      "name": "1Tsb Technikum",
+      "groups": [
+        "2. Grupa",
+        "1. Grupa",
+        "pol obcy",
+        "rel"
+      ],
+      "year": 1
     },
     "-42": {
       "short": "1Tw",
-      "name": "1Tw Technikum"
+      "name": "1Tw Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "pol obcy"
+      ],
+      "year": 1
     },
     "-20": {
       "short": "2Tei",
-      "name": "2Tei Technikum"
+      "name": "2Tei Technikum",
+      "groups": [
+        "esport",
+        "inf"
+      ],
+      "year": 2
     },
     "-23": {
       "short": "2Ter",
-      "name": "2Ter Technikum"
+      "name": "2Ter Technikum",
+      "groups": [
+        "reklama",
+        "esport"
+      ],
+      "year": 2
     },
     "-21": {
       "short": "2Tf",
-      "name": "2Tf Technikum"
+      "name": "2Tf Technikum",
+      "groups": [
+        "2. Grupa",
+        "1. Grupa",
+        "rel"
+      ],
+      "year": 2
     },
     "-22": {
       "short": "2Tp",
-      "name": "2Tp Technikum"
+      "name": "2Tp Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "etyka"
+      ],
+      "year": 2
     },
     "-24": {
       "short": "2Ts",
-      "name": "2Ts Technikum"
+      "name": "2Ts Technikum",
+      "groups": [
+        "2. Grupa",
+        "1. Grupa",
+        "etyka",
+        "rel"
+      ],
+      "year": 2
     },
     "-1": {
       "short": "3Tea",
-      "name": "3Tea Technikum"
+      "name": "3Tea Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "rel"
+      ],
+      "year": 3
     },
     "-2": {
       "short": "3Teb",
-      "name": "3Teb Technikum"
+      "name": "3Teb Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "rel"
+      ],
+      "year": 3
     },
     "-3": {
       "short": "3Tfr",
-      "name": "3Tfr Technikum"
+      "name": "3Tfr Technikum",
+      "groups": [
+        "rekl",
+        "fot",
+        "rel"
+      ],
+      "year": 3
     },
     "-4": {
       "short": "3Tiw",
-      "name": "3Tiw Technikum"
+      "name": "3Tiw Technikum",
+      "groups": [
+        "inf",
+        "wet",
+        "rel"
+      ],
+      "year": 3
     },
     "-5": {
       "short": "3Tp",
-      "name": "3Tp Technikum"
+      "name": "3Tp Technikum",
+      "groups": [
+        "2. Grupa",
+        "1. Grupa",
+        "rel"
+      ],
+      "year": 3
     },
     "-7": {
       "short": "4Teip",
-      "name": "4Teip Technikum"
+      "name": "4Teip Technikum",
+      "groups": [
+        "progr",
+        "esport",
+        "inf"
+      ],
+      "year": 4
     },
     "-25": {
       "short": "4Tew",
-      "name": "4Tew Technikum"
+      "name": "4Tew Technikum",
+      "groups": [
+        "esport",
+        "wet"
+      ],
+      "year": 4
     },
     "-8": {
       "short": "4Tf",
-      "name": "4Tf Technikum"
+      "name": "4Tf Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "rel"
+      ],
+      "year": 4
     },
     "-27": {
       "short": "5Te/5",
-      "name": "5Te/5 Technikum"
+      "name": "5Te/5 Technikum",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa",
+        "rel"
+      ],
+      "year": 5
     },
     "-28": {
       "short": "5Tew/5",
-      "name": "5Tew/5 Technikum"
+      "name": "5Tew/5 Technikum",
+      "groups": [
+        "inf",
+        "wet"
+      ],
+      "year": 5
     },
     "-29": {
       "short": "5Tfi/5",
-      "name": "5Tfi/5 Technikum"
+      "name": "5Tfi/5 Technikum",
+      "groups": [
+        "inf",
+        "fot",
+        "rel",
+        "1. Grupa",
+        "2. Grupa"
+      ],
+      "year": 5
     }
   }
 }
