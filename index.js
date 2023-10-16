@@ -3,6 +3,10 @@
 const tableData = require('./tableData.js')
 const axios = require('axios');
 const fs    = require('fs');
+
+const cfg = require('./config.json')
+const token = cfg.token
+
 const {Client, GatewayIntentBits, Partials, ApplicationCommandOptionType, ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
     //data
     const dm_list = {}//require('./dmList.json');
@@ -16,6 +20,7 @@ const client = new Client({
     ],
     partials: [Partials.Message, Partials.Channel]
 });
+
 
 // Main
 client.on("ready", async () => {
@@ -214,4 +219,4 @@ async function placeButtons(buttons, channel){
     }
 }
 
-client.login('MTE2MTE4NjI2OTQwNjE3OTM1OQ.GmI-Cm.gQq5Kp47SHwEkCXgsK8QH0OR-a6nzy8jxjPR_M')
+client.login(token)
