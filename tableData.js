@@ -98,18 +98,13 @@ async function loadInitialData(){
 
 if (!config.debug){
     loadInitialData().then( ()=>{
-        fs.writeFileSync('sample_data/idList.json', JSON.stringify(idList, null, 2))
+        //fs.writeFileSync('sample_data/idList.json', JSON.stringify(idList, null, 2))
     })
 }else{
     idList = JSON.parse(fs.readFileSync('sample_data/idList.json', 'utf-8'))
 }
 
-module.exports = {
-    idList,
-    loadInitialData
-};
-
-// szuka klasy/nauczyciela
+// szuka klasy/nauczyciela/sali, zwraca discordową wiadomość lub false
 async function where(name){
 
     // szukanie po nauczycielach, klasach, salach
@@ -131,10 +126,46 @@ async function where(name){
             }
         }
     }
-    if (found=={}) return false
+    // false jeśli nie znaleziono
+    if (Object.keys(found).length == 0) return false
 
-        // pobieranie planu
-        getTable(found.type,found.id,false,true).then(a=>
-        console.log(a)
-    )
+    // pobieranie planu
+    table = await getTable(found.type,found.id,false,true)
+
+    // przetwarzanie, i zmiana na wiadomość
+    out=`**${found.name}**`
+    for (const r of table){
+        if (r.type != 'card') continue
+
+        // lekcja od - do
+        out+='\n``'+r['uniperiod']
+        if (r['durationperiods']) out+=`-${parseInt(r['uniperiod'])+r['durationperiods']-1}`
+        else out+='  '
+
+        // godzina
+        out+='`` ``'+r['starttime']+'-'+r['endtime']+'``'
+
+        // sala, nauczyciel, klasa
+        if (found.type != 'classrooms')out += ' ``' + idList.classrooms[r['classroomids'][0]].short.padEnd(4,' ').slice(0,4)+ '``'
+        if (found.type != 'teachers') out += ' ``' + idList.teachers[r['teacherids'][0]].short + '``'
+        if (found.type != 'classes') out += ' ``' + idList.classes[r['classids'][0]].short.padEnd(5,' ') + '``'
+        // grupa
+        if (r.groupnames[0] != ''){
+            out+=' ``['
+            for (g of r.groupnames) out+=g+', '
+            out=out.slice(0, -2)+']``'
+        }
+
+        // przedmiot
+        out+=' '+idList.subjects[r['subjectid']].name+''
+
+    }
+    return out
 }
+
+
+module.exports = {
+    idList,
+    loadInitialData,
+    where
+};

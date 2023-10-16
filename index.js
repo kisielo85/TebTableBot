@@ -65,17 +65,22 @@ client.on("ready", async () => {
         name: 'stop',
         description: 'możesz sie usunąć z listy powiadomień'
     });
+
+    await client.application.commands.create({
+        name: 'where',
+        description: 'znajdź klase lub nauczyciela',
+        options: [
+            {
+                name: '_',
+                description: 'wpisz klase, sale lub nauczyciela do wyszukania',
+                type:ApplicationCommandOptionType.String,
+                required: true
+            }
+        ]
+    });
 });
 
 client.on('error', console.error);
-
-/*
-client.on('messageCreate', msg => {
-    if(msg.author.id !== '1161186269406179359'){ // jeżeli to nie wiadomosc bota
-
-    }
-})
-*/
 
 // Klasy
 var klasyButtons = [];
@@ -194,6 +199,13 @@ client.on('interactionCreate', async (msg) => {
         }else{
             msg.reply('nie ma cie na liście')
         }
+    }
+
+    if(msg.commandName === "where"){
+        info = await tableData.where(msg.options.get('_').value)
+
+        if (info) msg.reply({content: info})
+        else msg.reply({content: `sorry, nie znalazłem "${find_str}"`})
     }
 })
 
