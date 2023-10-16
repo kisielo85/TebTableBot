@@ -202,7 +202,8 @@ client.on('interactionCreate', async (msg) => {
     }
 
     if(msg.commandName === "where"){
-        info = await tableData.where(msg.options.get('_').value)
+        find_str=msg.options.get('_').value
+        info = await tableData.where(find_str)
 
         if (info) msg.reply({content: info})
         else msg.reply({content: `sorry, nie znalazłem "${find_str}"`})
