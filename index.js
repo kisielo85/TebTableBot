@@ -98,7 +98,11 @@ client.on('interactionCreate', async (msg) => {
 
     // jeżeli interakcja to przycisk
     if(msg.isButton()){
-        await delMsg(msg.channel)
+        //await delMsg(msg.channel)
+        msg.deferUpdate()
+
+        getBtnGroup(msg)
+        return
 
         // wybrany rocznik
         if(rocznikBtn = msg.customId.match(/r(\d+)/)){
@@ -109,7 +113,7 @@ client.on('interactionCreate', async (msg) => {
                 if (c.year != rocznikBtn[1]){ continue } // pomija inne roczniki
                 
                 klasy.push(new ButtonBuilder()
-                .setCustomId('k'+c_id)
+                .setCustomId('k-'+c_id)
                 .setLabel(c.short)
                 .setStyle(ButtonStyle.Secondary)
                 );
@@ -120,15 +124,9 @@ client.on('interactionCreate', async (msg) => {
         }
 
         // wybrana klasa
-        if(msg.customId.match(/k(\d+)/) || msg.customId.match(/k-(\d+)/)){
-            /* 
-                trzeba zrobić żeby można było zaznaczyć kilka grup,
-                i zatwierdzić jakimś przyciskiem
-            */
-            console.log(msg.customId.match(/k-(\d+)/))
+        else if(msg.customId.startsWith("k-")){
+            g_id=msg.customId.slice(2)
 
-            g_id='-'+msg.customId.match(/k-(\d+)/)[1]
-            
             // przyciski grup
             let groups = [] 
             for(let g of tableData.idList.classes[g_id].groups){
@@ -139,8 +137,44 @@ client.on('interactionCreate', async (msg) => {
                 );
             }
 
+            // zatwierdzenie
+            groups.push(new ButtonBuilder()
+                .setCustomId('g_ok')
+                .setLabel(":white_check_mark:")
+                .setStyle(ButtonStyle.Success)
+            );
+            
             msg.channel.send(`Wybierz grupy w których jesteś`)
             placeButtons(groups, msg.channel)
+            console.log(groups)
+        }
+        else if(msg.customId.startsWith("g-")){
+            selected = msg.customId.slice(2)
+            console.log("pressed",selected)
+            //console.log(msg.message.components[0].components)
+            buttons=msg.message.components[0].components
+
+            let groups = [] 
+            for (const i of buttons){
+                b=i.data
+                st=b.style
+
+                if (selected == b.label){
+                    st=ButtonStyle.Secondary
+                    if (b.style==ButtonStyle.Secondary)
+                        st=ButtonStyle.Primary
+                }
+                
+                groups.push(new ButtonBuilder()
+                .setCustomId(b.custom_id)
+                .setLabel(b.label)
+                .setStyle(st)
+                );
+
+            }
+            msg.message.edit({components: [new ActionRowBuilder().addComponents(groups)]})
+            
+            //placeButtons(groups,msg.channel)
         }
         
         return
@@ -221,6 +255,41 @@ async function delMsg(channel){
             msg.delete()
         }
     })
+}
+
+// zwraca grupe z daną wiadomością
+async function getBtnGroup(srcMsg){
+    hasMsg=false
+    stopLoop=false
+    isFirst=true
+    msgGroup=[]
+    const messages = await srcMsg.channel.messages.fetch({'limit':20})
+    messages.forEach(msg => {
+        // jeśli wiadomośc jest od bota, i nie ma końca pętli
+        if (msg.author.id == client.user.id && !stopLoop){
+            msgGroup.push(msg)
+
+            // dobra grupa
+            if (msg.id == srcMsg.message.id) hasMsg=true
+
+            // znalazło dobrą grupe wiadomości, lub zaczyna szukać nowej
+            if (msg.content != ''){ 
+                if (hasMsg) stopLoop=true
+                else {msgGroup=[]; isFirst=false}
+            }
+        }
+    })
+    if (hasMsg){
+        console.log("first:",isFirst)
+        for (const m of msgGroup){
+            console.log("m:",m.content)
+        }
+        
+        if (!isFirst){
+            for (const m of msgGroup) m.delete()
+        }
+    }
+
 }
 
 // stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
