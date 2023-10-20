@@ -167,6 +167,5 @@ async function where(name){
 module.exports = {
     idList,
     loadInitialData,
-    where,
-    getTable
+    where
 };
