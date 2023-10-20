@@ -1,6 +1,7 @@
 // Ver inDev
 // Setup
 const tableData = require('./tableData.js')
+
 const axios = require('axios');
 const fs    = require('fs');
 
@@ -21,10 +22,29 @@ const client = new Client({
     partials: [Partials.Message, Partials.Channel]
 });
 
+// Commands
+
+fs.readdir('./commands', (err, files) => {
+  if (err) {
+    console.error('err reading dir', err);
+    return;
+  }
+
+  console.log(files);
+});
+
 
 // Main
 client.on("ready", async () => {
     console.log(client.user.username + " Logged in");
+
+
+    fs.readdir('./EventListeners/', (err, files) => {
+        for(let file of files){
+            require('./EventListeners/'+file)
+        }
+    });
+      
     
     await client.application.commands.create({
         name: 'lekcje',
@@ -212,7 +232,7 @@ client.on('interactionCreate', async (msg) => {
 
 // usuwa swoje najnowsze wiadomości, aż trafi na jakąś która ma content
 async function delMsg(channel){
-    stopDel=false
+    stopDel = false
     const messages = await channel.messages.fetch({'limit':20})
     messages.forEach(msg => {
         // jeśli wiadomośc jest od bota, i nie ma końca pętli
@@ -233,3 +253,7 @@ async function placeButtons(buttons, channel){
 }
 
 client.login(token)
+
+module.exports = {
+    client: client
+};
