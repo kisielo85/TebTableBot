@@ -104,7 +104,9 @@ for(let i = 1; i <= 5; i++){
 client.on('interactionCreate', async (msg) => {
     // jeżeli interakcja to przycisk
     if(msg.isButton()){
-        
+        //await delMsg(msg.channel)
+        msg.deferUpdate()
+
         // wybrany rocznik
         if(msg.customId.startsWith("r-")){
             r_id=msg.customId.slice(2)
@@ -126,10 +128,7 @@ client.on('interactionCreate', async (msg) => {
 
         // wybrana klasa
         else if(msg.customId.startsWith("k-")){
-            k_id=msg.customId.slice(2)
-
-            // tymczasowy zapis klasy
-            temp_list[msg.user.id]={class:k_id, groups:[]}
+            g_id=msg.customId.slice(2)
 
             // przyciski grup
             let groups = [] 
@@ -141,7 +140,7 @@ client.on('interactionCreate', async (msg) => {
                 );
             }
 
-            // zatwierdzenie wyboru
+            // zatwierdzenie
             groups.push(new ButtonBuilder()
                 .setCustomId('g_ok')
                 .setLabel("✔")
@@ -149,6 +148,32 @@ client.on('interactionCreate', async (msg) => {
             );
             
             placeButtons(groups, msg, 'Wybierz grupy w których jesteś')
+        }
+        else if(msg.customId.startsWith("g-")){
+            selected = msg.customId.slice(2)
+            
+            buttons=msg.message.components[0].components
+
+            let groups = [] 
+            for (const i of buttons){
+                b=i.data
+                st=b.style
+
+                if (selected == b.label){
+                    st=ButtonStyle.Secondary
+                    if (b.style==ButtonStyle.Secondary)
+                        st=ButtonStyle.Primary
+                }
+                
+                groups.push(new ButtonBuilder()
+                .setCustomId(b.custom_id)
+                .setLabel(b.label)
+                .setStyle(st)
+                );
+
+            }
+
+            placeButtons(groups,msg)
         }
 
         // wybrano grupe
@@ -240,8 +265,8 @@ client.on('interactionCreate', async (msg) => {
         find_str=msg.options.get('_').value
         info = await tableData.where(find_str)
 
-        if (info) msg.reply({content: info})
-        else msg.reply({content: `sorry, nie znalazłem "${find_str}"`})
+        if (info) msg.reply({content: info, ephemeral: true})
+        else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})
     }
 
     else if(msg.commandName === "clear"){
@@ -254,27 +279,22 @@ client.on('interactionCreate', async (msg) => {
     }
 })
 
-async function delBtnGroup(msg){
-    let [, msgGroup] = await getBtnGroup(msg)
-    if (msgGroup) for (const m of msgGroup) await m.delete()
-    else await msg.delete()
-}
-
-// zwraca wiadomości "zgrupowane" z tą podaną
-// + czy ta grupa jest najnowsza w chacie
+// zwraca grupe z daną wiadomością
 async function getBtnGroup(srcMsg){
-    hasMsg=false; stopLoop=false; isFirst=true
+    hasMsg=false
+    stopLoop=false
+    isFirst=true
     msgGroup=[]
-    // sprawdza ostatie 20 wiadomości z chatu
     const messages = await srcMsg.channel.messages.fetch({'limit':20})
     messages.forEach(msg => {
+        // jeśli nie ma końca pętli i wiadomośc jest od bota
         if (!stopLoop){
             msgGroup.push(msg)
 
             // dobra grupa
             if (msg.id == srcMsg.message.id) hasMsg=true
 
-            // jeśli trafiło na content lub użytkownika - koniec grupy
+            // znalazło dobrą grupe wiadomości, lub zaczyna szukać nowej
             if (msg.content != '' || msg.author.id != client.user.id){ 
                 if (hasMsg) stopLoop=true
                 else {msgGroup=[]; isFirst=false}
@@ -283,12 +303,10 @@ async function getBtnGroup(srcMsg){
         }
     })
     if (hasMsg) return [isFirst, msgGroup]
-    return [false, false]
+    return false
 }
 
-// stawia przyciski
-// - jeśli są stare to je podmienia
-// - jeśli ich za dużo to dzieli na kilka wiadomości
+// stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
 async function placeButtons(buttons, msg, content=false){
     let [first, msgGroup] = await getBtnGroup(msg)
 
@@ -301,17 +319,19 @@ async function placeButtons(buttons, msg, content=false){
     // stawia przyciski lub edytuje istniejące
     for(let i = 0; i < buttons.length / 5; i++){
         replace=msgGroup.pop()
+        console.log("gr_len:",msgGroup.length)
 
         data = { components: [new ActionRowBuilder().addComponents(buttons.slice(5*i, 5*i+5))] }
         if (content && i==0) data.content=content
 
+        console.log("replace:",(typeof replace))
+        if (replace){console.log("editing")}
         if (replace) await replace.edit(data)
         else await msg.channel.send(data)
     }
 
-    msg.deferUpdate()
     // usuwa pozostałe przyciski
-    for (const m of msgGroup) await m.delete()
+    for (const m of msgGroup) await m.delete()   
 }
 
 client.login(token)
