@@ -1,14 +1,15 @@
 const config = require('./config.json')
 const fs = require('fs');
 const axios = require('axios');
-const { group } = require('console');
+const { group, timeEnd } = require('console');
+const dniTygodnia = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota'];
 
 // zwraca daty początku i końca aktualnego tygodnia
-function getDate(next=false,oneDay=false){
+function getDate(oneDay=false,addDays=0){
     date = new Date();
     var out = {}
     out.year=date.getFullYear()
-    if (next) date.setDate(date.getDate() + 7);
+    date.setDate(date.getDate() + addDays);
 
     function add0(x){ return String(x).padStart(2,'0') }
 
@@ -28,8 +29,8 @@ function getDate(next=false,oneDay=false){
 
 
 // zwraca tabele: classes, teachers, classrooms
-async function getTable(tableName, id,nextWeek=false,oneDay=false){
-    d=getDate(nextWeek,oneDay)
+async function getTable(tableName, id,oneDay=false,addDays=0){
+    d=getDate(oneDay,addDays)
     const requestData = {
         __args:[ null,
         {
@@ -129,11 +130,39 @@ async function where(name){
     // false jeśli nie znaleziono
     if (Object.keys(found).length == 0) return false
 
-    // pobieranie planu
-    table = await getTable(found.type,found.id,false,true)
-
-    // przetwarzanie, i zmiana na wiadomość
     out=`**${found.name}**`
+
+    // pobieranie planu
+    table = await getTable(found.type,found.id,true)
+    
+    // sprawdza czy jest jeszcze czas przed ostatnią lekcją w planie
+    now = new Date()
+    now = now.getHours()*60 + now.getMinutes()
+    if (table.length != 0){
+        arr = table.slice(-1)[0].endtime.split(':')
+        time_last= parseInt(arr[0])*60 + parseInt(arr[1])
+    }
+    else {now = 0}
+
+    // nie ma planu lub nie ma czasu
+    if (table.length == 0 || now >= time_last ){
+        // sprawdzanie tygodnia do przodu
+        for (i=1; i<7; i++){
+            table = await getTable(found.type,found.id,true,i)
+            if (table.length != 0) break
+        }
+
+        if (table.length == 0){
+            out +="\nnie ma planu na następny tydzień :c"
+            return out
+        }
+    }
+
+    // data
+    out +=`  *${table[0].date} (${dniTygodnia[new Date(table[0].date).getDay()]})*`
+    
+    // przetwarzanie, i zmiana na wiadomość
+    var arrow_placed=false
     for (const r of table){
         if (r.type != 'card') continue
 
@@ -157,8 +186,19 @@ async function where(name){
         }
 
         // przedmiot
-        out+=' '+idList.subjects[r['subjectid']].name+''
+        out+=' '+idList.subjects[r['subjectid']].short+''
 
+        // strzałka
+        if (!arrow_placed){
+            arr=r['endtime'].split(':')
+            const c_end=parseInt(arr[0])*60 + parseInt(arr[1])
+
+            if (now <= c_end){
+                out +=" :arrow_left:"
+                arrow_placed=true
+            }
+        }
+        
     }
     return out
 }
