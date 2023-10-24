@@ -17,7 +17,7 @@ module.exports = async (msg) => {
         content: `Wybierz rocznik by dostać wybrane powiadomienia`,
         components: [row]
     });
-    
+    return true
 }
 
 

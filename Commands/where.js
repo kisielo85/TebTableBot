@@ -1,4 +1,4 @@
-const tableData = require('../tableData.js');
+const tableData = require('../Other/tableData.js');
 
 /** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.InteractionCreate} msg */
 module.exports = async (msg) => {
@@ -7,4 +7,5 @@ module.exports = async (msg) => {
 
     if (info) msg.reply({content: info, ephemeral: true})
     else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})
+    return true
 }

@@ -1,6 +1,6 @@
 /** 
  * @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg 
- * @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} client
+ * @param {import('discord.js').Client} client
 */
 
 module.exports = async (msg, client) => {

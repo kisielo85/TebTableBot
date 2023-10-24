@@ -1,6 +1,6 @@
-const tableData = require('../tableData.js');
+const tableData = require('../Other/tableData.js');
 const fs = require('fs')
-var dm_list = require('../dmList.json');
+var dm_list = require('../Other/dmList.json');
 const {ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
 
 let temp_list={}
@@ -173,10 +173,10 @@ module.exports = (client, cmd) => { // cmd = lista komend w obiekcie
                 if(dm_list[user])
                     dm_list[user].class[tmp.class] = tmp.groups
                 else{
-                    dm_list[user] = { "alert":false, "class": {[tmp.class]:[tmp.groups]}}
+                    dm_list[user] = { "alert":true, "class": {[tmp.class]:[tmp.groups]}}
                 }
                 
-                fs.writeFileSync('dmList.json', JSON.stringify(dm_list, null, 2))
+                fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
     
                 c = tableData.idList.classes[temp_list[user].class].name
                 gr = dm_list[user].class[temp_list[user].class].join(', ')
@@ -189,8 +189,6 @@ module.exports = (client, cmd) => { // cmd = lista komend w obiekcie
             dm_list = await cmd['stop'](msg = msg, dm_list)
         }else if(cmd[msg.commandName])
             cmd[msg.commandName](msg = msg, client = client)
-    
-
     })
     
 }
