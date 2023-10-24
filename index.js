@@ -1,8 +1,10 @@
-// Ver inDev
-// Setup
-
 const axios = require('axios');
-const fs    = require('fs');
+const fs = require('fs');
+
+// jeśli nie ma config.json, tworzy na podstawie config_example
+fs.access("config.json", fs.F_OK, (err) => {
+    if (err) fs.copyFile("config_example.json", "config.json", (err2)=>{})
+})
 
 const cfg = require('./config.json')
 const token = cfg.token
