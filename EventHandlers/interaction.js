@@ -170,13 +170,12 @@ module.exports = (client, cmd) => { // cmd = lista komend w obiekcie
                 // czy user jest w temp_liście
                 tmp=temp_list[user]
                 if (!tmp || !tmp.groups || !tmp.class) return
-                console.log(tmp)
                 if(dm_list[user])
                     dm_list[user].class[tmp.class] = tmp.groups
                 else{
-                    dm_list[user] = { "class": {[tmp.class]:[tmp.groups]}}
+                    dm_list[user] = { "alert":false, "class": {[tmp.class]:[tmp.groups]}}
                 }
-                console.log(dm_list[user])
+                
                 fs.writeFileSync('dmList.json', JSON.stringify(dm_list, null, 2))
     
                 c = tableData.idList.classes[temp_list[user].class].name
@@ -186,24 +185,12 @@ module.exports = (client, cmd) => { // cmd = lista komend w obiekcie
                 delete temp_list[user]
             }
         }
+        if(msg.commandName === "stop"){
+            dm_list = await cmd['stop'](msg = msg, dm_list)
+        }else if(cmd[msg.commandName])
+            cmd[msg.commandName](msg = msg, client = client)
     
-        else if(msg.commandName === "lekcje"){
-            cmd['lekcje'](msg)
-        }
-    
-        else if(msg.commandName === "stop"){
-            dm_list = await cmd['stop'](msg, dm_list)
-        }
-    
-        else if(msg.commandName === "where"){
-            cmd['where'](msg)
-        }
-    
-        else if(msg.commandName === "clear"){
-            cmd['clear'](msg, client.user.id)
-        }
-        
-        console.log("dm: ",dm_list,"\ntmp:",temp_list,"\n\n")
+
     })
     
 }

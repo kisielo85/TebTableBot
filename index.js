@@ -86,7 +86,7 @@ client.on("ready", async () => {
         description: 'znajdź klase lub nauczyciela',
         options: [
             {
-                name: '_',
+                name: 'find',
                 description: 'wpisz klase, sale lub nauczyciela do wyszukania',
                 type:ApplicationCommandOptionType.String,
                 required: true

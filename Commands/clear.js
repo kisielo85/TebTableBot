@@ -1,9 +1,14 @@
-/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
-module.exports = async (msg, clientId) => {
+/** 
+ * @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg 
+ * @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} client
+*/
+
+module.exports = async (msg, client) => {
     await msg.reply('clearing...');
     const messages = await msg.channel.messages.fetch({'limit':50})
     messages.forEach(async msg => {
-        if (msg.author.id == clientId)
+        if (msg.author.id == client.user.id)
             await msg.delete()
     })
+    return true
 }

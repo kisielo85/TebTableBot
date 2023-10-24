@@ -7,8 +7,7 @@ module.exports = async (msg, dm_list) => {
     }
     
     delete dm_list[msg.user.id]
-    console.log("SAVE:",dm_list)
-    fs.writeFileSync('./dmList.json', JSON.stringify(dm_list))
+    fs.writeFileSync('./dmList.json', JSON.stringify(dm_list, null, 2))
 
     await msg.reply('usunięto cie z listy')
 

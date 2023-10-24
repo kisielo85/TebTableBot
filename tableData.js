@@ -1,7 +1,6 @@
 const config = require('./config.json')
 const fs = require('fs');
 const axios = require('axios');
-const { group, timeEnd } = require('console');
 const dniTygodnia = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota'];
 
 // zwraca daty początku i końca aktualnego tygodnia
