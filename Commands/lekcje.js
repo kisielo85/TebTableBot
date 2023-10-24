@@ -13,10 +13,23 @@ module.exports = async (msg) => {
     
     const row = new ActionRowBuilder()
         .addComponents(klasyButtons);
-    await msg.reply({
-        content: `Wybierz rocznik by dostać wybrane powiadomienia`,
+    
+    const data={
+        content: `Wybierz rocznik`, 
         components: [row]
-    });
+    }
+    
+    // jeśli komenda była wywołana na serwerze
+    if (msg.guild != null){
+        await msg.user.send(data);
+
+        await msg.reply({
+            content: `Wysłano dm z wyborem klasy`, 
+            ephemeral: true,
+        });
+    }
+    else{ await msg.reply(data) }
+
     return true
 }
 
