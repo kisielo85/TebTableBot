@@ -2,9 +2,11 @@ const axios = require('axios');
 const fs = require('fs');
 
 // jeśli nie ma config.json, tworzy na podstawie config_example
-fs.access("config.json", fs.F_OK, (err) => {
-    if (err) fs.copyFile("config_example.json", "config.json", (err2)=>{})
-})
+if (!fs.existsSync('config.json')){
+    fs.copyFile("config_example.json", "config.json", (err2)=>{})
+    console.log("check config.json")
+    return
+}
 
 const cfg = require('./config.json')
 const token = cfg.token
