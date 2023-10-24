@@ -145,6 +145,7 @@ async function where(name){
 
     // nie ma planu lub nie ma czasu
     if (table.length == 0 || now >= time_last ){
+        now = 0
         // sprawdzanie tygodnia do przodu
         for (i=1; i<7; i++){
             table = await getTable(found.type,found.id,true,i)
@@ -158,7 +159,7 @@ async function where(name){
     }
 
     // data
-    out +=`  *${table[0].date} (${dniTygodnia[new Date(table[0].date).getDay()]})*`
+    out +=`  (${dniTygodnia[new Date(table[0].date).getDay()]}  ${table[0].date})`
     
     // przetwarzanie, i zmiana na wiadomość
     var arrow_placed=false
