@@ -1,0 +1,996 @@
+[
+  {
+    "type": "card",
+    "date": "2023-10-23",
+    "uniperiod": "1",
+    "starttime": "08:00",
+    "endtime": "09:35",
+    "subjectid": "-40",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-43"
+    ],
+    "classroomids": [
+      "-55"
+    ],
+    "colors": [
+      "#80c000"
+    ],
+    "durationperiods": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-23",
+    "uniperiod": "3",
+    "starttime": "09:45",
+    "endtime": "10:30",
+    "subjectid": "-93",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-16"
+    ],
+    "classroomids": [
+      "-18"
+    ],
+    "colors": [
+      "#CC33CC"
+    ],
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-23",
+    "uniperiod": "3",
+    "starttime": "09:45",
+    "endtime": "10:30",
+    "subjectid": "-39",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-15"
+    ],
+    "classroomids": [
+      "-19"
+    ],
+    "colors": [
+      "#6014C0"
+    ],
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-23",
+    "uniperiod": "4",
+    "starttime": "10:40",
+    "endtime": "13:25",
+    "subjectid": "-67",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-21"
+    ],
+    "classroomids": [
+      "-50"
+    ],
+    "colors": [
+      "#66FF66"
+    ],
+    "durationperiods": 3
+  },
+  {
+    "type": "card",
+    "date": "2023-10-23",
+    "uniperiod": "7",
+    "starttime": "13:30",
+    "endtime": "15:10",
+    "subjectid": "-22",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-97"
+    ],
+    "classroomids": [
+      "-3"
+    ],
+    "colors": [
+      "#990000"
+    ],
+    "durationperiods": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-23",
+    "uniperiod": "9",
+    "starttime": "15:15",
+    "endtime": "16:00",
+    "subjectid": "-30",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-13"
+    ],
+    "classroomids": [
+      "-5"
+    ],
+    "colors": [
+      "#FFCC66"
+    ],
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "1",
+    "starttime": "08:00",
+    "endtime": "09:35",
+    "subjectid": "-43",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-15"
+    ],
+    "classroomids": [
+      "-18"
+    ],
+    "colors": [
+      "#6014C0"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "1",
+    "starttime": "08:00",
+    "endtime": "09:35",
+    "subjectid": "-82",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-99"
+    ],
+    "classroomids": [
+      "-23"
+    ],
+    "colors": [
+      "#20C0C0"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "100",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "3",
+    "starttime": "09:45",
+    "endtime": "10:30",
+    "subjectid": "-32",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-60"
+    ],
+    "classroomids": [
+      "-10"
+    ],
+    "colors": [
+      "#99FF33"
+    ],
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "3",
+    "starttime": "09:45",
+    "endtime": "10:30",
+    "subjectid": "-31",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-109"
+    ],
+    "classroomids": [
+      "-12"
+    ],
+    "colors": [
+      "#C020FF"
+    ],
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "4",
+    "starttime": "10:40",
+    "endtime": "11:25",
+    "subjectid": "-8",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-26"
+    ],
+    "classroomids": [
+      "-11"
+    ],
+    "colors": [
+      "#b22222"
+    ]
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "5",
+    "starttime": "11:35",
+    "endtime": "13:25",
+    "subjectid": "-40",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-43"
+    ],
+    "classroomids": [
+      "-55"
+    ],
+    "colors": [
+      "#80c000"
+    ],
+    "durationperiods": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "7",
+    "starttime": "13:30",
+    "endtime": "14:15",
+    "subjectid": "-31",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-109"
+    ],
+    "classroomids": [
+      "-62"
+    ],
+    "colors": [
+      "#C020FF"
+    ],
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "8",
+    "starttime": "14:25",
+    "endtime": "15:10",
+    "subjectid": "-29",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-20"
+    ],
+    "classroomids": [
+      "-5"
+    ],
+    "colors": [
+      "#669900"
+    ],
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-24",
+    "uniperiod": "9",
+    "starttime": "15:15",
+    "endtime": "16:00",
+    "subjectid": "-98",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-15"
+    ],
+    "classroomids": [
+      "-19"
+    ],
+    "colors": [
+      "#6014C0"
+    ],
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-25",
+    "uniperiod": "1",
+    "starttime": "08:00",
+    "endtime": "09:35",
+    "subjectid": "-33",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-30"
+    ],
+    "classroomids": [
+      "-17"
+    ],
+    "colors": [
+      "#339966"
+    ],
+    "durationperiods": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-25",
+    "uniperiod": "3",
+    "starttime": "09:45",
+    "endtime": "10:30",
+    "subjectid": "-29",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-13"
+    ],
+    "classroomids": [
+      "-5"
+    ],
+    "colors": [
+      "#FFCC66"
+    ],
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-25",
+    "uniperiod": "3",
+    "starttime": "09:45",
+    "endtime": "12:20",
+    "subjectid": "-92",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-16"
+    ],
+    "classroomids": [
+      "-18"
+    ],
+    "colors": [
+      "#CC33CC"
+    ],
+    "durationperiods": 3,
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-25",
+    "uniperiod": "4",
+    "starttime": "10:40",
+    "endtime": "12:20",
+    "subjectid": "-65",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-18"
+    ],
+    "classroomids": [
+      "-82"
+    ],
+    "colors": [
+      "#80FF80"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-25",
+    "uniperiod": "6",
+    "starttime": "12:40",
+    "endtime": "14:15",
+    "subjectid": "-29",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-20"
+    ],
+    "classroomids": [
+      "-63"
+    ],
+    "colors": [
+      "#669900"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-25",
+    "uniperiod": "6",
+    "starttime": "12:40",
+    "endtime": "14:15",
+    "subjectid": "-29",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-13"
+    ],
+    "classroomids": [
+      "-5"
+    ],
+    "colors": [
+      "#FFCC66"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-26",
+    "uniperiod": "1",
+    "starttime": "08:00",
+    "endtime": "08:45",
+    "subjectid": "-30",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-13"
+    ],
+    "classroomids": [
+      "-63"
+    ],
+    "colors": [
+      "#FFCC66"
+    ],
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-26",
+    "uniperiod": "1",
+    "starttime": "08:00",
+    "endtime": "09:35",
+    "subjectid": "-98",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-15"
+    ],
+    "classroomids": [
+      "-19"
+    ],
+    "colors": [
+      "#6014C0"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-26",
+    "uniperiod": "2",
+    "starttime": "08:50",
+    "endtime": "09:35",
+    "subjectid": "-5",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-1"
+    ],
+    "classroomids": [
+      "-24"
+    ],
+    "colors": [
+      "#CC99FF"
+    ],
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-26",
+    "uniperiod": "3",
+    "starttime": "09:45",
+    "endtime": "10:30",
+    "subjectid": "-8",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-26"
+    ],
+    "classroomids": [
+      "-24"
+    ],
+    "colors": [
+      "#b22222"
+    ]
+  },
+  {
+    "type": "card",
+    "date": "2023-10-26",
+    "uniperiod": "4",
+    "starttime": "10:40",
+    "endtime": "11:25",
+    "subjectid": "-95",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-45"
+    ],
+    "classroomids": [
+      "-7"
+    ],
+    "colors": [
+      "#996633"
+    ]
+  },
+  {
+    "type": "card",
+    "date": "2023-10-26",
+    "uniperiod": "5",
+    "starttime": "11:35",
+    "endtime": "12:20",
+    "subjectid": "-69",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-1"
+    ],
+    "classroomids": [
+      "-65"
+    ],
+    "colors": [
+      "#CC99FF"
+    ]
+  },
+  {
+    "type": "card",
+    "date": "2023-10-26",
+    "uniperiod": "6",
+    "starttime": "12:40",
+    "endtime": "14:15",
+    "subjectid": "-60",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-15"
+    ],
+    "classroomids": [
+      "-19"
+    ],
+    "colors": [
+      "#6014C0"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-26",
+    "uniperiod": "8",
+    "starttime": "14:25",
+    "endtime": "16:00",
+    "subjectid": "-3",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-9"
+    ],
+    "classroomids": [
+      "-81"
+    ],
+    "colors": [
+      "#ffb6c1"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "1",
+    "starttime": "08:00",
+    "endtime": "08:45",
+    "subjectid": "-40",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-43"
+    ],
+    "classroomids": [
+      "-55"
+    ],
+    "colors": [
+      "#80c000"
+    ]
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "2",
+    "starttime": "08:50",
+    "endtime": "10:30",
+    "subjectid": "-30",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-20"
+    ],
+    "classroomids": [
+      "-62"
+    ],
+    "colors": [
+      "#669900"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "2",
+    "starttime": "08:50",
+    "endtime": "11:25",
+    "subjectid": "-62",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-9"
+    ],
+    "classroomids": [
+      "-81"
+    ],
+    "colors": [
+      "#ffb6c1"
+    ],
+    "durationperiods": 3,
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "4",
+    "starttime": "10:40",
+    "endtime": "12:20",
+    "subjectid": "-93",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-16"
+    ],
+    "classroomids": [
+      "-18"
+    ],
+    "colors": [
+      "#CC33CC"
+    ],
+    "durationperiods": 2,
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "5",
+    "starttime": "11:35",
+    "endtime": "12:20",
+    "subjectid": "-39",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-15"
+    ],
+    "classroomids": [
+      "-19"
+    ],
+    "colors": [
+      "#6014C0"
+    ],
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "6",
+    "starttime": "12:40",
+    "endtime": "13:25",
+    "subjectid": "-32",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "progr"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-67"
+    ],
+    "classroomids": [
+      "-11"
+    ],
+    "colors": [
+      "#993399"
+    ],
+    "cellSlices": "001",
+    "cellOrder": 2
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "6",
+    "starttime": "12:40",
+    "endtime": "13:25",
+    "subjectid": "-60",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      "esport",
+      "inf"
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-15"
+    ],
+    "classroomids": [
+      "-19"
+    ],
+    "colors": [
+      "#6014C0"
+    ],
+    "cellSlices": "110",
+    "cellOrder": 0
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "7",
+    "starttime": "13:30",
+    "endtime": "14:15",
+    "subjectid": "-25",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-81"
+    ],
+    "classroomids": [
+      "-15"
+    ],
+    "colors": [
+      "#daa520"
+    ]
+  },
+  {
+    "type": "card",
+    "date": "2023-10-27",
+    "uniperiod": "8",
+    "starttime": "14:25",
+    "endtime": "15:10",
+    "subjectid": "-33",
+    "classids": [
+      "-7"
+    ],
+    "groupnames": [
+      ""
+    ],
+    "igroupid": "",
+    "teacherids": [
+      "-30"
+    ],
+    "classroomids": [
+      "-17"
+    ],
+    "colors": [
+      "#339966"
+    ]
+  }
+]

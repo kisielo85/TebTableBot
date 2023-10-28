@@ -104,9 +104,7 @@ if (!config.debug){
     idList = JSON.parse(fs.readFileSync('sample_data/idList.json', 'utf-8'))
 }
 
-// szuka klasy/nauczyciela/sali, zwraca discordową wiadomość lub false
-async function where(name){
-
+function find(name){
     // szukanie po nauczycielach, klasach, salach
     found={}
     for (const type in idList){
@@ -128,7 +126,15 @@ async function where(name){
     }
     // false jeśli nie znaleziono
     if (Object.keys(found).length == 0) return false
+    return found
+}
 
+// szuka klasy/nauczyciela/sali, zwraca discordową wiadomość lub false
+async function where(name){
+
+    found=find(name)
+    if (!found) return
+    
     out=`**${found.name}**`
 
     // pobieranie planu
@@ -207,5 +213,7 @@ async function where(name){
 module.exports = {
     idList,
     loadInitialData,
-    where
+    where,
+    find,
+    getTable
 };
