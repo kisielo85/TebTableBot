@@ -185,10 +185,8 @@ module.exports = (client, cmd) => { // cmd = lista komend w obiekcie
                 delete temp_list[user]
             }
         }
-        if(msg.commandName === "stop"){
-            dm_list = await cmd['stop'](msg = msg, dm_list)
-        }else if(cmd[msg.commandName])
-            cmd[msg.commandName](msg = msg, client = client)
+        if(cmd[msg.commandName])
+            cmd[msg.commandName]({msg, client, dm_list, tableData})
     })
     
 }

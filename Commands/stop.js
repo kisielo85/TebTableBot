@@ -1,6 +1,6 @@
 const fs = require('fs')
 /** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
-module.exports = async (msg, dm_list) => {
+module.exports = async ({msg, dm_list}) => {
     if (!dm_list[msg.user.id]){
         await msg.reply('nie ma cie na liście')
         return dm_list

@@ -48,36 +48,6 @@ client.on("ready", async () => {
     await client.application.commands.create({
         name: 'lekcje',
         description: 'możesz sie dodać do listy by mieć powiadomienia o twoim planie lekcji',
-        /*options: [
-            {
-                name: 'klasa',
-                description: 'wybierz klase by powiadomić cie o twoich lekcjach',
-                type:ApplicationCommandOptionType.String,
-                choices:[ // TU DEJ TE KLASY WEHIGWEHGIGHU
-                    {
-                        name:'Teip4',
-                        value:'-7'
-                    }
-                ],
-                required: true
-            },
-            {
-                name:'grupa',
-                description:'grupa to grupa',
-                type:ApplicationCommandOptionType.String,
-                choices:[ // TU DAJ ME GRUPY
-                    {
-                        name:'EsportŚmierdzi',
-                        value:'esport'
-                    },
-                    {
-                        name:'Seksiaki',
-                        value:'progr'
-                    }
-                ],
-                required:true
-            }
-        ]*/
     });
 
     await client.application.commands.create({
@@ -101,6 +71,11 @@ client.on("ready", async () => {
     await client.application.commands.create({
         name: 'clear',
         description: 'usuń wiadomości bota'
+    });
+
+    await client.application.commands.create({
+        name: 'alert',
+        description: 'powiadomienia o następnej lekcji co przerwe'
     });
 });
 

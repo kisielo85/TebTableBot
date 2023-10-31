@@ -1,7 +1,6 @@
-const tableData = require('../Other/tableData.js');
-
 /** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.InteractionCreate} msg */
-module.exports = async (msg) => {
+module.exports = async ({msg, tableData}) => {
+    console.log(tableData)
     find_str = msg.options.get('find').value
     info = await tableData.where(find_str)
 

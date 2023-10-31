@@ -1,7 +1,7 @@
 let { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
 
 /** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
-module.exports = async (msg) => {
+module.exports = async ({msg}) => {
     let klasyButtons = [];
     
     for(let i = 1; i <= 5; i++){
