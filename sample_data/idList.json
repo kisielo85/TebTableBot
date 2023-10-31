@@ -1,839 +1,1079 @@
 {
   "teachers": {
     "-3": {
+      "id": "-3",
       "short": "AA"
     },
     "-4": {
+      "id": "-4",
       "short": "RB"
     },
     "-93": {
+      "id": "-93",
       "short": "BBS"
     },
     "-7": {
+      "id": "-7",
       "short": "Bu"
     },
     "-8": {
+      "id": "-8",
       "short": "AB"
     },
     "-9": {
+      "id": "-9",
       "short": "DC"
     },
     "-59": {
+      "id": "-59",
       "short": "OC"
     },
     "-99": {
+      "id": "-99",
       "short": "OD"
     },
     "-100": {
+      "id": "-100",
       "short": "SD"
     },
     "-12": {
+      "id": "-12",
       "short": "MD"
     },
     "-101": {
+      "id": "-101",
       "short": "AG"
     },
     "-13": {
+      "id": "-13",
       "short": "KG"
     },
     "-95": {
+      "id": "-95",
       "short": "MJa"
     },
     "-15": {
+      "id": "-15",
       "short": "PJ"
     },
     "-73": {
+      "id": "-73",
       "short": "DJ"
     },
     "-16": {
+      "id": "-16",
       "short": "AK"
     },
     "-18": {
+      "id": "-18",
       "short": "EK"
     },
     "-96": {
+      "id": "-96",
       "short": "AKS"
     },
     "-19": {
+      "id": "-19",
       "short": "RK"
     },
     "-102": {
+      "id": "-102",
       "short": "JK"
     },
     "-74": {
+      "id": "-74",
       "short": "NK"
     },
     "-20": {
+      "id": "-20",
       "short": "KK"
     },
     "-103": {
+      "id": "-103",
       "short": "KA"
     },
     "-104": {
+      "id": "-104",
       "short": "ML"
     },
     "-21": {
+      "id": "-21",
       "short": "MŁ"
     },
     "-22": {
+      "id": "-22",
       "short": "AM"
     },
     "-105": {
+      "id": "-105",
       "short": "Mk"
     },
     "-106": {
+      "id": "-106",
       "short": "Mt"
     },
     "-107": {
+      "id": "-107",
       "short": "MP"
     },
     "-91": {
+      "id": "-91",
       "short": "Mi"
     },
     "-24": {
+      "id": "-24",
       "short": "PM"
     },
     "-60": {
+      "id": "-60",
       "short": "MA"
     },
     "-26": {
+      "id": "-26",
       "short": "MM"
     },
     "-48": {
+      "id": "-48",
       "short": "Do"
     },
     "-97": {
+      "id": "-97",
       "short": "JN"
     },
     "-94": {
+      "id": "-94",
       "short": "AN"
     },
     "-108": {
+      "id": "-108",
       "short": "DN"
     },
     "-83": {
+      "id": "-83",
       "short": "EOJ"
     },
     "-29": {
+      "id": "-29",
       "short": "Pk"
     },
     "-1": {
+      "id": "-1",
       "short": "MO"
     },
     "-30": {
+      "id": "-30",
       "short": "AP"
     },
     "-31": {
+      "id": "-31",
       "short": "DPZ"
     },
     "-51": {
+      "id": "-51",
       "short": "PD"
     },
     "-76": {
+      "id": "-76",
       "short": "OPK"
     },
     "-78": {
+      "id": "-78",
       "short": "MS"
     },
     "-109": {
+      "id": "-109",
       "short": "ES"
     },
     "-81": {
+      "id": "-81",
       "short": "KŚ"
     },
     "-80": {
+      "id": "-80",
       "short": "IS"
     },
     "-85": {
+      "id": "-85",
       "short": "ZT"
     },
     "-40": {
+      "id": "-40",
       "short": "WT"
     },
     "-89": {
+      "id": "-89",
       "short": "wakat"
     },
     "-110": {
+      "id": "-110",
       "short": "f"
     },
     "-111": {
+      "id": "-111",
       "short": "m"
     },
     "-112": {
+      "id": "-112",
       "short": "vf"
     },
     "-113": {
+      "id": "-113",
       "short": "vi"
     },
     "-82": {
+      "id": "-82",
       "short": "JW"
     },
     "-87": {
+      "id": "-87",
       "short": "PW"
     },
     "-90": {
+      "id": "-90",
       "short": ".."
     },
     "-67": {
+      "id": "-67",
       "short": "SW"
     },
     "-43": {
+      "id": "-43",
       "short": "AW"
     },
     "-44": {
+      "id": "-44",
       "short": "MW"
     },
     "-98": {
+      "id": "-98",
       "short": "KW"
     },
     "-114": {
+      "id": "-114",
       "short": "Wo"
     },
     "-45": {
+      "id": "-45",
       "short": "ŁW"
     },
     "-88": {
+      "id": "-88",
       "short": "MWy"
     },
     "-46": {
+      "id": "-46",
       "short": "WA"
     },
     "-115": {
+      "id": "-115",
       "short": "WS"
     },
     "-47": {
+      "id": "-47",
       "short": "WZ"
     },
     "-84": {
+      "id": "-84",
       "short": "MŻ"
     },
     "-2": {
+      "id": "-2",
       "short": "AŻ"
     }
   },
   "subjects": {
     "1": {
-      "short": "Zac",
-      "name": "Zachowanie"
+      "id": "1",
+      "name": "Zachowanie",
+      "short": "Zac"
     },
     "-119": {
+      "id": "-119",
+      "name": "",
       "short": ""
     },
     "-118": {
+      "id": "-118",
+      "name": "",
       "short": ""
     },
     "-1": {
-      "short": "aso",
-      "name": "Administracja systemami operacyjnymi"
+      "id": "-1",
+      "name": "Administracja systemami operacyjnymi",
+      "short": "aso"
     },
     "-84": {
-      "short": "adm. BD",
-      "name": "Administrowanie bazami danych"
+      "id": "-84",
+      "name": "Administrowanie bazami danych",
+      "short": "adm. BD"
     },
     "-2": {
-      "short": "anatomia",
-      "name": "Anatomia i fizjologia zwierząt"
+      "id": "-2",
+      "name": "Anatomia i fizjologia zwierząt",
+      "short": "anatomia"
     },
     "-3": {
-      "short": "adim",
-      "name": "Aplikacje desktopowe i mobilne"
+      "id": "-3",
+      "name": "Aplikacje desktopowe i mobilne",
+      "short": "adim"
     },
     "-86": {
-      "short": "apl. mob. + zaaw. web.",
-      "name": "Aplikacje mobilne oraz zaawansowane webowe"
+      "id": "-86",
+      "name": "Aplikacje mobilne oraz zaawansowane webowe",
+      "short": "apl. mob. + zaaw. web."
     },
     "-98": {
-      "short": "apl. webowe",
-      "name": "Aplikacje webowe"
+      "id": "-98",
+      "name": "Aplikacje webowe",
+      "short": "apl. webowe"
     },
     "-4": {
-      "short": "bazy",
-      "name": "Bazy danych"
+      "id": "-4",
+      "name": "Bazy danych",
+      "short": "bazy"
     },
     "-5": {
-      "short": "bhp",
-      "name": "Bezpieczeństwo i higiena pracy"
+      "id": "-5",
+      "name": "Bezpieczeństwo i higiena pracy",
+      "short": "bhp"
     },
     "-6": {
-      "short": "biol",
-      "name": "Biologia"
+      "id": "-6",
+      "name": "Biologia",
+      "short": "biol"
     },
     "-7": {
-      "short": "biol R",
-      "name": "Biologia rozszerzona"
+      "id": "-7",
+      "name": "Biologia rozszerzona",
+      "short": "biol R"
     },
     "-104": {
-      "short": "biz",
-      "name": "Biznes i zarządzanie"
+      "id": "-104",
+      "name": "Biznes i zarządzanie",
+      "short": "biz"
     },
     "-113": {
-      "short": "bizn. w pr.",
-      "name": "Biznes w praktyce"
+      "id": "-113",
+      "name": "Biznes w praktyce",
+      "short": "bizn. w pr."
     },
     "-82": {
-      "short": "esport",
-      "name": "Branża e-sportowa"
+      "id": "-82",
+      "name": "Branża e-sportowa",
+      "short": "esport"
     },
     "-74": {
-      "short": "esport_dzi",
-      "name": "Branża e-sportowa: Dziennikarstwo"
+      "id": "-74",
+      "name": "Branża e-sportowa: Dziennikarstwo",
+      "short": "esport_dzi"
     },
     "-77": {
-      "short": "esport_3d",
-      "name": "Branża e-sportowa: Grafika 3D"
+      "id": "-77",
+      "name": "Branża e-sportowa: Grafika 3D",
+      "short": "esport_3d"
     },
     "-73": {
-      "short": "esport_mar",
-      "name": "Branża e-sportowa: Marketing"
+      "id": "-73",
+      "name": "Branża e-sportowa: Marketing",
+      "short": "esport_mar"
     },
     "-75": {
-      "short": "esport_mul",
-      "name": "Branża e-sportowa: Multimedia"
+      "id": "-75",
+      "name": "Branża e-sportowa: Multimedia",
+      "short": "esport_mul"
     },
     "-78": {
-      "short": "esport_gry",
-      "name": "Branża e-sportowa: Projektowanie gier komputerowych"
+      "id": "-78",
+      "name": "Branża e-sportowa: Projektowanie gier komputerowych",
+      "short": "esport_gry"
     },
     "-72": {
-      "short": "esport_psy",
-      "name": "Branża e-sportowa: Psychologia"
+      "id": "-72",
+      "name": "Branża e-sportowa: Psychologia",
+      "short": "esport_psy"
     },
     "-76": {
-      "short": "esport_sisk",
-      "name": "Branża e-sportowa: Systemy i sieci komputerowe"
+      "id": "-76",
+      "name": "Branża e-sportowa: Systemy i sieci komputerowe",
+      "short": "esport_sisk"
     },
     "-79": {
-      "short": "esport_proj",
-      "name": "Branża e-sportowa: Zarządzanie projektowe"
+      "id": "-79",
+      "name": "Branża e-sportowa: Zarządzanie projektowe",
+      "short": "esport_proj"
     },
     "-8": {
-      "short": "chemia",
-      "name": "Chemia"
+      "id": "-8",
+      "name": "Chemia",
+      "short": "chemia"
     },
     "-9": {
-      "short": "chemia R",
-      "name": "Chemia rozszerzona"
+      "id": "-9",
+      "name": "Chemia rozszerzona",
+      "short": "chemia R"
     },
     "-10": {
-      "short": "chów",
-      "name": "Chów zwierząt"
+      "id": "-10",
+      "name": "Chów zwierząt",
+      "short": "chów"
     },
     "-11": {
-      "short": "chów P",
-      "name": "Chów zwierząt w praktyce"
+      "id": "-11",
+      "name": "Chów zwierząt w praktyce",
+      "short": "chów P"
     },
     "-12": {
-      "short": "cyfr. obr. obr.",
-      "name": "Cyfrowa obróbka obrazu"
+      "id": "-12",
+      "name": "Cyfrowa obróbka obrazu",
+      "short": "cyfr. obr. obr."
     },
     "-13": {
-      "short": "cyfr. techn. mult.",
-      "name": "Cyfrowe technologie multimedialne"
+      "id": "-13",
+      "name": "Cyfrowe technologie multimedialne",
+      "short": "cyfr. techn. mult."
     },
     "-14": {
-      "short": "diag. wet.",
-      "name": "Diagnostyka weterynaryjna"
+      "id": "-14",
+      "name": "Diagnostyka weterynaryjna",
+      "short": "diag. wet."
     },
     "-15": {
-      "short": "diag. wet. P",
-      "name": "Diagnostyka weterynaryjna w praktyce"
+      "id": "-15",
+      "name": "Diagnostyka weterynaryjna w praktyce",
+      "short": "diag. wet. P"
     },
     "-81": {
-      "short": "dz",
-      "name": "Doradztwo zawodowe"
+      "id": "-81",
+      "name": "Doradztwo zawodowe",
+      "short": "dz"
     },
     "-99": {
-      "short": "dyżur",
-      "name": "Dyżur"
+      "id": "-99",
+      "name": "Dyżur",
+      "short": "dyżur"
     },
     "-16": {
-      "short": "dział. gosp.",
-      "name": "Działalność gospodarcza"
+      "id": "-16",
+      "name": "Działalność gospodarcza",
+      "short": "dział. gosp."
     },
     "-114": {
-      "short": "dz 2.0",
-      "name": "Dziennikarstwo 2.0"
+      "id": "-114",
+      "name": "Dziennikarstwo 2.0",
+      "short": "dz 2.0"
     },
     "-17": {
-      "short": "edb",
-      "name": "Edukacja dla bezpieczeństwa"
+      "id": "-17",
+      "name": "Edukacja dla bezpieczeństwa",
+      "short": "edb"
     },
     "-18": {
-      "short": "elsk",
-      "name": "Eksploatacja lokalnych sieci komputerowych"
+      "id": "-18",
+      "name": "Eksploatacja lokalnych sieci komputerowych",
+      "short": "elsk"
     },
     "-19": {
-      "short": "eutk",
-      "name": "Eksploatacja urządzeń techniki komputerowej"
+      "id": "-19",
+      "name": "Eksploatacja urządzeń techniki komputerowej",
+      "short": "eutk"
     },
     "-102": {
-      "short": "egk",
-      "name": "Elementy grafiki komputerowej"
+      "id": "-102",
+      "name": "Elementy grafiki komputerowej",
+      "short": "egk"
     },
     "-109": {
-      "short": "el. prawa",
-      "name": "Elementy prawa, etyki i psychologii w reklamie"
+      "id": "-109",
+      "name": "Elementy prawa, etyki i psychologii w reklamie",
+      "short": "el. prawa"
     },
     "-20": {
-      "short": "etyka",
-      "name": "Etyka"
+      "id": "-20",
+      "name": "Etyka",
+      "short": "etyka"
     },
     "-21": {
-      "short": "filozofia",
-      "name": "Filozofia"
+      "id": "-21",
+      "name": "Filozofia",
+      "short": "filozofia"
     },
     "-22": {
-      "short": "fiz",
-      "name": "Fizyka"
+      "id": "-22",
+      "name": "Fizyka",
+      "short": "fiz"
     },
     "-23": {
-      "short": "geo",
-      "name": "Geografia"
+      "id": "-23",
+      "name": "Geografia",
+      "short": "geo"
     },
     "-24": {
-      "short": "geo R",
-      "name": "Geografia rozszerzona"
+      "id": "-24",
+      "name": "Geografia rozszerzona",
+      "short": "geo R"
     },
     "-25": {
-      "short": "historia",
-      "name": "Historia"
+      "id": "-25",
+      "name": "Historia",
+      "short": "historia"
     },
     "-26": {
-      "short": "his",
-      "name": "Historia i społeczeństwo"
+      "id": "-26",
+      "name": "Historia i społeczeństwo",
+      "short": "his"
     },
     "-85": {
-      "short": "hit",
-      "name": "Historia i teraźniejszość"
+      "id": "-85",
+      "name": "Historia i teraźniejszość",
+      "short": "hit"
     },
     "-105": {
-      "short": "hist. szt.",
-      "name": "Historia sztuki rozszerzona"
+      "id": "-105",
+      "name": "Historia sztuki rozszerzona",
+      "short": "hist. szt."
     },
     "-27": {
-      "short": "inf",
-      "name": "Informatyka"
+      "id": "-27",
+      "name": "Informatyka",
+      "short": "inf"
     },
     "-28": {
-      "short": "inf R",
-      "name": "Informatyka rozszerzona"
+      "id": "-28",
+      "name": "Informatyka rozszerzona",
+      "short": "inf R"
     },
     "-29": {
-      "short": "ang",
-      "name": "Język angielski"
+      "id": "-29",
+      "name": "Język angielski",
+      "short": "ang"
     },
     "-30": {
-      "short": "ang R",
-      "name": "Język angielski rozszerzony"
+      "id": "-30",
+      "name": "Język angielski rozszerzony",
+      "short": "ang R"
     },
     "-31": {
-      "short": "j. ang. zaw.",
-      "name": "Język angielski zawodowy"
+      "id": "-31",
+      "name": "Język angielski zawodowy",
+      "short": "j. ang. zaw."
     },
     "-32": {
-      "short": "niem",
-      "name": "Język niemiecki"
+      "id": "-32",
+      "name": "Język niemiecki",
+      "short": "niem"
     },
     "-33": {
-      "short": "pol",
-      "name": "Język polski"
+      "id": "-33",
+      "name": "Język polski",
+      "short": "pol"
     },
     "-100": {
-      "short": "J.pol_do",
-      "name": "Język polski dla obcokrajowców"
+      "id": "-100",
+      "name": "Język polski dla obcokrajowców",
+      "short": "J.pol_do"
     },
     "-106": {
-      "short": "pol R",
-      "name": "Język polski rozszerzony"
+      "id": "-106",
+      "name": "Język polski rozszerzony",
+      "short": "pol R"
     },
     "-36": {
-      "short": "kontr. nadz. wet.",
-      "name": "Kontrola i nadzór weterynaryjny"
+      "id": "-36",
+      "name": "Kontrola i nadzór weterynaryjny",
+      "short": "kontr. nadz. wet."
     },
     "-37": {
-      "short": "kontr. nadz. wet. P",
-      "name": "Kontrola i nadzór weterynaryjny w praktyce"
+      "id": "-37",
+      "name": "Kontrola i nadzór weterynaryjny w praktyce",
+      "short": "kontr. nadz. wet. P"
     },
     "-38": {
-      "short": "lsk",
-      "name": "Lokalne sieci komputerowe"
+      "id": "-38",
+      "name": "Lokalne sieci komputerowe",
+      "short": "lsk"
     },
     "-39": {
-      "short": "lsbd",
-      "name": "Lokalne systemy baz danych"
+      "id": "-39",
+      "name": "Lokalne systemy baz danych",
+      "short": "lsbd"
     },
     "-40": {
-      "short": "mat",
-      "name": "Matematyka"
+      "id": "-40",
+      "name": "Matematyka",
+      "short": "mat"
     },
     "-101": {
-      "short": "Md",
-      "name": "Matematyka dodatkowa"
+      "id": "-101",
+      "name": "Matematyka dodatkowa",
+      "short": "Md"
     },
     "-41": {
-      "short": "mat R",
-      "name": "Matematyka rozszerzona"
+      "id": "-41",
+      "name": "Matematyka rozszerzona",
+      "short": "mat R"
     },
     "-110": {
-      "short": "media społ.",
-      "name": "Media społecznościowe"
+      "id": "-110",
+      "name": "Media społecznościowe",
+      "short": "media społ."
     },
     "-87": {
-      "short": "Migracja",
-      "name": "Migracja"
+      "id": "-87",
+      "name": "Migracja",
+      "short": "Migracja"
     },
     "-88": {
-      "short": "ob. apl. desk.",
-      "name": "Obiektowe aplikacje desktopowe"
+      "id": "-88",
+      "name": "Obiektowe aplikacje desktopowe",
+      "short": "ob. apl. desk."
     },
     "-108": {
-      "short": "pl. kamp. rekl.",
-      "name": "Planowanie kampanii reklamowej"
+      "id": "-108",
+      "name": "Planowanie kampanii reklamowej",
+      "short": "pl. kamp. rekl."
     },
     "-42": {
-      "short": "podst. dz. gosp.",
-      "name": "Podstawy działalności gospodarczej"
+      "id": "-42",
+      "name": "Podstawy działalności gospodarczej",
+      "short": "podst. dz. gosp."
     },
     "-97": {
-      "short": "podst. inf.",
-      "name": "Podstawy informatyki"
+      "id": "-97",
+      "name": "Podstawy informatyki",
+      "short": "podst. inf."
     },
     "-43": {
-      "short": "podst. progr.",
-      "name": "Podstawy programowania"
+      "id": "-43",
+      "name": "Podstawy programowania",
+      "short": "podst. progr."
     },
     "-115": {
-      "short": "proj. graf.",
-      "name": "Podstawy projektowania graficznego"
+      "id": "-115",
+      "name": "Podstawy projektowania graficznego",
+      "short": "proj. graf."
     },
     "-44": {
-      "short": "pp",
-      "name": "Podstawy przedsiębiorczości"
+      "id": "-44",
+      "name": "Podstawy przedsiębiorczości",
+      "short": "pp"
     },
     "-45": {
-      "short": "podst. rekl.",
-      "name": "Podstawy reklamy"
+      "id": "-45",
+      "name": "Podstawy reklamy",
+      "short": "podst. rekl."
     },
     "-116": {
-      "short": "robotyka",
-      "name": "Podstawy robotyki"
+      "id": "-116",
+      "name": "Podstawy robotyki",
+      "short": "robotyka"
     },
     "-70": {
-      "short": "Praktyka zawodowa",
-      "name": "Praktyka zawodowa"
+      "id": "-70",
+      "name": "Praktyka zawodowa",
+      "short": "Praktyka zawodowa"
     },
     "-46": {
-      "short": "prof.",
-      "name": "Profilaktyka i leczenie chorób zwierząt"
+      "id": "-46",
+      "name": "Profilaktyka i leczenie chorób zwierząt",
+      "short": "prof."
     },
     "-47": {
-      "short": "prof. P",
-      "name": "Profilaktyka i leczenie chorób zwierząt w praktyce"
+      "id": "-47",
+      "name": "Profilaktyka i leczenie chorób zwierząt w praktyce",
+      "short": "prof. P"
     },
     "-89": {
-      "short": "prog. test. apl. mob.",
-      "name": "Programowanie i testowanie aplikacji mobilnych oraz zaawansowanych webowych"
+      "id": "-89",
+      "name": "Programowanie i testowanie aplikacji mobilnych oraz zaawansowanych webowych",
+      "short": "prog. test. apl. mob."
     },
     "-90": {
-      "short": "progr. test. ob.",
-      "name": "Programowanie i testowanie obiektowych aplikacji desktopowych"
+      "id": "-90",
+      "name": "Programowanie i testowanie obiektowych aplikacji desktopowych",
+      "short": "progr. test. ob."
     },
     "-48": {
-      "short": "proj. rekl.",
-      "name": "Projektowanie reklamy"
+      "id": "-48",
+      "name": "Projektowanie reklamy",
+      "short": "proj. rekl."
     },
     "-49": {
-      "short": "proj. mult.",
-      "name": "Projekty multimedialne"
+      "id": "-49",
+      "name": "Projekty multimedialne",
+      "short": "proj. mult."
     },
     "-50": {
-      "short": "przep. r. dr.",
-      "name": "Przepisy ruchu drogowego"
+      "id": "-50",
+      "name": "Przepisy ruchu drogowego",
+      "short": "przep. r. dr."
     },
     "-51": {
-      "short": "przyg. prog.",
-      "name": "Przygotowanie do zawodu programisty"
+      "id": "-51",
+      "name": "Przygotowanie do zawodu programisty",
+      "short": "przyg. prog."
     },
     "-80": {
-      "short": "pmc",
-      "name": "Przygotowanie materiałów cyfrowych"
+      "id": "-80",
+      "name": "Przygotowanie materiałów cyfrowych",
+      "short": "pmc"
     },
     "-111": {
-      "short": "real. kamp.",
-      "name": "Realizacja kampanii reklamowej"
+      "id": "-111",
+      "name": "Realizacja kampanii reklamowej",
+      "short": "real. kamp."
     },
     "-52": {
-      "short": "rel",
-      "name": "Religia"
+      "id": "-52",
+      "name": "Religia",
+      "short": "rel"
     },
     "-53": {
-      "short": "rozród",
-      "name": "Rozród i inseminacja zwierząt"
+      "id": "-53",
+      "name": "Rozród i inseminacja zwierząt",
+      "short": "rozród"
     },
     "-54": {
-      "short": "rozród P",
-      "name": "Rozród i inseminacja zwierząt w praktyce"
+      "id": "-54",
+      "name": "Rozród i inseminacja zwierząt w praktyce",
+      "short": "rozród P"
     },
     "-112": {
-      "short": "skut. kamp.",
-      "name": "Skuteczność i efektywność kampanii reklamowej"
+      "id": "-112",
+      "name": "Skuteczność i efektywność kampanii reklamowej",
+      "short": "skut. kamp."
     },
     "-55": {
-      "short": "str. apl. int.",
-      "name": "Strony i aplikacje internetowe"
+      "id": "-55",
+      "name": "Strony i aplikacje internetowe",
+      "short": "str. apl. int."
     },
     "-56": {
-      "short": "so",
-      "name": "Systemy operacyjne"
+      "id": "-56",
+      "name": "Systemy operacyjne",
+      "short": "so"
     },
     "-103": {
-      "short": "szkolenie",
-      "name": "Szkolenie TIK / KNO"
+      "id": "-103",
+      "name": "Szkolenie TIK / KNO",
+      "short": "szkolenie"
     },
     "-91": {
-      "short": "SI",
-      "name": "Sztuczna inteligencja"
+      "id": "-91",
+      "name": "Sztuczna inteligencja",
+      "short": "SI"
     },
     "-57": {
-      "short": "techn. fot.",
-      "name": "Techniki fotograficzne"
+      "id": "-57",
+      "name": "Techniki fotograficzne",
+      "short": "techn. fot."
     },
     "-58": {
-      "short": "techn. rekl.",
-      "name": "Techniki reklamy"
+      "id": "-58",
+      "name": "Techniki reklamy",
+      "short": "techn. rekl."
     },
     "-107": {
-      "short": "tech. chm.",
-      "name": "Technologie chmurowe"
+      "id": "-107",
+      "name": "Technologie chmurowe",
+      "short": "tech. chm."
     },
     "-59": {
-      "short": "teor. obr. fot.",
-      "name": "Teoria obrazu fotograficznego"
+      "id": "-59",
+      "name": "Teoria obrazu fotograficznego",
+      "short": "teor. obr. fot."
     },
     "-92": {
-      "short": "tw. apl. deskt.",
-      "name": "Tworzenie aplikacji desktopowych"
+      "id": "-92",
+      "name": "Tworzenie aplikacji desktopowych",
+      "short": "tw. apl. deskt."
     },
     "-96": {
-      "short": "tw. apl. mob.",
-      "name": "Tworzenie aplikacji mobilnych"
+      "id": "-96",
+      "name": "Tworzenie aplikacji mobilnych",
+      "short": "tw. apl. mob."
     },
     "-93": {
-      "short": "tw. apl. web.",
-      "name": "Tworzenie aplikacji webowych"
+      "id": "-93",
+      "name": "Tworzenie aplikacji webowych",
+      "short": "tw. apl. web."
     },
     "-60": {
-      "short": "tw. adm. bd",
-      "name": "Tworzenie i administrowanie bazami danych"
+      "id": "-60",
+      "name": "Tworzenie i administrowanie bazami danych",
+      "short": "tw. adm. bd"
     },
     "-61": {
-      "short": "tw. zarz. bd",
-      "name": "Tworzenie i zarządzanie bazami danych"
+      "id": "-61",
+      "name": "Tworzenie i zarządzanie bazami danych",
+      "short": "tw. zarz. bd"
     },
     "-62": {
-      "short": "tsai",
-      "name": "Tworzenie stron i aplikacji internetowych"
+      "id": "-62",
+      "name": "Tworzenie stron i aplikacji internetowych",
+      "short": "tsai"
     },
     "-94": {
-      "short": "tw. str.",
-      "name": "Tworzenie stron i programowanie aplikacji internetowych"
+      "id": "-94",
+      "name": "Tworzenie stron i programowanie aplikacji internetowych",
+      "short": "tw. str."
     },
     "-63": {
-      "short": "urz. sprzęt",
-      "name": "Urządzenia i sprzęt w fotografii"
+      "id": "-63",
+      "name": "Urządzenia i sprzęt w fotografii",
+      "short": "urz. sprzęt"
     },
     "-64": {
-      "short": "utk",
-      "name": "Urządzenia techniki komputerowej"
+      "id": "-64",
+      "name": "Urządzenia techniki komputerowej",
+      "short": "utk"
     },
     "-95": {
-      "short": "wos",
-      "name": "Wiedza o społeczeństwie"
+      "id": "-95",
+      "name": "Wiedza o społeczeństwie",
+      "short": "wos"
     },
     "-65": {
-      "short": "wiai",
-      "name": "Witryny i aplikacje internetowe"
+      "id": "-65",
+      "name": "Witryny i aplikacje internetowe",
+      "short": "wiai"
     },
     "-117": {
-      "short": "krymin",
-      "name": "Wprowadzenie do kryminalistyki"
+      "id": "-117",
+      "name": "Wprowadzenie do kryminalistyki",
+      "short": "krymin"
     },
     "-66": {
-      "short": "wdż",
-      "name": "Wychowanie do życia w rodzinie"
+      "id": "-66",
+      "name": "Wychowanie do życia w rodzinie",
+      "short": "wdż"
     },
     "-67": {
-      "short": "wf",
-      "name": "Wychowanie fizyczne"
+      "id": "-67",
+      "name": "Wychowanie fizyczne",
+      "short": "wf"
     },
     "-68": {
-      "short": "wytw. el. prz. rekl.",
-      "name": "Wytwarzanie elementów przekazu reklamowego"
+      "id": "-68",
+      "name": "Wytwarzanie elementów przekazu reklamowego",
+      "short": "wytw. el. prz. rekl."
     },
     "-69": {
-      "short": "gzw",
-      "name": "Zajęcia z wychowawcą"
+      "id": "-69",
+      "name": "Zajęcia z wychowawcą",
+      "short": "gzw"
     }
   },
   "classrooms": {
     "-1": {
+      "id": "-1",
       "short": "005F"
     },
     "-62": {
+      "id": "-62",
       "short": "102F"
     },
     "-2": {
+      "id": "-2",
       "short": "104F"
     },
     "-3": {
+      "id": "-3",
       "short": "105F"
     },
     "-4": {
+      "id": "-4",
       "short": "106F"
     },
     "-53": {
+      "id": "-53",
       "short": "204F"
     },
     "-5": {
+      "id": "-5",
       "short": "205F"
     },
     "-6": {
+      "id": "-6",
       "short": "208F"
     },
     "-63": {
+      "id": "-63",
       "short": "301F"
     },
     "-64": {
+      "id": "-64",
       "short": "302F"
     },
     "-65": {
+      "id": "-65",
       "short": "303F"
     },
     "-66": {
+      "id": "-66",
       "short": "304F"
     },
     "-67": {
+      "id": "-67",
       "short": "305F"
     },
     "-9": {
+      "id": "-9",
       "short": "B10H"
     },
     "-10": {
+      "id": "-10",
       "short": "B11H"
     },
     "-11": {
+      "id": "-11",
       "short": "B12H"
     },
     "-12": {
+      "id": "-12",
       "short": "B13H"
     },
     "-13": {
+      "id": "-13",
       "short": "B14H"
     },
     "-14": {
+      "id": "-14",
       "short": "B15H"
     },
     "-15": {
+      "id": "-15",
       "short": "B16H"
     },
     "-76": {
+      "id": "-76",
       "short": "B17H"
     },
     "-77": {
+      "id": "-77",
       "short": "B18H"
     },
     "-78": {
+      "id": "-78",
       "short": "B19H"
     },
     "-7": {
+      "id": "-7",
       "short": "B1H"
     },
     "-79": {
+      "id": "-79",
       "short": "B20H"
     },
     "-80": {
+      "id": "-80",
       "short": "B21H"
     },
     "-84": {
+      "id": "-84",
       "short": "B3H"
     },
     "-55": {
+      "id": "-55",
       "short": "B8H"
     },
     "-56": {
+      "id": "-56",
       "short": "B9H"
     },
     "-81": {
+      "id": "-81",
       "short": "C10H"
     },
     "-82": {
+      "id": "-82",
       "short": "C11H"
     },
     "-83": {
+      "id": "-83",
       "short": "C12H"
     },
     "-23": {
+      "id": "-23",
       "short": "C13H"
     },
     "-24": {
+      "id": "-24",
       "short": "C14H"
     },
     "-17": {
+      "id": "-17",
       "short": "C2H"
     },
     "-18": {
+      "id": "-18",
       "short": "C4H"
     },
     "-19": {
+      "id": "-19",
       "short": "C5H"
     },
     "-20": {
+      "id": "-20",
       "short": "C6H"
     },
     "-70": {
+      "id": "-70",
       "short": "C7H"
     },
     "-21": {
+      "id": "-21",
       "short": "C9H"
     },
     "-37": {
+      "id": "-37",
       "short": "D:-1F"
     },
     "-38": {
+      "id": "-38",
       "short": "D:0F"
     },
     "-39": {
+      "id": "-39",
       "short": "D:1F"
     },
     "-40": {
+      "id": "-40",
       "short": "D:2F"
     },
     "-68": {
+      "id": "-68",
       "short": "D:3F"
     },
     "-41": {
+      "id": "-41",
       "short": "D:B"
     },
     "-42": {
+      "id": "-42",
       "short": "D:C"
     },
     "-43": {
+      "id": "-43",
       "short": "D:ś"
     },
     "-44": {
+      "id": "-44",
       "short": "D:w"
     },
     "-50": {
+      "id": "-50",
       "short": "Hasta La Vista ul. Góralska 5"
     },
     "-32": {
+      "id": "-32",
       "short": "Hasta La Vista ul. Góralska 5 od 7:30"
     }
   },
   "classes": {
     "-43": {
-      "short": "1Lep",
+      "id": "-43",
       "name": "1Lep Liceum",
+      "short": "1Lep",
       "groups": [
         "politech",
         "ekonom",
@@ -843,8 +1083,9 @@
       "year": 1
     },
     "-44": {
-      "short": "1Lgm",
+      "id": "-44",
       "name": "1Lgm Liceum",
+      "short": "1Lgm",
       "groups": [
         "graf",
         "mik",
@@ -854,16 +1095,18 @@
       "year": 1
     },
     "-45": {
-      "short": "1Lk",
+      "id": "-45",
       "name": "1Lk Liceum",
+      "short": "1Lk",
       "groups": [
         "pol obcy"
       ],
       "year": 1
     },
     "-35": {
-      "short": "1Te",
+      "id": "-35",
       "name": "1Te Technikum",
+      "short": "1Te",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -872,8 +1115,9 @@
       "year": 1
     },
     "-36": {
-      "short": "1Tf",
+      "id": "-36",
       "name": "1Tf Technikum",
+      "short": "1Tf",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -883,8 +1127,9 @@
       "year": 1
     },
     "-37": {
-      "short": "1Ti",
+      "id": "-37",
       "name": "1Ti Technikum",
+      "short": "1Ti",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -894,8 +1139,9 @@
       "year": 1
     },
     "-38": {
-      "short": "1Tp",
+      "id": "-38",
       "name": "1Tp Technikum",
+      "short": "1Tp",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -905,8 +1151,9 @@
       "year": 1
     },
     "-39": {
-      "short": "1Tr",
+      "id": "-39",
       "name": "1Tr Technikum",
+      "short": "1Tr",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -915,8 +1162,9 @@
       "year": 1
     },
     "-40": {
-      "short": "1Tsa",
+      "id": "-40",
       "name": "1Tsa Technikum",
+      "short": "1Tsa",
       "groups": [
         "2. Grupa",
         "1. Grupa",
@@ -925,8 +1173,9 @@
       "year": 1
     },
     "-41": {
-      "short": "1Tsb",
+      "id": "-41",
       "name": "1Tsb Technikum",
+      "short": "1Tsb",
       "groups": [
         "2. Grupa",
         "1. Grupa",
@@ -936,8 +1185,9 @@
       "year": 1
     },
     "-42": {
-      "short": "1Tw",
+      "id": "-42",
       "name": "1Tw Technikum",
+      "short": "1Tw",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -946,8 +1196,9 @@
       "year": 1
     },
     "-20": {
-      "short": "2Tei",
+      "id": "-20",
       "name": "2Tei Technikum",
+      "short": "2Tei",
       "groups": [
         "esport",
         "inf"
@@ -955,8 +1206,9 @@
       "year": 2
     },
     "-23": {
-      "short": "2Ter",
+      "id": "-23",
       "name": "2Ter Technikum",
+      "short": "2Ter",
       "groups": [
         "reklama",
         "esport"
@@ -964,8 +1216,9 @@
       "year": 2
     },
     "-21": {
-      "short": "2Tf",
+      "id": "-21",
       "name": "2Tf Technikum",
+      "short": "2Tf",
       "groups": [
         "2. Grupa",
         "1. Grupa",
@@ -974,8 +1227,9 @@
       "year": 2
     },
     "-22": {
-      "short": "2Tp",
+      "id": "-22",
       "name": "2Tp Technikum",
+      "short": "2Tp",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -984,8 +1238,9 @@
       "year": 2
     },
     "-24": {
-      "short": "2Ts",
+      "id": "-24",
       "name": "2Ts Technikum",
+      "short": "2Ts",
       "groups": [
         "2. Grupa",
         "1. Grupa",
@@ -995,8 +1250,9 @@
       "year": 2
     },
     "-1": {
-      "short": "3Tea",
+      "id": "-1",
       "name": "3Tea Technikum",
+      "short": "3Tea",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -1005,8 +1261,9 @@
       "year": 3
     },
     "-2": {
-      "short": "3Teb",
+      "id": "-2",
       "name": "3Teb Technikum",
+      "short": "3Teb",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -1015,8 +1272,9 @@
       "year": 3
     },
     "-3": {
-      "short": "3Tfr",
+      "id": "-3",
       "name": "3Tfr Technikum",
+      "short": "3Tfr",
       "groups": [
         "rekl",
         "fot",
@@ -1025,8 +1283,9 @@
       "year": 3
     },
     "-4": {
-      "short": "3Tiw",
+      "id": "-4",
       "name": "3Tiw Technikum",
+      "short": "3Tiw",
       "groups": [
         "inf",
         "wet",
@@ -1035,8 +1294,9 @@
       "year": 3
     },
     "-5": {
-      "short": "3Tp",
+      "id": "-5",
       "name": "3Tp Technikum",
+      "short": "3Tp",
       "groups": [
         "2. Grupa",
         "1. Grupa",
@@ -1045,8 +1305,9 @@
       "year": 3
     },
     "-7": {
-      "short": "4Teip",
+      "id": "-7",
       "name": "4Teip Technikum",
+      "short": "4Teip",
       "groups": [
         "progr",
         "esport",
@@ -1055,8 +1316,9 @@
       "year": 4
     },
     "-25": {
-      "short": "4Tew",
+      "id": "-25",
       "name": "4Tew Technikum",
+      "short": "4Tew",
       "groups": [
         "esport",
         "wet"
@@ -1064,8 +1326,9 @@
       "year": 4
     },
     "-8": {
-      "short": "4Tf",
+      "id": "-8",
       "name": "4Tf Technikum",
+      "short": "4Tf",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -1074,8 +1337,9 @@
       "year": 4
     },
     "-27": {
-      "short": "5Te/5",
+      "id": "-27",
       "name": "5Te/5 Technikum",
+      "short": "5Te/5",
       "groups": [
         "1. Grupa",
         "2. Grupa",
@@ -1084,8 +1348,9 @@
       "year": 5
     },
     "-28": {
-      "short": "5Tew/5",
+      "id": "-28",
       "name": "5Tew/5 Technikum",
+      "short": "5Tew/5",
       "groups": [
         "inf",
         "wet"
@@ -1093,8 +1358,9 @@
       "year": 5
     },
     "-29": {
-      "short": "5Tfi/5",
+      "id": "-29",
       "name": "5Tfi/5 Technikum",
+      "short": "5Tfi/5",
       "groups": [
         "inf",
         "fot",
@@ -1103,6 +1369,63 @@
         "2. Grupa"
       ],
       "year": 5
+    }
+  },
+  "periods": {
+    "0": {
+      "id": "0",
+      "starttime": "07:10",
+      "endtime": "07:55"
+    },
+    "1": {
+      "id": "1",
+      "starttime": "08:00",
+      "endtime": "08:45"
+    },
+    "2": {
+      "id": "2",
+      "starttime": "08:50",
+      "endtime": "09:35"
+    },
+    "3": {
+      "id": "3",
+      "starttime": "09:45",
+      "endtime": "10:30"
+    },
+    "4": {
+      "id": "4",
+      "starttime": "10:40",
+      "endtime": "11:25"
+    },
+    "5": {
+      "id": "5",
+      "starttime": "11:35",
+      "endtime": "12:20"
+    },
+    "6": {
+      "id": "6",
+      "starttime": "12:40",
+      "endtime": "13:25"
+    },
+    "7": {
+      "id": "7",
+      "starttime": "13:30",
+      "endtime": "14:15"
+    },
+    "8": {
+      "id": "8",
+      "starttime": "14:25",
+      "endtime": "15:10"
+    },
+    "9": {
+      "id": "9",
+      "starttime": "15:15",
+      "endtime": "16:00"
+    },
+    "10": {
+      "id": "10",
+      "starttime": "16:05",
+      "endtime": "16:50"
     }
   }
 }

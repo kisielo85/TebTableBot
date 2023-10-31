@@ -59,7 +59,7 @@ async function loadInitialData(){
         "datefrom":d.from,
         "dateto":d.to
         }},
-        {"op":"fetch","needed_part":{"teachers":["short"],"classes":["short","name"],"classrooms":["short"],"subjects":["short","name"]}}]
+        {"op":"fetch","needed_part":{"teachers":["short"],"classes":["short","name"],"classrooms":["short"],"subjects":["short","name"],"periods":["starttime","endtime"]}}]
     , __gsh:"00000000"
     };
 
@@ -70,9 +70,10 @@ async function loadInitialData(){
         idList[table.id]={}
 
         for (const row of table.data_rows){
-        idList[table.id][row.id]={short:row.short}
-        if (row.name)
-            idList[table.id][row.id].name=row.name
+            idList[table.id][row.id]={}
+            for (const field in row){
+                idList[table.id][row.id][field]=row[field]
+            }
         }
     }
 
