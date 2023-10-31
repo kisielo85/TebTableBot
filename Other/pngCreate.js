@@ -5,30 +5,89 @@ var hsl = require('hsl-to-hex')
 var hexToHsl = require('hex-to-hsl');
 
 //tab = JSON.parse(fs.readFileSync('sample_data/table.json', 'utf-8'))
-//gen_png(tab)
+//gen_png(tab,'4Teip Technikum','classes')
 
-f=tableData.find("4teip")
-tableData.getTable(f.type,f.id).then(tab=>gen_png(tab))
+f=tableData.find("ak")
+tableData.getTable(f.type,f.id).then(tab=>gen_png(tab,f.name,f.type))
 
-
-
-function gen_png(table){
+async function gen_png(table,name,type){
     const width = 1400;
-    const height = 600;
+    const height = 700;
     const cell_margin=2
+    const margin_left=40
+    const margin_top=90
+    const margin_day=2
 
-    var step_y=height/5
-    var step_x=width/10
-    const canvas = createCanvas(width, height);
+    const step_y=height/5
+    const step_x=width/11
+
+    const full_w=width+margin_left
+    const full_h=height+margin_top+margin_day*5
+
+    const canvas = createCanvas(full_w, full_h);
     const context = canvas.getContext("2d");
     context.fillStyle = '#fff';
-    context.fillRect(0,0,width,height)
+    context.fillRect(0,0,full_w, full_h)
+
+    // nazwa
+    context.fillStyle = '#000'
+    context.font = "40px sans-serif";
+    var size=context.measureText(name)
+    context.fillText(name, full_w/2-size.width/2, size.emHeightAscent);
+
+
+    // dni tygodnia
+    var iter=0
+    context.font = "bold 20px sans-serif";
+    for (const txt of ['Po','Wt','Śr','Cz','Pt']){
+        //grid
+        context.beginPath()
+        context.strokeStyle = '#EEE';
+        context.moveTo(0, (step_y+margin_day)*iter+margin_top+1);
+        context.lineTo(full_w, (step_y+margin_day)*iter+margin_top+1);
+        context.stroke()
+
+        var size=context.measureText(txt)
+        
+        var txt_x=margin_left/2-size.width/2
+        var txt_y=(step_y+margin_day)*iter+size.emHeightAscent/2+step_y/2+margin_top
+        context.fillText(txt, txt_x, txt_y);
+        iter+=1
+    }
+    context.stroke()
+
+    // godziny
+    iter=0
+    for (const txt of ['7:10-7:55','8:00-8:45','8:50-9:35','9:45-10:30','10:40-11:25','11:35-12:20','12:40-13:25','13:30-14:15','14:25-15:10','15:15-16:00','16:05-16:50']){
+        // grid 2
+        context.moveTo(step_x*iter+margin_left+1, margin_top);
+        context.lineTo(step_x*iter+margin_left+1, full_h);
+        context.stroke();
+        
+ 
+        context.font = "bold 13px sans-serif";
+        var size=context.measureText(txt)
+        var txt_x=step_x*iter-size.width/2+step_x/2+margin_left
+        var txt_y=margin_top-2
+
+        context.fillText(txt, txt_x, txt_y);
+
+        context.font = "23px sans-serif";
+        var size=context.measureText(iter.toString())
+        var txt_x=step_x*iter-size.width/2+step_x/2+margin_left
+        var txt_y=margin_top-18
+        context.fillText(iter.toString(), txt_x, txt_y);
+        
+        context.stroke()
+        
+        iter+=1
+    }
 
     lastday=1
     for (const c of table){
         if (c.type != 'card') continue
         day=new Date(c.date).getDay()-1
-        var cell_y=height/5*day
+        var cell_y=(step_y+margin_day)*day+margin_top+margin_day
 
         // długość lekcji
         var cell_width=step_x
@@ -36,7 +95,7 @@ function gen_png(table){
         
 
         // wysokość komórki
-        var cell_height=step_y
+        var cell_height=step_y-margin_day
 
         // jeśli wiele grup
         if (c.cellSlices){
@@ -64,7 +123,7 @@ function gen_png(table){
         cell_y+=cell_margin
             
         // postawienie komórki
-        const cell_x=(parseInt(c.uniperiod)-1)*step_x+cell_margin
+        const cell_x=(parseInt(c.uniperiod))*step_x+cell_margin+margin_left
         const cell_clr=hexToHsl(c.colors[0])
         l=cell_clr[2]
         while (l<=60){l+=(100-l)*0.4}
@@ -76,8 +135,8 @@ function gen_png(table){
         context.stroke();
         
         // nazwa przedmiotu
-        context.fillStyle = '#000';
-        context.font = "bold 16px sans-serif";
+        context.fillStyle = '#222';
+        context.font = "bold 19px sans-serif";
         var txt=tableData.idList.subjects[c.subjectid].short
         var size=context.measureText(txt)
         
@@ -86,7 +145,8 @@ function gen_png(table){
         context.fillText(txt, txt_x, txt_y);
 
         // sala
-        context.font = "13px sans-serif";
+        context.fillStyle = '#222';
+        context.font = "bold 14px sans-serif";
         txt=tableData.idList.classrooms[c.classroomids[0]].short
         size=context.measureText(txt)
         txt_x=cell_x+cell_width-size.width-2
