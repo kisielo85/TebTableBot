@@ -30,7 +30,6 @@ module.exports = async ({msg}) => {
     }
     else{ await msg.reply(data) }
 
-    return true
 }
 
 

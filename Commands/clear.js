@@ -10,5 +10,4 @@ module.exports = async ({msg, client}) => {
         if (msg.author.id == client.user.id)
             await msg.delete()
     })
-    return true
 }
