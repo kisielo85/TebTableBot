@@ -4,7 +4,7 @@
  */
 
 // jezeli client jest nie potrzebny to usun
-module.exports = async ({msg, client}) => {
+module.exports = async ({msg, client, dm_list}) => {
 
-    return true
+    return dm_list
 }

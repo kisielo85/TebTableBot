@@ -1,12 +1,15 @@
 const tableData = require('../Other/tableData.js');
 const fs = require('fs')
-var dm_list = require('../Other/dmList.json');
+
+
 const {ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
 
 let temp_list={}
 
+
+
 /** @param {import('discord.js').Client} client */
-module.exports = (client, cmd) => { // cmd = lista komend w obiekcie
+module.exports = ({client, cmd, dm_list}) => {
     // stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
     async function placeButtons(buttons, msg, content=false){
         let [first, msgGroup] = await getBtnGroup(msg)
