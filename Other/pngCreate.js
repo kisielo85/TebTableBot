@@ -4,11 +4,13 @@ const tableData=require('./tableData.js')
 var hsl = require('hsl-to-hex')
 var hexToHsl = require('hex-to-hsl');
 
-//tab = JSON.parse(fs.readFileSync('sample_data/table.json', 'utf-8'))
+tab = JSON.parse(fs.readFileSync('sample_data/table.json', 'utf-8'))
 //gen_png(tab,'4Teip Technikum','classes')
 
 f=tableData.find("4teip")
-tableData.getTable(f.type,f.id).then(tab=>gen_png(tab,f.name,f.type))
+//tableData.getTable(f.type,f.id).then(tab=>gen_png_with_group(tab,f.name,f.type,['progr','inf']))
+
+gen_png_with_group(tab,f.name,f.type,['progr'])
 
 async function gen_png(table,name,type){
     const width = 1400;
@@ -188,6 +190,51 @@ async function gen_png(table,name,type){
     return canvas.toBuffer("image/png");
 
     const buffer = canvas.toBuffer("image/png");
+    fs.writeFileSync("./image.png", buffer);
+}
+
+// przystosowuje plan do wybranych grup u zwraca obraz z gen_png()
+async function gen_png_with_group(table,name,type,groups){
+
+    // ustawienie pozycji grup
+    groupToSlice={}
+    var s_pos=0
+    for (var i=0; i<groups.length; i++){
+        groupToSlice[groups[i]]=i
+    }
+
+
+    for (const c in table){
+        if(table[c].type != 'card') { continue }
+
+        // jeśli jest podział na grupy, decyduje czy skipnąć karte
+        if (table[c].groupnames[0] != ''){
+            skip=true
+            slices=Array(groups.length).fill('0')
+
+            // nie skipuje jeśli dopasuje grupe
+            for (const g of table[c].groupnames){
+                if (groups.includes(g)){
+                    slices[groupToSlice[g]]='1'
+                    skip=false
+                }
+            }
+            if (skip){table[c].type='skip'; continue}
+
+            // zapobiega rozbiciu lekcji na wiele cellSlices, np. '101' zmienia na '100'
+            var check_status=0
+            for (const s in slices){
+                if (slices[s]==1){
+                    if (check_status==0){ check_status++ }
+                    if (check_status==2){ slices[s]=0 }
+                }
+                else if (check_status==1){ check_status++ }
+            }
+
+            table[c].cellSlices=slices.join('')
+        }
+    }
+    buffer = await gen_png(table,name += ' ('+groups.join(', ')+')',type)
     fs.writeFileSync("./image.png", buffer);
 }
 
