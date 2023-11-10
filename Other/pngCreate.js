@@ -3,15 +3,20 @@ const fs = require("fs");
 const tableData=require('./tableData.js')
 var hsl = require('hsl-to-hex')
 var hexToHsl = require('hex-to-hsl');
+const { Console } = require("console");
 
-tab = JSON.parse(fs.readFileSync('sample_data/table.json', 'utf-8'))
-//gen_png(tab,'4Teip Technikum','classes')
-
+//tab = JSON.parse(fs.readFileSync('sample_data/table.json', 'utf-8'))
+//gen_png_with_group(tab,f.name,f.type,['progr','politech'])
 f=tableData.find("4teip")
-//tableData.getTable(f.type,f.id).then(tab=>gen_png_with_group(tab,f.name,f.type,['progr','inf']))
+tableData.getTable(f.type,f.id).then(tab=>
+    gen_png_with_group(tab,f.name,f.type,['progr']).then(buffer=>
+        fs.writeFileSync("./image.png", buffer)
+        )
+    )
 
-gen_png_with_group(tab,f.name,f.type,['progr'])
 
+
+// zwraca buffer
 async function gen_png(table,name,type){
     const width = 1400;
     const height = 700;
@@ -186,58 +191,104 @@ async function gen_png(table,name,type){
             context.fillText(txt, txt_x, txt_y);
         }
     }
-
+    
     return canvas.toBuffer("image/png");
-
-    const buffer = canvas.toBuffer("image/png");
-    fs.writeFileSync("./image.png", buffer);
 }
+
+// coś w stylu between
+function b(num,from,to){return (num >= from && num <= to)}
 
 // przystosowuje plan do wybranych grup u zwraca obraz z gen_png()
 async function gen_png_with_group(table,name,type,groups){
 
-    // ustawienie pozycji grup
-    groupToSlice={}
-    var s_pos=0
-    for (var i=0; i<groups.length; i++){
-        groupToSlice[groups[i]]=i
-    }
+    var last_gr={from:0, to:0, cards:[],date:''}
 
+    const tab_len=table.length
+    for(let c_id=0; c_id<=tab_len; c_id++){
+        
+        //jeśli koniec tablicy, to pomija wszystko oprócz ustawień komórek
+        if (c_id!=tab_len){
 
-    for (const c in table){
-        if(table[c].type != 'card') { continue }
+            var c=table[c_id]
+            if (c.type!='card'){ continue }
 
-        // jeśli jest podział na grupy, decyduje czy skipnąć karte
-        if (table[c].groupnames[0] != ''){
-            skip=true
-            slices=Array(groups.length).fill('0')
+            // jeśli jest podział na grupy, decyduje czy skipnąć karte
+            if (c.groupnames[0] != ''){
+                skip=true
 
-            // nie skipuje jeśli dopasuje grupe
-            for (const g of table[c].groupnames){
-                if (groups.includes(g)){
-                    slices[groupToSlice[g]]='1'
-                    skip=false
+                // nie skipuje jeśli dopasuje grupe
+                for (const g of c.groupnames){
+                    if (groups.includes(g)){skip=false}
                 }
-            }
-            if (skip){table[c].type='skip'; continue}
-
-            // zapobiega rozbiciu lekcji na wiele cellSlices, np. '101' zmienia na '100'
-            var check_status=0
-            for (const s in slices){
-                if (slices[s]==1){
-                    if (check_status==0){ check_status++ }
-                    if (check_status==2){ slices[s]=0 }
-                }
-                else if (check_status==1){ check_status++ }
+                if (skip){table[c_id].type='skip'; continue}
             }
 
-            table[c].cellSlices=slices.join('')
+            c_time={from:parseInt(c.uniperiod),to: (c.durationperiods) ? parseInt(c.uniperiod)+c.durationperiods-1 : parseInt(c.uniperiod)}
         }
+        
+        // sprawdza czy pokrywa się z ostatnimi komórkami, dodaje do grupy
+        if (c_id!=tab_len && (b(c_time.from,last_gr.from,last_gr.to)||b(c_time.to,last_gr.from,last_gr.to)||
+            b(last_gr.from,c_time.from,c_time.to)||b(last_gr.to,c_time.from,c_time.to))){
+            last_gr.cards.push(c_id)
+        }else{// koniec grupy
+            
+            // czy jest wiele linii
+            let len=0
+            if (last_gr.cards[0] && table[last_gr.cards[0]].cellSlices){
+
+                lines=[] // wstępne ustalenie liczby linii
+                for (var i = 0; i < table[last_gr.cards[0]].cellSlices.length; i++) lines.push([])
+                
+                // dodanie komórek do linii
+                for (const gr_c_id of last_gr.cards){
+                    const gr_c=table[gr_c_id ]
+
+                    for (const s in gr_c.cellSlices){
+                        if (gr_c.cellSlices[s]==1){ lines[s].push(gr_c_id) }
+                    }
+                }
+
+                // usuwanie pustych i powielonych linii
+                for (l in lines){
+                    for (l2 in lines){
+                        if (l==l2 || JSON.stringify(lines[l]) != JSON.stringify(lines[l2])){ continue }
+                        lines.splice(l2,1)
+                    }
+                    if (lines[l].length==0){lines.splice(l,1)}
+                }
+
+                // smoll poprawa dla komórek co są na sobie (zazwyczaj pol_obcy i rel)
+                if (lines.length==1 && lines[0].length!=1){
+                    temp=[]
+                    for (const l_c_id of lines[0]){
+                        temp.push([l_c_id])
+                    }
+                    lines=temp
+                }
+
+                // nadpisywanie cellSlices
+                for (const l_id in lines){
+                    for (const l_c_id of lines[l_id]){
+                        table[l_c_id].cellSlices='0'.repeat(l_id)+'1'+'0'.repeat(lines.length-l_id-1)
+                    }
+                }
+
+                if (c_id==tab_len){break}//koniec tablicy
+            }
+            last_gr.cards=[c_id] // rozpoczęcie nowej grupy komórek
+        }
+        
+        // nadpisanie poprzedniej grupy komórek
+        if (last_gr.to<c_time.to || last_gr.date!=c.date) last_gr.to=c_time.to
+        last_gr.from=c_time.from
+        last_gr.date=c.date
+        
     }
-    buffer = await gen_png(table,name += ' ('+groups.join(', ')+')',type)
-    fs.writeFileSync("./image.png", buffer);
+    
+    return await gen_png(table,name += ' ('+groups.join(', ')+')',type)
 }
 
 module.exports = {
-    gen_png
+    gen_png,
+    gen_png_with_group
 };
