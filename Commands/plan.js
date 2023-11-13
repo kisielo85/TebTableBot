@@ -7,11 +7,9 @@ module.exports = async ({msg, tableData}) => {
     
     if (info){
         tab = await tableData.getTable(info.type,info.id)
-        buffer = await pngCreate.gen_png(tab,tab.name);
+        buffer = await pngCreate.gen_png(tab);
 
-        msg.reply({files: [
-            { attachment: buffer }
-        ]})
+        msg.reply({files: [{ attachment: buffer }], ephemeral: true})
     }
 
     else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})

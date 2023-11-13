@@ -8,7 +8,7 @@ const tableData = require('./tableData.js')
 
 module.exports = async (client, dm_list) => {
 
-    console.log(tableData.idList)
+    //console.log(tableData.idList)
 
     let currentTime = new Date();
     let timeIndex = 0;
@@ -30,7 +30,7 @@ module.exports = async (client, dm_list) => {
         [hours, minutes] = tableData.idList.periods[timeIndex].endtime.split(':');
         hours = parseInt(hours); minutes = parseInt(minutes);
 
-        console.log(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()), timeIndex)
+        //console.log(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()), timeIndex)
         await simple.sleep(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()) * 1000)
         
             timeIndex = timeIndex + 1 <= 10 ? timeIndex + 1 : 0 

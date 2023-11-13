@@ -5,19 +5,36 @@ var hsl = require('hsl-to-hex')
 var hexToHsl = require('hex-to-hsl');
 const { Console } = require("console");
 
-//tab = JSON.parse(fs.readFileSync('sample_data/table.json', 'utf-8'))
-//gen_png_with_group(tab,f.name,f.type,['progr','politech'])
+/*f=tableData.find("4teip")
+tab = JSON.parse(fs.readFileSync('sample_data/table.json', 'utf-8'))
+tab.name=f.name; tab.type=f.type
+tab=gen_group_table(tab,['progr'])
+console.log(tab.name)
+f=tableData.find("3tfr")
+tableData.getTable(f.type,f.id).then(tab2=>{
+    tab2=gen_group_table(tab2,['fot'])
+    
+
+    gen_double_png(tab2,tab).then(buffer=>fs.writeFileSync("./image.png", buffer))
+})*/
+
+//gen_png_with_group(tab,['progr','politech']).then(buffer=>fs.writeFileSync("./image.png", buffer))
+
+//gen_png(tab,1).then(buffer=>fs.writeFileSync("./image.png", buffer))
+
+
+/*
 f=tableData.find("4teip")
 tableData.getTable(f.type,f.id).then(tab=>
     gen_png_with_group(tab,f.name,f.type,['progr']).then(buffer=>
         fs.writeFileSync("./image.png", buffer)
         )
-    )
+    )*/
 
 
 
-// zwraca buffer
-async function gen_png(table,name,type){
+// zwraca buffer z obrazem
+function gen_png(table, double=0,canvas=false){
     const width = 1400;
     const height = 700;
     const cell_margin=2
@@ -31,62 +48,64 @@ async function gen_png(table,name,type){
     const full_w=width+margin_left
     const full_h=height+margin_top+margin_day*5
 
-    const canvas = createCanvas(full_w, full_h);
-    const context = canvas.getContext("2d");
-    context.fillStyle = '#fff';
-    context.fillRect(0,0,full_w, full_h)
+    if (double!=2){
+        var canvas = createCanvas(full_w, full_h);
+        var context = canvas.getContext("2d");
+        context.fillStyle = '#fff';
+        context.fillRect(0,0,full_w, full_h)
 
-    // nazwa
-    context.fillStyle = '#000'
-    context.font = "40px sans-serif";
-    var size=context.measureText(name)
-    context.fillText(name, full_w/2-size.width/2, size.emHeightAscent);
+        // nazwa
+        context.fillStyle = '#000'
+        context.font = "40px sans-serif";
+        var size=context.measureText(table.name)
+        context.fillText(table.name, full_w/2-size.width/2, size.emHeightAscent);
 
-    // dni tygodnia
-    var iter=0
-    context.font = "bold 20px sans-serif";
-    for (const txt of ['Po','Wt','Śr','Cz','Pt']){
-        //grid
-        context.beginPath()
-        context.strokeStyle = '#EEE';
-        context.moveTo(0, (step_y+margin_day)*iter+margin_top+1);
-        context.lineTo(full_w, (step_y+margin_day)*iter+margin_top+1);
+        // dni tygodnia
+        var iter=0
+        context.font = "bold 20px sans-serif";
+        for (const txt of ['Po','Wt','Śr','Cz','Pt']){
+            //grid
+            context.beginPath()
+            context.strokeStyle = '#EEE';
+            context.moveTo(0, (step_y+margin_day)*iter+margin_top+1);
+            context.lineTo(full_w, (step_y+margin_day)*iter+margin_top+1);
+            context.stroke()
+
+            var size=context.measureText(txt)
+            
+            var txt_x=margin_left/2-size.width/2
+            var txt_y=(step_y+margin_day)*iter+size.emHeightAscent/2+step_y/2+margin_top
+            context.fillText(txt, txt_x, txt_y);
+            iter+=1
+        }
         context.stroke()
 
-        var size=context.measureText(txt)
-        
-        var txt_x=margin_left/2-size.width/2
-        var txt_y=(step_y+margin_day)*iter+size.emHeightAscent/2+step_y/2+margin_top
-        context.fillText(txt, txt_x, txt_y);
-        iter+=1
-    }
-    context.stroke()
+        // godziny
+        for (const p in tableData.idList.periods){
+            period=tableData.idList.periods[p]
+            var txt=`${period.starttime}-${period.endtime}`
+            // grid 2
+            context.moveTo(step_x*parseInt(p)+margin_left+1, margin_top);
+            context.lineTo(step_x*parseInt(p)+margin_left+1, full_h);
+            context.stroke();
+            
+    
+            context.font = "bold 13px sans-serif";
+            var size=context.measureText(txt)
+            var txt_x=step_x*parseInt(p)-size.width/2+step_x/2+margin_left
+            var txt_y=margin_top-2
 
-    // godziny
-    for (const p in tableData.idList.periods){
-        period=tableData.idList.periods[p]
-        var txt=`${period.starttime}-${period.endtime}`
-        // grid 2
-        context.moveTo(step_x*parseInt(p)+margin_left+1, margin_top);
-        context.lineTo(step_x*parseInt(p)+margin_left+1, full_h);
-        context.stroke();
-        
- 
-        context.font = "bold 13px sans-serif";
-        var size=context.measureText(txt)
-        var txt_x=step_x*parseInt(p)-size.width/2+step_x/2+margin_left
-        var txt_y=margin_top-2
+            context.fillText(txt, txt_x, txt_y);
 
-        context.fillText(txt, txt_x, txt_y);
-
-        context.font = "23px sans-serif";
-        var size=context.measureText(p)
-        var txt_x=step_x*parseInt(p)-size.width/2+step_x/2+margin_left
-        var txt_y=margin_top-18
-        context.fillText(parseInt(p), txt_x, txt_y);
-        
-        context.stroke()
-    }
+            context.font = "23px sans-serif";
+            var size=context.measureText(p)
+            var txt_x=step_x*parseInt(p)-size.width/2+step_x/2+margin_left
+            var txt_y=margin_top-18
+            context.fillText(parseInt(p), txt_x, txt_y);
+            
+            context.stroke()
+        }
+    }else {var context = canvas.getContext("2d");}
 
     for (const c of table){
         if (c.type != 'card') continue
@@ -101,10 +120,20 @@ async function gen_png(table,name,type){
         // wysokość komórki
         var cell_height=step_y-margin_day
 
+        if (double!=0){
+            if (c.cellSlices){
+                if (double==1){c.cellSlices=c.cellSlices+'0'.repeat(c.cellSlices.length)}
+                else if(double==2){c.cellSlices='0'.repeat(c.cellSlices.length)+c.cellSlices}
+            }
+            else{
+                if(double==1){c.cellSlices='10'}
+                else {c.cellSlices='01'}
+            }
+        }
+        
         // jeśli wiele grup
-        if (c.cellSlices){
+        if (c.cellSlices || double!=0 ){
             const c_count=c.cellSlices.length
-            
             var count_h=0
             var count_top=0
             var hastop=false
@@ -140,12 +169,12 @@ async function gen_png(table,name,type){
         
         // nazwa przedmiotu
         context.fillStyle = '#222';
-        var font_size=19;
+        var font_size=23;
         context.font = `bold ${font_size}px sans-serif`;
         var txt=tableData.idList.subjects[c.subjectid].short
         var size=context.measureText(txt)
         // żeby test sie mieścił w komórce
-        while(size.width >= cell_width){
+        while(size.width >= cell_width || size.emHeightAscent >= cell_height){
             font_size-=1
             context.font = `bold ${font_size}px sans-serif`;
             size=context.measureText(txt)
@@ -156,7 +185,7 @@ async function gen_png(table,name,type){
 
         // sala
         context.font = "bold 14px sans-serif";
-        if (type != 'classrooms'){
+        if (table.type != 'classrooms'){
             txt=tableData.idList.classrooms[c.classroomids[0]].short
             size=context.measureText(txt)
             txt_x=cell_x+cell_width-size.width-2
@@ -165,10 +194,10 @@ async function gen_png(table,name,type){
         }
 
         // nauczyciel
-        if (type != 'teachers'){
+        if (table.type != 'teachers'){
             txt=tableData.idList.teachers[c.teacherids[0]].short
             size=context.measureText(txt)
-            if (type=='classrooms'){ txt_x=cell_x+cell_width-size.width-2}
+            if (table.type=='classrooms'){ txt_x=cell_x+cell_width-size.width-2}
             else { txt_x=cell_x+4 }
             txt_y=cell_y+cell_height-4
             context.fillText(txt, txt_x, txt_y);
@@ -184,22 +213,22 @@ async function gen_png(table,name,type){
         }
 
         // klasa
-        if (type != 'classes'){
+        if (table.type != 'classes'){
             txt=tableData.idList.classes[c.classids[0]].short
             txt_x=cell_x+4
             txt_y=cell_y+cell_height-4
             context.fillText(txt, txt_x, txt_y);
         }
     }
-    
+    if (double==1) return canvas;
     return canvas.toBuffer("image/png");
 }
 
 // coś w stylu between
 function b(num,from,to){return (num >= from && num <= to)}
 
-// przystosowuje plan do wybranych grup u zwraca obraz z gen_png()
-async function gen_png_with_group(table,name,type,groups){
+function gen_group_table(table,groups){
+    table.name += ' ('+groups.join(', ')+')'
 
     var last_gr={from:0, to:0, cards:[],date:''}
 
@@ -284,10 +313,19 @@ async function gen_png_with_group(table,name,type,groups){
         last_gr.date=c.date
         
     }
-    
-    return await gen_png(table,name += ' ('+groups.join(', ')+')',type)
+    return table;
 }
 
+// przystosowuje plan do wybranych grup u zwraca obraz z gen_png()
+async function gen_png_with_group(table,groups){
+    table=gen_group_table(table,groups);
+    return gen_png(table)
+}
+
+async function gen_double_png(table1,table2){
+    table1.name+=' + '+table2.name
+    return gen_png(table2,2,gen_png(table1,1))
+}
 module.exports = {
     gen_png,
     gen_png_with_group

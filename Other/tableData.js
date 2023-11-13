@@ -46,7 +46,11 @@ async function getTable(tableType, id,oneDay=false,addDays=0){
     };
 
     const response = await axios.post('https://tebwroclaw.edupage.org/timetable/server/currenttt.js?__func=curentttGetData', requestData)
-    return response.data.r.ttitems
+    let tab=response.data.r.ttitems
+    if (idList[tableType][id].name){tab.name=idList[tableType][id].name}
+    else {tab.name=idList[tableType][id].short}
+    tab.type=tableType
+    return tab
 }
 
 // pobiera id klas, nauczycieli itp. do idList
