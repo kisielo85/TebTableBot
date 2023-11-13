@@ -66,6 +66,19 @@ client.on("ready", async () => {
     });
 
     await client.application.commands.create({
+        name: 'plan',
+        description: 'wygeneruj plan',
+        options: [
+            {
+                name: '_',
+                description: 'wpisz czyj plan wygeberować',
+                type:ApplicationCommandOptionType.String,
+                required: true
+            }
+        ]
+    });
+
+    await client.application.commands.create({
         name: 'clear',
         description: 'usuń wiadomości bota'
     });
