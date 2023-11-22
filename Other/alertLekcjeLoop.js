@@ -7,7 +7,7 @@ const tableData = require('./tableData.js')
 */
 
 module.exports = async (client, dm_list) => {
-    /*
+    
     //console.log(tableData.idList)
 
     let currentTime = new Date();
@@ -19,11 +19,11 @@ module.exports = async (client, dm_list) => {
         hours = parseInt(hours); minutes = parseInt(minutes);
 
         if(!(hours + (minutes / 100) <= currentTime.getHours() + (currentTime.getMinutes() / 100))){
-            timeIndex = parseInt(a)
+            timeIndex = parseInt(a);
             break
         }
     }
-
+    
     while(true){
         currentTime = new Date();
 
@@ -31,14 +31,20 @@ module.exports = async (client, dm_list) => {
         hours = parseInt(hours); minutes = parseInt(minutes);
 
         console.log(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()), timeIndex)
-        await simple.sleep(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()) * 1000)
-            timeIndex = timeIndex + 1 <= 10 ? timeIndex + 1 : 0 
-            for(let a of Object.keys(dm_list)){
-                if(dm_list[a].alert){
-                    //for()
-                    //var toSend = await client.users.fetch(a)
-                    //await toSend.send('nowa lekcja uppi')
+        if(timeIndex < 10){
+            await simple.sleep(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()) * 1000)
+                timeIndex = timeIndex + 1
+                for(let a of Object.keys(dm_list)){
+                    if(dm_list[a].alert){
+                        //for()
+                        var toSend = await client.users.fetch(a)
+                        await toSend.send('nowa lekcja uppi')
+                    }
                 }
-            }
-    }*/
+        }else{
+            console.log("beep")
+            timeIndex = 0
+            await simple.sleep(((23 - currentTime.getHours()) * 60 + (60 - currentTime.getMinutes()) + 20) * 60 * 1000)
+        }
+    }
 }
