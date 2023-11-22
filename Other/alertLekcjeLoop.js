@@ -28,11 +28,11 @@ module.exports = async (client, dm_list, tableData) => {
         [hours, minutes] = tableData.idList.periods[timeIndex].endtime.split(':');
         hours = parseInt(hours); minutes = parseInt(minutes);
 
-        console.log(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()), timeIndex)
+        console.log(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes() - 5) * 60 - currentTime.getSeconds()), timeIndex)
         
         // jeśli są dzisiaj lekcje
         if(timeIndex < 10){
-            await simple.sleep(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()) * 1000)
+            await simple.sleep(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes() - 5) * 60 - currentTime.getSeconds()) * 1000)
                 timeIndex = timeIndex + 1
                 for(let user_id of Object.keys(dm_list)){ // co usera z dmlist
                     if(!dm_list[user_id].alert){continue}
