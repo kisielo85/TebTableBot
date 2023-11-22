@@ -172,11 +172,12 @@ module.exports = ({client, cmd, dm_list}) => {
                 await delBtnGroup(msg)
                 // czy user jest w temp_liście
                 tmp=temp_list[user]
+                console.log(JSON.stringify(temp_list))
                 if (!tmp || !tmp.groups || !tmp.class) return
                 if(dm_list[user])
                     dm_list[user].class[tmp.class] = tmp.groups
                 else{
-                    dm_list[user] = { "alert":true, "class": {[tmp.class]:[tmp.groups]}}
+                    dm_list[user] = { "alert":true, "class": {[tmp.class]:tmp.groups}}
                 }
                 
                 fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
