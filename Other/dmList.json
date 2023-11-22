@@ -1,4 +1,26 @@
 {
+  "899941837106712587": {
+    "alert": true,
+    "list": [
+      {
+        "id": "-3",
+        "type": "classes",
+        "groups": [
+          "fot",
+          "rekl"
+        ]
+      },
+      {
+        "id": "-7",
+        "type": "classes",
+        "groups": [
+          "progr",
+          "inf",
+          "esport"
+        ]
+      }
+    ]
+  },
   "430039581908271104": {
     "alert": true,
     "list": [
@@ -6,29 +28,8 @@
         "id": "-7",
         "type": "classes",
         "groups": [
-          "esport",
           "progr"
         ]
-      },
-      {
-        "id": "-27",
-        "type": "classes",
-        "groups": []
-      },
-      {
-        "id": "-1",
-        "type": "classes",
-        "groups": []
-      },
-      {
-        "id": "-42",
-        "type": "classes",
-        "groups": []
-      },
-      {
-        "id": "-7",
-        "type": "classes",
-        "groups": []
       }
     ]
   }

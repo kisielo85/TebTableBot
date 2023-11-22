@@ -6,9 +6,7 @@ const tableData = require('./tableData.js')
  * @param {import('discord.js').Client} client
 */
 
-module.exports = async (client, dm_list) => {
-    
-    //console.log(tableData.idList)
+module.exports = async (client, dm_list, tableData) => {
 
     let currentTime = new Date();
     let timeIndex = 0;
@@ -31,15 +29,32 @@ module.exports = async (client, dm_list) => {
         hours = parseInt(hours); minutes = parseInt(minutes);
 
         console.log(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()), timeIndex)
+        
+        // jeśli są dzisiaj lekcje
         if(timeIndex < 10){
             await simple.sleep(((hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes()) * 60 - currentTime.getSeconds()) * 1000)
                 timeIndex = timeIndex + 1
-                for(let a of Object.keys(dm_list)){
-                    if(dm_list[a].alert){
-                        //for()
-                        var toSend = await client.users.fetch(a)
-                        await toSend.send('nowa lekcja uppi')
+                for(let user_id of Object.keys(dm_list)){ // co usera z dmlist
+                    if(!dm_list[user_id].alert){continue}
+                    let message = ''
+                    let toSend
+                    
+                    for(let plan of dm_list[user_id].list){ // 
+                        for(const c of await tableData.getTable(plan.type, plan.id, true)){
+                            if(parseInt(c.uniperiod) != timeIndex){continue}
+                            let sent = []
+                            
+                            for(let g of c.groupnames){
+                                if(plan.groups && plan.groups.includes(g) && !sent.includes(c.groupnames)){
+                                    toSend = await client.users.fetch(user_id)
+                                    sent.push(c.groupnames)
+                                    message += `klasa **${tableData.idList[plan.type][plan.id].short}** grupa **${c.groupnames.join(', ')}** sala **${tableData.idList.classrooms[c.classroomids[0]].short}** o **${c.starttime}**` + "\n"
+                                }
+                            }
+                        }
                     }
+                    if(toSend)
+                        await toSend.send(message)                        
                 }
         }else{
             console.log("beep")

@@ -28,7 +28,7 @@ function getDate(oneDay=false,addDays=0){
 
 
 // zwraca tabele: classes, teachers, classrooms
-async function getTable(tableType, id,oneDay=false,addDays=0){
+async function getTable(tableType, id, oneDay=false,addDays=0){
     d=getDate(oneDay,addDays)
     const requestData = {
         __args:[ null,

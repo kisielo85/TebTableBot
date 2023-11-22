@@ -1,4 +1,4 @@
-const tableData = require('../Other/tableData.js');
+
 const fs = require('fs')
 
 
@@ -9,7 +9,7 @@ let temp_list={}
 
 
 /** @param {import('discord.js').Client} client */
-module.exports = ({client, cmd, dm_list}) => {
+module.exports = ({client, cmd, dm_list, tableData}) => {
     // stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
     async function placeButtons(buttons, msg, content=false){
         let [first, msgGroup] = await getBtnGroup(msg)
