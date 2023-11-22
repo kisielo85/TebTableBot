@@ -66,6 +66,11 @@ client.on("ready", async () => {
     });
 
     await client.application.commands.create({
+        name: 'list',
+        description: 'wyświetl zapisane plany',
+    });
+
+    await client.application.commands.create({
         name: 'plan',
         description: 'wygeneruj plan',
         options: [

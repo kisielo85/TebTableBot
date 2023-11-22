@@ -1,4 +1,4 @@
-/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.InteractionCreate} msg */
+/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
 const pngCreate = require('../Other/pngCreate.js')
 
 module.exports = async ({msg, tableData}) => {

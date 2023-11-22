@@ -1,10 +1,35 @@
 {
-  "899941837106712587": {
+  "430039581908271104": {
     "alert": true,
-    "class": {
-      "-7": [
-        "progr"
-      ]
-    }
+    "list": [
+      {
+        "id": "-7",
+        "type": "classes",
+        "groups": [
+          "esport",
+          "progr"
+        ]
+      },
+      {
+        "id": "-27",
+        "type": "classes",
+        "groups": []
+      },
+      {
+        "id": "-1",
+        "type": "classes",
+        "groups": []
+      },
+      {
+        "id": "-42",
+        "type": "classes",
+        "groups": []
+      },
+      {
+        "id": "-7",
+        "type": "classes",
+        "groups": []
+      }
+    ]
   }
 }

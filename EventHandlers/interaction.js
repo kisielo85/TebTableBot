@@ -174,16 +174,28 @@ module.exports = ({client, cmd, dm_list}) => {
                 tmp=temp_list[user]
                 console.log(JSON.stringify(temp_list))
                 if (!tmp || !tmp.groups || !tmp.class) return
-                if(dm_list[user])
-                    dm_list[user].class[tmp.class] = tmp.groups
+                if(dm_list[user]){
+                    dm_list[user].list.push({
+                        "id":tmp.class,
+                        "type":"classes",
+                        "groups":tmp.groups
+                    })
+                }
+
                 else{
-                    dm_list[user] = { "alert":true, "class": {[tmp.class]:tmp.groups}}
+                    dm_list[user] = { "alert":true, "list": [
+                        {
+                            "id":tmp.class,
+                            "type":"classes",
+                            "groups":tmp.groups
+                        }
+                    ]}
                 }
                 
                 fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
     
-                c = tableData.idList.classes[temp_list[user].class].name
-                gr = dm_list[user].class[temp_list[user].class].join(', ')
+                c = tableData.idList.classes[tmp.class].name
+                gr = tmp.groups.join(', ')
                 if (gr!='') gr=`, grupa: **${gr}**`
                 msg.channel.send(`Dodano cie do **${c}**${gr}`)
                 delete temp_list[user]
