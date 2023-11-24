@@ -31,13 +31,15 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
             else await msg.channel.send(data)
         }
 
-        msg.deferUpdate()
+        if (msg.message) msg.deferUpdate()
+
         // usuwa pozostałe przyciski
         for (const m of msgGroup) await m.delete()   
     }
     
     // zwraca grupe z daną wiadomością
     async function getBtnGroup(srcMsg){
+        if (!srcMsg.message) return [true,[]]
         hasMsg=false
         stopLoop=false
         isFirst=true
@@ -105,7 +107,7 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
                 let groups = [] 
                 for(let g of tableData.idList.classes[k_id].groups){
                     groups.push(new ButtonBuilder()
-                    .setCustomId('g-'+g)
+                    .setCustomId('checkbox-group-'+g)
                     .setLabel(g)
                     .setStyle(ButtonStyle.Secondary)
                     );
@@ -121,20 +123,26 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
                 placeButtons(groups, msg, 'Wybierz grupy w których jesteś')
             }
     
-            // wybrano grupe
-            else if(msg.customId.startsWith("g-")){
-                selected = msg.customId.slice(2)
+            // checkboxy
+            else if(msg.customId.startsWith("checkbox-")){
+                msg_data=msg.customId.split('-')
+                type=msg_data[1]
+                choice=msg_data[2]
+                selected = msg.customId
+                
+                
                 set_true=false
                 buttons=msg.message.components[0].components
     
                 // tworzy identyczne przyciski
-                let groups = [] 
+                let replace_btns = [] 
                 for (const i of buttons){
                     b=i.data
+                    console.log(type,b)
                     st=b.style
     
                     // zmienia kolor wybranej grupy
-                    if (selected == b.label){
+                    if (selected == b.custom_id){
                         st=ButtonStyle.Secondary
                         if (b.style==ButtonStyle.Secondary){
                             st=ButtonStyle.Primary
@@ -142,28 +150,36 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
                         }
                     }
                     
-                    groups.push(new ButtonBuilder()
+                    replace_btns.push(new ButtonBuilder()
                     .setCustomId(b.custom_id)
                     .setLabel(b.label)
                     .setStyle(st)
                     );
                 }
-                
-                // czy user jest w temp_liście
-                if (!temp_list[msg.user.id] || !temp_list[msg.user.id].groups){delBtnGroup(msg); return}
-    
-                // dodawanie do temp_list
-                tab=temp_list[msg.user.id].groups
-                if (set_true){
-                    if (!tab.includes(selected)) tab.push(selected)
+
+                // wybór grup przy dodawaniu klasy do listy
+                if (type=="group"){
+                    // jeśli nie ma w temp liście to wywala
+                    if (!temp_list[msg.user.id] || !temp_list[msg.user.id].groups){delBtnGroup(msg); return}
+        
+                    // dodawanie grupy do temp_list
+                    tab=temp_list[msg.user.id].groups
+                    if (set_true){
+                        if (!tab.includes(choice)) tab.push(choice)
+                    }
+                    else{
+                        const index = tab.indexOf(choice);
+                        if (index != -1) tab.splice(index, 1);
+                    }
+                }else if (type=="alert"){
+                    dm_list[msg.user.id].list[choice].alert=set_true
+                    console.log(dm_list[msg.user.id].list[choice].alert)
                 }
-                else{
-                    const index = tab.indexOf(selected);
-                    if (index != -1) tab.splice(index, 1);
-                }
-    
-                await msg.message.edit({components: [new ActionRowBuilder().addComponents(groups)]})
+
+                // podmiana przycisków na nowe
+                await msg.message.edit({components: [new ActionRowBuilder().addComponents(replace_btns)]})
                 msg.deferUpdate()
+                
             }
     
             // zatwierdzono grupe
@@ -183,13 +199,12 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
                 }
 
                 else{
-                    dm_list[user] = { "alert":true, "list": [
-                        {
-                            "id":tmp.class,
-                            "type":"classes",
-                            "groups":tmp.groups
-                        }
-                    ]}
+                    dm_list[user] = {"list": [{
+                        "alert":false,
+                        "id":tmp.class,
+                        "type":"classes",
+                        "groups":tmp.groups
+                    }]}
                 }
                 
                 fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
@@ -200,9 +215,15 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
                 msg.channel.send(`Dodano cie do **${c}**${gr}`)
                 delete temp_list[user]
             }
+
+            else if(msg.customId=="close"){
+                await delBtnGroup(msg)
+            }
+            
         }
+        console.log(temp_list)
         if(cmd[msg.commandName])
-            cmd[msg.commandName]({msg, client, dm_list, tableData})
+            cmd[msg.commandName]({msg, client, dm_list, tableData, placeButtons, ButtonBuilder,ButtonStyle})
     })
     
 }

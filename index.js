@@ -1,6 +1,10 @@
 const fs = require('fs');
+
+if (!fs.existsSync('./Other/dmList.json')){fs.writeFileSync('./Other/dmList.json', '{}')}
 var dm_list = require('./Other/dmList.json');
+
 const tableData = require('./Other/tableData.js');
+
 // jeśli nie ma config.json, tworzy na podstawie config_example
 if (!fs.existsSync('config.json')){
     fs.copyFile("config_example.json", "config.json", (err2)=>{})
