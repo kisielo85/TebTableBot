@@ -9,7 +9,7 @@ const tableData = require('./tableData.js')
 var test = 'August 19, 1975 13:19:58'
 
 module.exports = async (client, dm_list, tableData) => {
-    let currentTime = new Date(test);
+    let currentTime = new Date();
 
     // aktualna lekcja
     let timeIndex = 0;
@@ -23,7 +23,7 @@ module.exports = async (client, dm_list, tableData) => {
     }
 
     while(true){
-        currentTime = new Date(test);
+        currentTime = new Date();
 
         [hours, minutes] = tableData.idList.periods[timeIndex].endtime.split(':');
         hours = parseInt(hours); minutes = parseInt(minutes)
