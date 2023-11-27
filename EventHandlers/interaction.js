@@ -220,6 +220,10 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
             else if(msg.customId=="close"){
                 await delBtnGroup(msg)
             }
+
+            if (msg.customId.startsWith("accept-")){
+                await delBtnGroup(msg) // work in progress
+            }
             
         }
         console.log(temp_list)

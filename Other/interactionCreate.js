@@ -55,4 +55,9 @@ module.exports = async (client) => {
         name: 'alert',
         description: 'powiadomienia o następnej lekcji co przerwe'
     });
+
+    await client.application.commands.create({
+        name: 'joinedplan',
+        description: 'wygeneruj plan 2 w jednym'
+    });
 }
