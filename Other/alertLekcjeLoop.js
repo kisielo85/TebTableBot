@@ -6,10 +6,10 @@ const tableData = require('./tableData.js')
  * @param {import('discord.js').Client} client
 */
 
-var test = 'August 19, 1975 11:19:00'
+var test = 'August 19, 1975 13:19:58'
 
 module.exports = async (client, dm_list, tableData) => {
-    let currentTime = new Date();
+    let currentTime = new Date(test);
 
     // aktualna lekcja
     let timeIndex = 0;
@@ -23,7 +23,7 @@ module.exports = async (client, dm_list, tableData) => {
     }
 
     while(true){
-        currentTime = new Date();
+        currentTime = new Date(test);
 
         [hours, minutes] = tableData.idList.periods[timeIndex].endtime.split(':');
         hours = parseInt(hours); minutes = parseInt(minutes)
@@ -40,11 +40,11 @@ module.exports = async (client, dm_list, tableData) => {
             
             // co usera z dmlist
             for(let user_id of Object.keys(dm_list)){
-                if(!dm_list[user_id].alert){continue}
                 let message = ''
                 let toSend
                 
                 for(let plan of dm_list[user_id].list){
+                    if(!plan.alert){continue}
                     for(const c of await tableData.getTable(plan.type, plan.id, true)){
                         if(parseInt(c.uniperiod) != timeIndex){continue}
                         let sent = []

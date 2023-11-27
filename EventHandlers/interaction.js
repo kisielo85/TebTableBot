@@ -218,6 +218,7 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
             }
 
             else if(msg.customId=="close"){
+                fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
                 await delBtnGroup(msg)
             }
 
