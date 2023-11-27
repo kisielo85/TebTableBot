@@ -36,5 +36,5 @@ module.exports = async ({msg, dm_list, placeButtons,ButtonBuilder,ButtonStyle}) 
         .setStyle(ButtonStyle.Success)
     );
 
-    placeButtons(btns,msg,'wybierz na których planach chcesz powiadomienia:')
+    placeButtons(btns,msg,'wybierz na których planach chcesz powiadomienia:',true)
 }

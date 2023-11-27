@@ -11,7 +11,7 @@ let temp_list={}
 /** @param {import('discord.js').Client} client */
 module.exports = ({client, cmd, dm_list, tableData}) => {
     // stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
-    async function placeButtons(buttons, msg, content=false){
+    async function placeButtons(buttons, msg, content=false, reply=false){
         let [first, msgGroup] = await getBtnGroup(msg)
     
         // usuwa grupe jeśli nie jest pierwsza w chatcie
@@ -28,6 +28,7 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
             if (content && i==0) data.content=content
             
             if (replace) await replace.edit(data)
+            else if(reply){ msg.reply(data); reply=false}
             else await msg.channel.send(data)
         }
 
