@@ -60,4 +60,9 @@ module.exports = async (client) => {
         name: 'joinedplan',
         description: 'wygeneruj plan 2 w jednym'
     });
+
+    await client.application.commands.create({
+        name: 'discord',
+        description: 'daje link do głównego discorda',
+    });
 }

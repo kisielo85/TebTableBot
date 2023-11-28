@@ -227,7 +227,6 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
             }
             
         }
-        console.log(temp_list)
         if(cmd[msg.commandName])
             cmd[msg.commandName]({msg, client, dm_list, tableData, placeButtons, ButtonBuilder,ButtonStyle})
     })

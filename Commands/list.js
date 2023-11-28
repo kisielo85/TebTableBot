@@ -15,7 +15,4 @@ module.exports = async ({msg, dm_list,tableData}) => {
     }else{
         msg.reply({content: `nie masz żadnych zapisanych planów`, ephemeral: true})
     }
-
-    //if (info) msg.reply({content: info, ephemeral: true})
-    //else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})
 }
