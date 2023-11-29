@@ -1,11 +1,8 @@
 
 const fs = require('fs')
-
-
 const {ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
 
 let temp_list={}
-
 
 
 /** @param {import('discord.js').Client} client */
@@ -20,7 +17,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
             msgGroup=[]
         }
     
-        // stawia przyciski lub edytuje istniejące
+        // stawia lub edytuje istniejące
         for(let i = 0; i < buttons.length / 5; i++){
             replace=msgGroup.pop()
     
@@ -31,7 +28,6 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
             else if(reply){ msg.reply(data); reply=false}
             else await msg.channel.send(data)
         }
-
         if (msg.message) msg.deferUpdate()
 
         // usuwa pozostałe przyciski
@@ -41,11 +37,12 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
     // zwraca grupe z daną wiadomością
     async function getBtnGroup(srcMsg){
         if (!srcMsg.message) return [true,[]]
-        hasMsg=false
-        stopLoop=false
-        isFirst=true
-        msgGroup=[]
+        let hasMsg=false
+        let stopLoop=false
+        let isFirst=true
+        let msgGroup=[]
         const messages = await srcMsg.channel.messages.fetch({'limit':20})
+
         messages.forEach(msg => {
             // jeśli nie ma końca pętli i wiadomośc jest od bota
             if (!stopLoop){
@@ -59,7 +56,6 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     if (hasMsg) stopLoop=true
                     else {msgGroup=[]; isFirst=false}
                 }
-                
             }
         })
         if (hasMsg) return [isFirst, msgGroup]
@@ -89,8 +85,6 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
         }
         return temp_list[userid][tab_id]
     }
-    
-
 
     client.on('interactionCreate', async (msg) => {
         // jeżeli interakcja to przycisk
@@ -144,19 +138,18 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
     
             // checkboxy
             else if(msg.customId.startsWith("checkbox-")){
-                msg_data=msg.customId.split('-')
-                type=msg_data[1]
-                choice=msg_data[2]
-                selected = msg.customId
+                const msg_data=msg.customId.split('-')
+                const type=msg_data[1]
+                const choice=msg_data[2]
+                const selected = msg.customId
                 
-                
-                set_true=false
+                let set_true=false
                 buttons=msg.message.components[0].components
     
                 // tworzy identyczne przyciski
                 let replace_btns = [] 
                 for (const i of buttons){
-                    b=i.data
+                    const b=i.data
                     st=b.style
     
                     // zmienia kolor wybranej grupy
@@ -181,14 +174,15 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     if (!tempList_add(msg.user.id,'groups',choice,set_true)){
                         delBtnGroup(msg); return
                     }
-
-                }else if (type=="alert"){
+                }
+                else if (type=="alert"){
                     dm_list[msg.user.id].list[choice].alert=set_true
                 }
                 else if (type=="joined"){
                     join_tab = tempList_add(msg.user.id,'joined',choice,set_true)
-                    if (join_tab.length>=2){
 
+                    // tworzy png od razu po wybraniu drugiego planu
+                    if (join_tab.length>=2){
                         const t_data1=dm_list[msg.user.id].list[join_tab[0]]
                         const t_data2=dm_list[msg.user.id].list[join_tab[1]]
                         tab1 = await tableData.getTable(t_data1.type,t_data1.id)
@@ -196,6 +190,8 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
 
                         buffer = await pngCreate.gen_double_png(tab1,t_data1.groups,tab2,t_data2.groups)
                         msg.channel.send({files: [{ attachment: buffer }]})
+
+                        // return żeby nie robiło przycisków
                         await delBtnGroup(msg)
                         return
                     }
@@ -204,7 +200,6 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                 // podmiana przycisków na nowe
                 await msg.message.edit({components: [new ActionRowBuilder().addComponents(replace_btns)]})
                 msg.deferUpdate()
-                
             }
     
             // zatwierdzono grupe
@@ -240,22 +235,15 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                 delete temp_list[user]
             }
 
-            else if(msg.customId=="close"){
-                fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
-                await delBtnGroup(msg)
-            }
-
             if (msg.customId.startsWith("accept-")){
                 const type = msg.customId.split('-')[1]
                 if (type=='alert'){
                     fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
                 }
-                await delBtnGroup(msg) // work in progress
+                await delBtnGroup(msg)
             }
-            
         }
         if(cmd[msg.commandName])
             cmd[msg.commandName]({msg, client, dm_list, temp_list, tableData, placeButtons, ButtonBuilder,ButtonStyle})
     })
-    
 }
