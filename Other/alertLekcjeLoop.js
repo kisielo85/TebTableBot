@@ -41,36 +41,30 @@ module.exports = async (client, dm_list, tableData) => {
             // co usera z dmlist
             for(let user_id of Object.keys(dm_list)){
                 let message = ''
-                let toSend
-                
-                for(let plan of dm_list[user_id].list){
-                    if(!plan.alert){continue}
-                    for(const c of await tableData.getTable(plan.type, plan.id, true)){
-                        if(parseInt(c.uniperiod) != timeIndex){continue}
-                        let sent = []
-                        
-                        for(let g of c.groupnames){
-                            if(plan.groups && (plan.groups.includes(g) || g == '') && !sent.includes(c.groupnames)){
-                                toSend = await client.users.fetch(user_id)
-                                sent.push(c.groupnames)
-                                
-                                message+=`${tableData.idList[plan.type][plan.id].short}` //klasa
-                                if (g!=''){ message+=` (${plan.groups.join(', ')})`} //grupa
-                                message+=`:  ${tableData.idList.subjects[c.subjectid].name} ${tableData.idList.classrooms[c.classroomids[0]].short}   ${c.starttime} - ${c.endtime}\n` //przedmiot, klasa, godzina
-
-                                /*if(g == '')
-                                    message += `klasa **${tableData.idList[plan.type][plan.id].short}** sala **${tableData.idList.classrooms[c.classroomids[0]].short}** o **${c.starttime}**` + "\n"
-                                else
-                                    message += `klasa **${tableData.idList[plan.type][plan.id].short}** grupa **${c.groupnames.join(', ')}** sala **${tableData.idList.classrooms[c.classroomids[0]].short}** o **${c.starttime}**` + "\n"*/
+                let toSend = false
+                if(dm_list[user_id] && dm_list[user_id].list)
+                    for(let plan of dm_list[user_id].list){
+                        if(!plan.alert){continue}
+                        for(const c of await tableData.getTable(plan.type, plan.id, true)){
+                            if(parseInt(c.uniperiod) != timeIndex){continue}
+                            let sent = []
+                            
+                            for(let g of c.groupnames){
+                                if(plan.groups && (plan.groups.includes(g) || g == '') && !sent.includes(c.groupnames)){
+                                    toSend = await client.users.fetch(user_id)
+                                    sent.push(c.groupnames)
+                                    
+                                    message+=`${tableData.idList[plan.type][plan.id].short}` //klasa
+                                    if (g!=''){ message+=` (${plan.groups.join(', ')})`} //grupa
+                                    message+=`:  ${tableData.idList.subjects[c.subjectid].name} ${tableData.idList.classrooms[c.classroomids[0]].short}   ${c.starttime} - ${c.endtime}\n` //przedmiot, klasa, godzina
+                                }
                             }
                         }
                     }
-                }
                 if(toSend)
                     await toSend.send(message)                        
             }
         }else{
-            console.log("czej do następnego dnia")
             timeIndex = 0
             await simple.sleep(((23 - currentTime.getHours()) * 60 + (60 - currentTime.getMinutes()) + 20) * 60 * 1000)
         }

@@ -1,6 +1,6 @@
 /** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
 module.exports = async ({msg, dm_list,tableData}) => {
-    if (dm_list[msg.user.id]){
+    if (dm_list[msg.user.id] && dm_list[msg.user.id].list){
         let out=""
         var list=dm_list[msg.user.id].list
         for (p of list){
