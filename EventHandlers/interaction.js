@@ -87,6 +87,11 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
     }
 
     client.on('interactionCreate', async (msg) => {
+        if(!dm_list[msg.user.id]){
+            await msg.user.send("dane są pobierane z **tebwroclaw.edupage.org**, więc mogą sie one różnić z planem z **librusa**");
+            dm_list[msg.user.id] = {"list": []}
+            fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
+        }
         // jeżeli interakcja to przycisk
         if(msg.isButton()){
         
@@ -244,6 +249,6 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
             }
         }
         if(cmd[msg.commandName])
-            cmd[msg.commandName]({msg, client, dm_list, temp_list, tableData, placeButtons, ButtonBuilder,ButtonStyle})
+            cmd[msg.commandName]({msg, client, dm_list, temp_list, tableData, placeButtons})
     })
 }
