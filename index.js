@@ -4,6 +4,7 @@ if (!fs.existsSync('./Other/dmList.json')){fs.writeFileSync('./Other/dmList.json
 var dm_list = require('./Other/dmList.json');
 
 const tableData = require('./Other/tableData.js');
+const pngCreate = require('./Other/pngCreate.js');
 
 // jeśli nie ma config.json, tworzy na podstawie config_example
 if (!fs.existsSync('config.json')){
@@ -36,7 +37,7 @@ for(let a of fs.readdirSync('./Commands')){ // przygotowanie komend
 }
 
 for(let a of fs.readdirSync('./EventHandlers')){ // startowanie eventHandleruw
-    require('./EventHandlers/'+a)({client, cmd:commands, dm_list, tableData})
+    require('./EventHandlers/'+a)({client, cmd:commands, dm_list, tableData, pngCreate})
 }
 
 // Main

@@ -19,7 +19,8 @@ module.exports = async ({msg, dm_list, placeButtons,ButtonBuilder,ButtonStyle}) 
         e=dm_list[msg.user.id].list[i]
         let nm=idList[e.type][e.id].short
         if (e.groups.length!=0){nm+=` (${e.groups.join(', ')})`}
-        console.log(nm)
+        
+        // sprawdzenie czy włączony alert
         style=ButtonStyle.Secondary
         if (e.alert){style=ButtonStyle.Primary}
 
@@ -31,7 +32,7 @@ module.exports = async ({msg, dm_list, placeButtons,ButtonBuilder,ButtonStyle}) 
     }
     // zamknięcie edycji
         btns.push(new ButtonBuilder()
-        .setCustomId('close')
+        .setCustomId('accept-alert')
         .setLabel("✔")
         .setStyle(ButtonStyle.Success)
     );

@@ -322,11 +322,15 @@ async function gen_png_with_group(table,groups){
     return gen_png(table)
 }
 
-async function gen_double_png(table1,table2){
+async function gen_double_png(table1,group1,table2,group2){
+    if (group1.length!=0){table1 = gen_group_table(table1,group1)}
+    if (group2.length!=0){table2 = gen_group_table(table2,group2)}
+
     table1.name+=' + '+table2.name
     return gen_png(table2,2,gen_png(table1,1))
 }
 module.exports = {
     gen_png,
-    gen_png_with_group
+    gen_png_with_group,
+    gen_double_png
 };

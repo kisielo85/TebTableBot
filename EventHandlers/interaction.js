@@ -9,7 +9,7 @@ let temp_list={}
 
 
 /** @param {import('discord.js').Client} client */
-module.exports = ({client, cmd, dm_list, tableData}) => {
+module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
     // stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
     async function placeButtons(buttons, msg, content=false, reply=false){
         let [first, msgGroup] = await getBtnGroup(msg)
@@ -37,7 +37,7 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
         // usuwa pozostałe przyciski
         for (const m of msgGroup) await m.delete()   
     }
-    
+
     // zwraca grupe z daną wiadomością
     async function getBtnGroup(srcMsg){
         if (!srcMsg.message) return [true,[]]
@@ -66,10 +66,28 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
         return false
     }
 
+    // usuwanie grupy wiadomości
     async function delBtnGroup(msg){
         let [, msgGroup] = await getBtnGroup(msg)
         if (msgGroup) for (const m of msgGroup) await m.delete()
         else await msg.delete()
+    }
+
+    // dodawianie i usuwanie z temp_list
+    function tempList_add(userid,tab_id,value, add=true){
+        // false jeśli nie istnieje data tabela
+        if (!temp_list[userid]) {return false}
+        if (!temp_list[userid][tab_id]) {return false}
+
+        let tab=temp_list[userid][tab_id]
+        if (add){
+            if (!tab.includes(value)) tab.push(value)
+        }
+        else{
+            const index = tab.indexOf(choice);
+            if (index != -1) tab.splice(index, 1);
+        }
+        return temp_list[userid][tab_id]
     }
     
 
@@ -139,7 +157,6 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
                 let replace_btns = [] 
                 for (const i of buttons){
                     b=i.data
-                    console.log(type,b)
                     st=b.style
     
                     // zmienia kolor wybranej grupy
@@ -161,20 +178,27 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
                 // wybór grup przy dodawaniu klasy do listy
                 if (type=="group"){
                     // jeśli nie ma w temp liście to wywala
-                    if (!temp_list[msg.user.id] || !temp_list[msg.user.id].groups){delBtnGroup(msg); return}
-        
-                    // dodawanie grupy do temp_list
-                    tab=temp_list[msg.user.id].groups
-                    if (set_true){
-                        if (!tab.includes(choice)) tab.push(choice)
+                    if (!tempList_add(msg.user.id,'groups',choice,set_true)){
+                        delBtnGroup(msg); return
                     }
-                    else{
-                        const index = tab.indexOf(choice);
-                        if (index != -1) tab.splice(index, 1);
-                    }
+
                 }else if (type=="alert"){
                     dm_list[msg.user.id].list[choice].alert=set_true
-                    console.log(dm_list[msg.user.id].list[choice].alert)
+                }
+                else if (type=="joined"){
+                    join_tab = tempList_add(msg.user.id,'joined',choice,set_true)
+                    if (join_tab.length>=2){
+
+                        const t_data1=dm_list[msg.user.id].list[join_tab[0]]
+                        const t_data2=dm_list[msg.user.id].list[join_tab[1]]
+                        tab1 = await tableData.getTable(t_data1.type,t_data1.id)
+                        tab2 = await tableData.getTable(t_data2.type,t_data2.id)
+
+                        buffer = await pngCreate.gen_double_png(tab1,t_data1.groups,tab2,t_data2.groups)
+                        msg.channel.send({files: [{ attachment: buffer }]})
+                        await delBtnGroup(msg)
+                        return
+                    }
                 }
 
                 // podmiana przycisków na nowe
@@ -189,7 +213,6 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
                 await delBtnGroup(msg)
                 // czy user jest w temp_liście
                 tmp=temp_list[user]
-                console.log(JSON.stringify(temp_list))
                 if (!tmp || !tmp.groups || !tmp.class) return
                 if(dm_list[user]){
                     dm_list[user].list.push({
@@ -223,12 +246,16 @@ module.exports = ({client, cmd, dm_list, tableData}) => {
             }
 
             if (msg.customId.startsWith("accept-")){
+                const type = msg.customId.split('-')[1]
+                if (type=='alert'){
+                    fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
+                }
                 await delBtnGroup(msg) // work in progress
             }
             
         }
         if(cmd[msg.commandName])
-            cmd[msg.commandName]({msg, client, dm_list, tableData, placeButtons, ButtonBuilder,ButtonStyle})
+            cmd[msg.commandName]({msg, client, dm_list, temp_list, tableData, placeButtons, ButtonBuilder,ButtonStyle})
     })
     
 }
