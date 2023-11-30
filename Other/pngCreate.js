@@ -332,5 +332,6 @@ async function gen_double_png(table1,group1,table2,group2){
 module.exports = {
     gen_png,
     gen_png_with_group,
-    gen_double_png
+    gen_double_png,
+    gen_group_table
 };

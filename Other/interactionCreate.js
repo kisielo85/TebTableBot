@@ -38,10 +38,10 @@ module.exports = async (client) => {
         description: 'wygeneruj plan',
         options: [
             {
-                name: '_',
-                description: 'wpisz czyj plan wygeberować',
+                name: 'plan',
+                description: 'wpisz czyj plan wygenerować',
                 type:ApplicationCommandOptionType.String,
-                required: true
+                required: false
             }
         ]
     });

@@ -241,10 +241,25 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
             }
 
             if (msg.customId.startsWith("accept-")){
-                const type = msg.customId.split('-')[1]
+                const msg_data=msg.customId.split('-')
+                const type = msg_data[1]
                 if (type=='alert'){
                     fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
+                    await delBtnGroup(msg)
                 }
+                else if (type=="plan"){
+                    const plan_data=dm_list[msg.user.id].list[msg_data[2]]
+                    let tab = await tableData.getTable(plan_data.type,plan_data.id)
+                    if (plan_data.groups.length!=0){
+                        tab=pngCreate.gen_group_table(tab,plan_data.groups)
+                    }
+                    buffer = await pngCreate.gen_png(tab);
+                    await delBtnGroup(msg)
+                    await msg.reply({files: [{ attachment: buffer }], ephemeral: true})
+                }
+            }
+
+            else if(msg.customId=="close"){
                 await delBtnGroup(msg)
             }
         }

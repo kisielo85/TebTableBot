@@ -1,16 +1,42 @@
-/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
+const { ButtonBuilder, ButtonStyle } = require('discord.js')
 const pngCreate = require('../Other/pngCreate.js')
+/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
 
-module.exports = async ({msg, tableData}) => {
-    find_str = msg.options.get('_').value
-    info = await tableData.find(find_str)
+module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
+
+    // jeśli podano plan do wyszukania
+    if (msg.options.get('plan')){
+        find_str = msg.options.get('plan').value
+        
+        if (info = await tableData.find(find_str)){
+            tab = await tableData.getTable(info.type,info.id)
+            buffer = await pngCreate.gen_png(tab);
     
-    if (info){
-        tab = await tableData.getTable(info.type,info.id)
-        buffer = await pngCreate.gen_png(tab);
+            msg.reply({files: [{ attachment: buffer }], ephemeral: true})
+        }
+    
+        else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})
+    }else{
+        let btns=[]
+        for (row_id in dm_list[msg.user.id].list){
 
-        msg.reply({files: [{ attachment: buffer }], ephemeral: true})
+            e=dm_list[msg.user.id].list[row_id]
+            let tab_name=idList[e.type][e.id].short
+            if (e.groups.length!=0){tab_name+=` (${e.groups.join(', ')})`}
+
+            btns.push(new ButtonBuilder()
+                .setCustomId(`accept-plan-${row_id}`)
+                .setLabel(tab_name)
+                .setStyle(ButtonStyle.Secondary)
+                );
+        }
+        // zamknięcie edycji
+            btns.push(new ButtonBuilder()
+            .setCustomId('close')
+            .setLabel("x")
+            .setStyle(ButtonStyle.Danger)
+        );
+
+        placeButtons(btns,msg,'wybierz plan do wygenerowania:',true)
     }
-
-    else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})
 }
