@@ -31,7 +31,6 @@ module.exports = async (client, dm_list, tableData) => {
         // 5min przed końcem lekcji
         var waitTime=(hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes() - 5) * 60 - currentTime.getSeconds()
         if (waitTime<0){timeIndex++; continue}
-        console.log(waitTime, timeIndex)
         
         // jeśli są dzisiaj lekcje
         if(timeIndex < 10){

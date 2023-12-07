@@ -12,7 +12,21 @@ module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
             tab = await tableData.getTable(info.type,info.id)
             buffer = await pngCreate.gen_png(tab);
     
-            msg.reply({files: [{ attachment: buffer }], ephemeral: true})
+            
+            let btns=[]
+            if (info.type == "classes"){
+                for (const g of tableData.idList.classes[info.id].groups){
+                    btns.push(new ButtonBuilder()
+                    .setCustomId(`checkbox-addgroup-${info.id.replace('-','_')}-${g}`)
+                    .setLabel(g)
+                    .setStyle(ButtonStyle.Secondary)
+                    );
+                }
+            }
+
+            let msg2 = await msg.reply({content:`plan dla: ${info.name}`,files: [{ attachment: buffer }]})
+            
+            placeButtons(btns,msg2)
         }
     
         else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})

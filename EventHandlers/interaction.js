@@ -1,6 +1,8 @@
 
 const fs = require('fs')
 const {ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
+const { channel } = require('diagnostics_channel');
+const { table } = require('console');
 
 let temp_list={}
 
@@ -10,6 +12,11 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
     // stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
     async function placeButtons(buttons, msg, content=false, reply=false){
         let [first, msgGroup] = await getBtnGroup(msg)
+        let channel=msg.channel
+
+        if (!channel && msg.interaction){
+            channel=msg.interaction.channel
+        }
     
         // usuwa grupe jeśli nie jest pierwsza w chatcie
         if (!first){
@@ -26,7 +33,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
             
             if (replace) await replace.edit(data)
             else if(reply){ msg.reply(data); reply=false}
-            else await msg.channel.send(data)
+            else await channel.send(data)
         }
         if (msg.message) msg.deferUpdate()
 
@@ -200,6 +207,29 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                         await delBtnGroup(msg)
                         return
                     }
+                }
+                else if (type=="addgroup"){
+                    // bierze wiadomości z przyciskami
+                    let [,msg_group] = await getBtnGroup(msg)
+                    if (!msg_group){ return }
+
+                    // z tych wiadomości pobiera wybrane już grupy
+                    let groups=[]
+                    if (set_true){groups.push(msg_data[3])}
+                    for (const m of msg_group){
+                        if (!m.components[0]){continue}
+                        for (const g of m.components[0].components){
+                            if (g.style==1 && g.label!=msg_data[3]){
+                                groups.push(g.label)
+                            }
+                        }
+                    }
+                    tab=await tableData.getTable('classes',choice.replace('_','-'))
+                    if (groups.length!=0){tab=pngCreate.gen_group_table(tab,groups)}
+                    buffer=pngCreate.gen_png(tab)
+                    msg_group[0].edit({files: [{ attachment: buffer }]})
+
+
                 }
 
                 // podmiana przycisków na nowe
