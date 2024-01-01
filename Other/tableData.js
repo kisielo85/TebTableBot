@@ -7,7 +7,8 @@ const dniTygodnia = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek
 function getDate(oneDay=false,addDays=0){
     date = new Date();
     var out = {}
-    out.year=date.getFullYear()
+    //out.year=date.getFullYear()
+    out.year=2023
     date.setDate(date.getDate() + addDays);
 
     function add0(x){ return String(x).padStart(2,'0') }
