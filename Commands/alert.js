@@ -1,12 +1,13 @@
 const fs = require('fs')
 const interaction = require('../EventHandlers/interaction')
 const { idList } = require('../Other/tableData')
+const { ButtonBuilder, ButtonStyle} = require("discord.js");
 /** 
  * @param { import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate } msg
  * @param { import('discord.js').Client } client
  */
 
-module.exports = async ({msg, dm_list, placeButtons,ButtonBuilder,ButtonStyle}) => {
+module.exports = async ({msg, dm_list, placeButtons}) => {
 
     if (!dm_list[msg.user.id]){
         await msg.reply('nie ma cie na liście')
