@@ -227,7 +227,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     tab=await tableData.getTable('classes',choice.replace('_','-'))
                     if (groups.length!=0){tab=pngCreate.gen_group_table(tab,groups)}
                     buffer=pngCreate.gen_png(tab)
-                    msg_group[0].edit({files: [{ attachment: buffer }]})
+                    msg_group[0].edit({content: `plan dla: ${tab.name}`,files: [{ attachment: buffer }]})
 
 
                 }

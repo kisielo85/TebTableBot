@@ -1,4 +1,4 @@
-const { ButtonBuilder, ButtonStyle } = require('discord.js')
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
 const pngCreate = require('../Other/pngCreate.js')
 /** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
 
@@ -24,9 +24,10 @@ module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
                 }
             }
 
-            let msg2 = await msg.reply({content:`plan dla: ${info.name}`,files: [{ attachment: buffer }]})
+            let msg2 = await msg.reply({content:`plan dla: ${info.name}`,files: [{ attachment: buffer }],
+            components: [new ActionRowBuilder().addComponents(btns.slice(0, 5))]})
             
-            placeButtons(btns,msg2)
+            placeButtons(btns.slice(5),msg2)
         }
     
         else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})
