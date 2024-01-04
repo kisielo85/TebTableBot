@@ -87,7 +87,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
             if (!tab.includes(value)) tab.push(value)
         }
         else{
-            const index = tab.indexOf(choice);
+            const index = tab.indexOf(value);
             if (index != -1) tab.splice(index, 1);
         }
         return temp_list[userid][tab_id]
@@ -191,20 +191,45 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     dm_list[msg.user.id].list[choice].alert=set_true
                 }
                 else if (type=="joined"){
-                    join_tab = tempList_add(msg.user.id,'joined',choice,set_true)
+                    addDays=0
+                    if (choice=="nextweek"){
+                        if (set_true){addDays=7}
+                        // nie ma już templisty
+                        if (!temp_list[msg.user.id] || !temp_list[msg.user.id]['joined']){
+                            msg.message.delete()
+                            return
+                        }
+                        join_tab=temp_list[msg.user.id]['joined']
+                    }else{
+                        join_tab = tempList_add(msg.user.id,'joined',choice,set_true)
+                    }
+                    
 
                     // tworzy png od razu po wybraniu drugiego planu
                     if (join_tab.length>=2){
                         const t_data1=dm_list[msg.user.id].list[join_tab[0]]
                         const t_data2=dm_list[msg.user.id].list[join_tab[1]]
-                        tab1 = await tableData.getTable(t_data1.type,t_data1.id)
-                        tab2 = await tableData.getTable(t_data2.type,t_data2.id)
+                        tab1 = await tableData.getTable(t_data1.type,t_data1.id,false,addDays)
+                        tab2 = await tableData.getTable(t_data2.type,t_data2.id,false,addDays)
 
                         buffer = await pngCreate.gen_double_png(tab1,t_data1.groups,tab2,t_data2.groups)
-                        msg.channel.send({files: [{ attachment: buffer }]})
 
+                        let msg_data={files: [{ attachment: buffer }],
+                        // przycisk nextweek
+                        components: [new ActionRowBuilder().addComponents([
+                            new ButtonBuilder().setCustomId("checkbox-joined-nextweek").setLabel("Następny tydzień")
+                            .setStyle(addDays==7 ? ButtonStyle.Primary : ButtonStyle.Secondary)
+                        ])]}
+                        if (choice=="nextweek"){
+                            msg.message.edit(msg_data)
+                            msg.deferUpdate()
+                        }
+                        else{
+                            msg.channel.send(msg_data)
+                            await delBtnGroup(msg)
+                        }
+                        
                         // return żeby nie robiło przycisków
-                        await delBtnGroup(msg)
                         return
                     }
                 }
