@@ -17,12 +17,19 @@ module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
             if (info.type == "classes"){
                 for (const g of tableData.idList.classes[info.id].groups){
                     btns.push(new ButtonBuilder()
-                    .setCustomId(`checkbox-addgroup-${info.id.replace('-','_')}-${g}`)
+                    .setCustomId(`checkbox-addgroup-${info.type}-${info.id.replace('-','_')}-${g}`)
                     .setLabel(g)
                     .setStyle(ButtonStyle.Secondary)
                     );
                 }
             }
+
+            btns.push(new ButtonBuilder()
+            .setCustomId(`checkbox-addgroup-${info.type}-${info.id.replace('-','_')}-Następny tydzień`)
+            .setLabel(`Następny tydzień`)
+            .setStyle(ButtonStyle.Secondary)
+            );
+            
 
             let msg2 = await msg.reply({content:`plan dla: ${info.name}`,files: [{ attachment: buffer }],
             components: [new ActionRowBuilder().addComponents(btns.slice(0, 5))]})

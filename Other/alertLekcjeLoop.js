@@ -6,7 +6,7 @@ const tableData = require('./tableData.js')
  * @param {import('discord.js').Client} client
 */
 
-var test = 'August 19, 1975 13:19:58'
+//var test = new Date('Jan 04, 2024 12:00:00')
 
 module.exports = async (client, dm_list, tableData) => {
     let currentTime = new Date();
@@ -25,12 +25,12 @@ module.exports = async (client, dm_list, tableData) => {
     while(true){
         currentTime = new Date();
 
-        [hours, minutes] = tableData.idList.periods[timeIndex].endtime.split(':');
+        let [hours, minutes] = tableData.idList.periods[timeIndex].endtime.split(':');
         hours = parseInt(hours); minutes = parseInt(minutes)
 
         // 5min przed końcem lekcji
         var waitTime=(hours - currentTime.getHours()) * 60 * 60 + (minutes - currentTime.getMinutes() - 5) * 60 - currentTime.getSeconds()
-        if (waitTime<0){timeIndex++; continue}
+        if (waitTime<0 && timeIndex!=10){timeIndex++; continue}
         
         // jeśli są dzisiaj lekcje
         if(timeIndex < 10){

@@ -209,25 +209,38 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     }
                 }
                 else if (type=="addgroup"){
+                    const tab_type=msg_data[2]
+                    const tab_id=msg_data[3]
+                    const btn_group=msg_data[4]
                     // bierze wiadomości z przyciskami
                     let [,msg_group] = await getBtnGroup(msg)
                     if (!msg_group){ return }
 
                     // z tych wiadomości pobiera wybrane już grupy
                     let groups=[]
-                    if (set_true){groups.push(msg_data[3])}
+                    if (set_true){groups.push(btn_group)}
                     for (const m of msg_group){
                         if (!m.components[0]){continue}
                         for (const g of m.components[0].components){
-                            if (g.style==1 && g.label!=msg_data[3]){
+                            //push jeśli ta grupa jest zaznaczona
+                            if (g.style==1 && g.label!=btn_group){
                                 groups.push(g.label)
                             }
                         }
                     }
-                    tab=await tableData.getTable('classes',choice.replace('_','-'))
+                    
+                    // dodaje 7 dni jeśli jest wciśnięty przycisk "Następny tydzień"
+                    let addDays=0
+                    if (groups.includes("Następny tydzień")){
+                        groups.splice(groups.indexOf("Następny tydzień"),1)
+                        addDays=7
+                    }
+                    tab=await tableData.getTable(tab_type,tab_id.replace('_','-'),false,addDays)
+                    
+                    
                     if (groups.length!=0){tab=pngCreate.gen_group_table(tab,groups)}
                     buffer=pngCreate.gen_png(tab)
-                    msg_group[0].edit({content: `plan dla: ${tab.name}`,files: [{ attachment: buffer }]})
+                    msg_group.pop().edit({content: `plan dla: ${tab.name}`,files: [{ attachment: buffer }]})
 
 
                 }

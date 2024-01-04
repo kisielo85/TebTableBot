@@ -5,32 +5,6 @@ var hsl = require('hsl-to-hex')
 var hexToHsl = require('hex-to-hsl');
 const { Console } = require("console");
 
-/*f=tableData.find("4teip")
-tab = JSON.parse(fs.readFileSync('sample_data/table.json', 'utf-8'))
-tab.name=f.name; tab.type=f.type
-tab=gen_group_table(tab,['progr'])
-console.log(tab.name)
-f=tableData.find("3tfr")
-tableData.getTable(f.type,f.id).then(tab2=>{
-    tab2=gen_group_table(tab2,['fot'])
-    
-
-    gen_double_png(tab2,tab).then(buffer=>fs.writeFileSync("./image.png", buffer))
-})*/
-
-//gen_png_with_group(tab,['progr','politech']).then(buffer=>fs.writeFileSync("./image.png", buffer))
-
-//gen_png(tab,1).then(buffer=>fs.writeFileSync("./image.png", buffer))
-
-
-/*
-f=tableData.find("4teip")
-tableData.getTable(f.type,f.id).then(tab=>
-    gen_png_with_group(tab,f.name,f.type,['progr']).then(buffer=>
-        fs.writeFileSync("./image.png", buffer)
-        )
-    )*/
-
 
 
 // zwraca buffer z obrazem
@@ -256,7 +230,7 @@ function gen_group_table(table,groups){
         }
         
         // sprawdza czy pokrywa się z ostatnimi komórkami, dodaje do grupy
-        if (c_id!=tab_len && (b(c_time.from,last_gr.from,last_gr.to)||b(c_time.to,last_gr.from,last_gr.to)||
+        if (c_id!=tab_len && last_gr.date == c.date && (b(c_time.from,last_gr.from,last_gr.to)||b(c_time.to,last_gr.from,last_gr.to)||
             b(last_gr.from,c_time.from,c_time.to)||b(last_gr.to,c_time.from,c_time.to))){
             last_gr.cards.push(c_id)
         }else{// koniec grupy
