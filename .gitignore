@@ -2,6 +2,6 @@ set.bat
 /node_modules
 package.json
 package-lock.json
-config.json
+config/config.json
 /.vscode
-/Other/dmList.json
+/data/dmList.json

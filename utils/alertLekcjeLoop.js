@@ -1,10 +1,4 @@
-const simple = require('../SimpleFunctions.js')
-const tableData = require('./tableData.js')
-
-/** 
- * @param {import('./dmList.json')} dm_list
- * @param {import('discord.js').Client} client
-*/
+const simple = require('./simpleFunctions.js')
 
 //var test = new Date('Jan 04, 2024 12:00:00')
 

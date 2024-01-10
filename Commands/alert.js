@@ -1,11 +1,5 @@
-const fs = require('fs')
-const interaction = require('../EventHandlers/interaction')
-const { idList } = require('../Other/tableData')
+const { idList } = require('../utils/tableData')
 const { ButtonBuilder, ButtonStyle} = require("discord.js");
-/** 
- * @param { import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate } msg
- * @param { import('discord.js').Client } client
- */
 
 module.exports = async ({msg, dm_list, placeButtons}) => {
 

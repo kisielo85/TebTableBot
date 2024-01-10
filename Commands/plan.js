@@ -1,6 +1,5 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
-const pngCreate = require('../Other/pngCreate.js')
-/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
+const pngCreate = require('../utils/pngCreate.js')
 
 module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
 
@@ -8,37 +7,47 @@ module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
     if (msg.options.get('plan')){
         find_str = msg.options.get('plan').value
         
-        if (info = await tableData.find(find_str)){
-            tab = await tableData.getTable(info.type,info.id)
-            buffer = await pngCreate.gen_png(tab);
-    
-            
-            let btns=[]
-            if (info.type == "classes"){
-                for (const g of tableData.idList.classes[info.id].groups){
-                    btns.push(new ButtonBuilder()
-                    .setCustomId(`checkbox-addgroup-${info.type}-${info.id.replace('-','_')}-${g}`)
-                    .setLabel(g)
-                    .setStyle(ButtonStyle.Secondary)
-                    );
-                }
-            }
-
-            btns.push(new ButtonBuilder()
-            .setCustomId(`checkbox-addgroup-${info.type}-${info.id.replace('-','_')}-Następny tydzień`)
-            .setLabel(`Następny tydzień`)
-            .setStyle(ButtonStyle.Secondary)
-            );
-            
-
-            let msg2 = await msg.reply({content:`plan dla: ${info.name}`,files: [{ attachment: buffer }],
-            components: [new ActionRowBuilder().addComponents(btns.slice(0, 5))]})
-            
-            placeButtons(btns.slice(5),msg2)
+        
+        info = await tableData.find(find_str)
+        if (!info){
+            msg.reply(
+                {content: `sorry, nie znalazłem "${find_str}"`,
+                ephemeral: true
+            })
+            return false
         }
-    
-        else msg.reply({content: `sorry, nie znalazłem "${find_str}"`, ephemeral: true})
-    }else{
+
+        tab = await tableData.getTable(info.type,info.id)
+        buffer = await pngCreate.gen_png(tab);
+
+        // przyciski grup
+        let btns=[]
+        if (info.type == "classes"){
+            for (const g of tableData.idList.classes[info.id].groups){
+                btns.push(new ButtonBuilder()
+                .setCustomId(`checkbox-addgroup-${info.type}-${info.id.replace('-','_')}-${g}`)
+                .setLabel(g)
+                .setStyle(ButtonStyle.Secondary)
+                );
+            }
+        }
+        // następny tydzień
+        btns.push(new ButtonBuilder()
+        .setCustomId(`checkbox-addgroup-${info.type}-${info.id.replace('-','_')}-Następny tydzień`)
+        .setLabel(`Następny tydzień`)
+        .setStyle(ButtonStyle.Secondary)
+        );
+        
+        let msg2 = await msg.reply({
+            content:`plan dla: ${info.name}`,
+            files: [{ attachment: buffer }],
+            components: [new ActionRowBuilder().addComponents(btns.slice(0, 5))]
+        })
+        
+        placeButtons(btns.slice(5),msg2)
+    }
+    // wybór planu z listy
+    else{
         let btns=[]
         for (row_id in dm_list[msg.user.id].list){
 
@@ -52,7 +61,8 @@ module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
                 .setStyle(ButtonStyle.Secondary)
                 );
         }
-        // zamknięcie edycji
+        
+        // anulowanie
             btns.push(new ButtonBuilder()
             .setCustomId('close')
             .setLabel("x")

@@ -1,4 +1,3 @@
-/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
 module.exports = async ({msg, tableData}) => {
     find_str = msg.options.get('find').value
     info = await tableData.where(find_str)

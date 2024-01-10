@@ -1,4 +1,3 @@
-/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
 module.exports = async ({msg, client}) => {
     let time = Date.now();
     await msg.reply({

@@ -1,6 +1,5 @@
-let { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
 
-/** @param {import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate} msg */
 module.exports = async ({msg}) => {
     let klasyButtons = [];
     
@@ -23,10 +22,7 @@ module.exports = async ({msg}) => {
     if (msg.guild != null){
         await msg.user.send(data);
 
-        await msg.reply({
-            content: `Wysłano dm z wyborem klasy`, 
-            ephemeral: true,
-        });
+        await msg.reply({content: `Wysłano dm z wyborem klasy`, ephemeral: true});
     }
     else{ await msg.reply(data) }
 

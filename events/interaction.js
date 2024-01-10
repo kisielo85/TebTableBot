@@ -97,7 +97,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
         if(!dm_list[msg.user.id]){
             await msg.user.send("dane są pobierane z **tebwroclaw.edupage.org**, więc mogą sie one różnić z planem z **librusa**");
             dm_list[msg.user.id] = {"list": []}
-            fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
+            fs.writeFileSync('./data/dmList.json', JSON.stringify(dm_list, null, 2))
         }
         // jeżeli interakcja to przycisk
         if(msg.isButton()){
@@ -299,7 +299,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     }]}
                 }
                 
-                fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
+                fs.writeFileSync('./data/dmList.json', JSON.stringify(dm_list, null, 2))
     
                 c = tableData.idList.classes[tmp.class].name
                 gr = tmp.groups.join(', ')
@@ -312,7 +312,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                 const msg_data=msg.customId.split('-')
                 const type = msg_data[1]
                 if (type=='alert'){
-                    fs.writeFileSync('./Other/dmList.json', JSON.stringify(dm_list, null, 2))
+                    fs.writeFileSync('./data/dmList.json', JSON.stringify(dm_list, null, 2))
                     await delBtnGroup(msg)
                 }
                 else if (type=="plan"){

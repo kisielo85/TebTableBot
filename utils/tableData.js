@@ -1,4 +1,4 @@
-const config = require('../config.json')
+const config = require('../config/config.json')
 const fs = require('fs');
 const axios = require('axios');
 const dniTygodnia = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota'];
@@ -104,10 +104,10 @@ async function loadInitialData(){
 
 if (!config.debug){
     loadInitialData().then( ()=>{
-        //fs.writeFileSync('sample_data/idList.json', JSON.stringify(idList, null, 2))
+        //fs.writeFileSync('data/sample_data/idList.json', JSON.stringify(idList, null, 2))
     })
 }else{
-    idList = JSON.parse(fs.readFileSync('sample_data/idList.json', 'utf-8'))
+    idList = JSON.parse(fs.readFileSync('data/sample_data/idList.json', 'utf-8'))
 }
 
 function find(name){

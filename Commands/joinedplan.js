@@ -1,18 +1,26 @@
 const { ButtonBuilder, ButtonStyle } = require('discord.js')
-const { idList } = require('../Other/tableData')
-/** 
- * @param { import('discord.js').Events.InteractionCreate | import('discord.js').Events.MessageCreate } msg
- * @param { import('discord.js').Client } client
- */
+const { idList } = require('../utils/tableData')
 
 module.exports = async ({msg, dm_list, temp_list, placeButtons}) => {
 
-    if (!dm_list[msg.user.id] && dm_list[msg.user.id].list){
-        await msg.reply('nie masz zapisanych planów')
+    if (dm_list[msg.user.id].list.length==0){
+        await msg.reply({
+            content:'nie masz żadnych zapisanych planów\nużyj komendy ``/lekcje``', 
+            ephemeral: true
+        })
         return false
     }
+    else if (dm_list[msg.user.id].list.length<2){
+        await msg.reply({
+            content:'musisz zapisać przynajmniej 2 plany',
+            ephemeral: true
+        })
+        return false
+    }
+
     temp_list[msg.user.id]={joined:[]}
 
+    // plany do wyboru
     let btns=[]
     for (row_id in dm_list[msg.user.id].list){
 
@@ -24,10 +32,11 @@ module.exports = async ({msg, dm_list, temp_list, placeButtons}) => {
             .setCustomId(`checkbox-joined-${row_id}`)
             .setLabel(tab_name)
             .setStyle(ButtonStyle.Secondary)
-            );
+        );
     }
+
     // zamknięcie edycji
-        btns.push(new ButtonBuilder()
+    btns.push(new ButtonBuilder()
         .setCustomId('close')
         .setLabel("x")
         .setStyle(ButtonStyle.Danger)
