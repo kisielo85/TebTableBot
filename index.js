@@ -1,20 +1,21 @@
 const fs = require('fs');
-const tableData = require('./utils/tableData.js');
-const pngCreate = require('./utils/pngCreate.js');
+
+// jeśli nie ma config.json, tworzy na podstawie config_example
+if (!fs.existsSync('config/config.json')){
+    fs.copyFile("config/config_example.json", "config/config.json", (err2)=>{})
+}
+const cfg = require('./config/config.json')
+const token = cfg.token
+
+// domyślny token
+if (token=="token"){ console.log("check config/config.json"); return }
 
 // jeśli nie ma dmList to tworzy pusty plik
 if (!fs.existsSync('./data/dmList.json')){fs.writeFileSync('./data/dmList.json', '{}')}
 var dm_list = require('./data/dmList.json');
 
-// jeśli nie ma config.json, tworzy na podstawie config_example
-if (!fs.existsSync('config/config.json')){
-    fs.copyFile("config/config_example.json", "config/config.json", (err2)=>{})
-    console.log("check config/config.json")
-    return
-}
-
-const cfg = require('./config/config.json')
-const token = cfg.token
+const tableData = require('./utils/tableData.js');
+const pngCreate = require('./utils/pngCreate.js');
 
 const {Client, GatewayIntentBits, Partials} = require("discord.js");
 
