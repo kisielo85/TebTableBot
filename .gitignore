@@ -1,6 +1,5 @@
 set.bat
 /node_modules
-package.json
 package-lock.json
 config/config.json
 /.vscode

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "axios": "^1.6.0",
+    "canvas": "^2.11.2",
+    "discord.js": "^14.13.0",
+    "hex-to-hsl": "^1.0.2",
+    "hsl-to-hex": "^1.0.0"
+  }
+}
