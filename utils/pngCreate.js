@@ -131,7 +131,9 @@ function gen_png(table, double=0,canvas=false){
             
         // postawienie komórki
         const cell_x=(parseInt(c.uniperiod))*step_x+cell_margin+margin_left
-        const cell_clr=hexToHsl(c.colors[0])
+        if (c.colors) cell_clr = hexToHsl(c.colors[0])
+        else cell_clr = hexToHsl("#c0c0c0")
+        
         l=cell_clr[2]
         while (l<=60){l+=(100-l)*0.4}
         context.fillStyle = hsl(cell_clr[0],cell_clr[1]*0.6,l);
@@ -237,8 +239,7 @@ function gen_group_table(table,groups){
             
             // czy jest wiele linii
             let len=0
-            if (last_gr.cards[0] && table[last_gr.cards[0]].cellSlices){
-
+            if (last_gr.cards[0]!=undefined && table[last_gr.cards[0]].cellSlices){
                 lines=[] // wstępne ustalenie liczby linii
                 for (var i = 0; i < table[last_gr.cards[0]].cellSlices.length; i++) lines.push([])
                 
