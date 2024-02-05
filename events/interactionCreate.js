@@ -1,7 +1,7 @@
 const { ApplicationCommandOptionType } = require("discord.js");
 module.exports = async (client) => {
     await client.application.commands.create({
-        name: 'lekcje',
+        name: 'add',
         description: 'możesz sie dodać do listy by mieć powiadomienia o twoim planie lekcji',
     });
 

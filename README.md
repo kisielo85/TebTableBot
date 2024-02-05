@@ -16,7 +16,7 @@ https://discord.com/api/oauth2/authorize?client_id=1163559297280639056&permissio
 sprawdź gdzie teraz ma lekcje dana klasa/nauczyciel, lub kto jest w danej sali<br>
 ![](assets/where.png)
 
-### /lekcje
+### /add
 
 zapisz interesujący cię plan lekcji<br>
 zapisane plany będą potrzebne do reszty komend z tej listy

@@ -5,7 +5,7 @@ module.exports = async ({msg, dm_list, temp_list, placeButtons}) => {
 
     if (dm_list[msg.user.id].list.length==0){
         await msg.reply({
-            content:'nie masz żadnych zapisanych planów\nużyj komendy ``/lekcje``', 
+            content:'nie masz żadnych zapisanych planów\nużyj komendy ``/add``', 
             ephemeral: true
         })
         return false
