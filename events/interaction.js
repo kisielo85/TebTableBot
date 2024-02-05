@@ -323,7 +323,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     }
                     buffer = await pngCreate.gen_png(tab);
                     await delBtnGroup(msg)
-                    await msg.reply({files: [{ attachment: buffer }], ephemeral: true})
+                    await msg.channel.send({files: [{ attachment: buffer }], ephemeral: true})
                 }
             }
 

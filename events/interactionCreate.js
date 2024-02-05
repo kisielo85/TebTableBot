@@ -3,6 +3,14 @@ module.exports = async (client) => {
     await client.application.commands.create({
         name: 'add',
         description: 'możesz sie dodać do listy by mieć powiadomienia o twoim planie lekcji',
+        options: [
+            {
+                name: 'find',
+                description: 'wpisz klase, sale lub nauczyciela do wyszukania',
+                type:ApplicationCommandOptionType.String,
+                required: false
+            }
+        ]
     });
 
     await client.application.commands.create({
@@ -38,7 +46,7 @@ module.exports = async (client) => {
         description: 'wygeneruj plan',
         options: [
             {
-                name: 'plan',
+                name: 'find',
                 description: 'wpisz czyj plan wygenerować',
                 type:ApplicationCommandOptionType.String,
                 required: false
@@ -53,12 +61,12 @@ module.exports = async (client) => {
 
     await client.application.commands.create({
         name: 'alert',
-        description: 'powiadomienia o następnej lekcji co przerwe'
+        description: 'włącz lub wyłącz powiadomienia o następnej lekcji'
     });
 
     await client.application.commands.create({
         name: 'joinedplan',
-        description: 'wygeneruj plan 2 w jednym'
+        description: 'wygeneruj 2 plany w jednym'
     });
 
     await client.application.commands.create({

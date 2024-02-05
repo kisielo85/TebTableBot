@@ -4,8 +4,8 @@ const pngCreate = require('../utils/pngCreate.js')
 module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
 
     // jeśli podano plan do wyszukania
-    if (msg.options.get('plan')){
-        find_str = msg.options.get('plan').value
+    if (msg.options.get('find')){
+        find_str = msg.options.get('find').value
         
         
         info = await tableData.find(find_str)
