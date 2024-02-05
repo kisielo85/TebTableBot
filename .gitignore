@@ -4,3 +4,5 @@ package-lock.json
 config/config.json
 /.vscode
 /data/dmList.json
+Other/dmList.json
+config.json
