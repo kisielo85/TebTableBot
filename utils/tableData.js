@@ -37,9 +37,11 @@ async function getTable(tableType, id, oneDay=false,addDays=0){
 
     // jeśli ma w cache dane sprzed (ileś tam)h to je zwraca
     if (cache[cache_id] && cache[cache_id].time > now-(1000*60*60*12)){// 6h
-        let clone = [...cache[cache_id].data]
-        clone.name=cache[cache_id].data.name
-        clone.type=cache[cache_id].data.type
+        let tab=cache[cache_id].data
+        let clone = [...tab]
+        for (i=0; i < tab.length; i++){clone[i]={...tab[i]}}
+        clone.name=tab.name
+        clone.type=tab.type
         return clone;
     }
 
