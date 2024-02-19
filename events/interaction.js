@@ -260,8 +260,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                         groups.splice(groups.indexOf("Następny tydzień"),1)
                         addDays=7
                     }
-                    tab=await tableData.getTable(tab_type,tab_id.replace('_','-'),false,addDays)
-                    
+                    let tab=await tableData.getTable(tab_type,tab_id.replace('_','-'),false,addDays)
                     
                     if (groups.length!=0){tab=pngCreate.gen_group_table(tab,groups)}
                     buffer=pngCreate.gen_png(tab)

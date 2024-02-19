@@ -3,6 +3,8 @@ const fs = require('fs');
 const axios = require('axios');
 const dniTygodnia = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota'];
 
+var cache={}
+
 // zwraca daty początku i końca aktualnego tygodnia
 function getDate(oneDay=false,addDays=0){
     date = new Date();
@@ -30,6 +32,17 @@ function getDate(oneDay=false,addDays=0){
 
 // zwraca tabele: classes, teachers, classrooms
 async function getTable(tableType, id, oneDay=false,addDays=0){
+    let cache_id=`${tableType}_${id}_${oneDay}_${addDays}`
+    let now = new Date()
+
+    // jeśli ma w cache dane sprzed (ileś tam)h to je zwraca
+    if (cache[cache_id] && cache[cache_id].time > now-(1000*60*60*12)){// 6h
+        let clone = [...cache[cache_id].data]
+        clone.name=cache[cache_id].data.name
+        clone.type=cache[cache_id].data.type
+        return clone;
+    }
+
     d=getDate(oneDay,addDays)
     const requestData = {
         __args:[ null,
@@ -51,6 +64,13 @@ async function getTable(tableType, id, oneDay=false,addDays=0){
     if (idList[tableType][id].name){tab.name=idList[tableType][id].name}
     else {tab.name=idList[tableType][id].short}
     tab.type=tableType
+
+    // zapis do cache
+    cache[cache_id]={
+        'time':now,
+        'data':tab
+    }
+
     return tab
 }
 
