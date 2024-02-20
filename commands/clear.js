@@ -1,4 +1,3 @@
-const { sleep } = require("../utils/simpleFunctions");
 
 let deleteing = {}
 module.exports = async ({msg, client}) => {
