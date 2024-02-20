@@ -268,6 +268,9 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
 
 
                 }
+                else if (type=="del"){
+                    dm_list[msg.user.id].list[choice].remove=set_true
+                }
 
                 // podmiana przycisków na nowe
                 await msg.message.edit({components: [new ActionRowBuilder().addComponents(replace_btns)]})
@@ -323,6 +326,17 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     buffer = await pngCreate.gen_png(tab);
                     await delBtnGroup(msg)
                     await msg.channel.send({files: [{ attachment: buffer }], ephemeral: true})
+                }
+                // usuwa plany wcześniej oznaczone do usunięcia
+                else if (type=="del"){
+                    let list=dm_list[msg.user.id].list
+                    
+                    for (i=list.length-1; i >= 0; i--){
+                        if ('remove' in list[i] && list[i].remove){ list.splice(i,1) }
+                    }
+
+                    fs.writeFileSync('./data/dmList.json', JSON.stringify(dm_list, null, 2))
+                    await delBtnGroup(msg)
                 }
             }
 

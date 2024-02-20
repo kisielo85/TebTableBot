@@ -2,7 +2,7 @@ const { ApplicationCommandOptionType } = require("discord.js");
 module.exports = async (client) => {
     await client.application.commands.create({
         name: 'add',
-        description: 'możesz sie dodać do listy by mieć powiadomienia o twoim planie lekcji',
+        description: 'zapisz plany lekcji które cie interesują',
         options: [
             {
                 name: 'find',
@@ -14,13 +14,13 @@ module.exports = async (client) => {
     });
 
     await client.application.commands.create({
-        name: 'stop',
-        description: 'możesz sie usunąć z listy powiadomień'
+        name: 'forget',
+        description: 'całkowicie usuń sie z pamięci bota'
     });
     
     await client.application.commands.create({
         name: 'ping',
-        description: 'czy żyje'
+        description: 'sprawdź czy bot żyje'
     });
 
     await client.application.commands.create({
@@ -72,5 +72,10 @@ module.exports = async (client) => {
     await client.application.commands.create({
         name: 'discord',
         description: 'daje link do głównego discorda',
+    });
+
+    await client.application.commands.create({
+        name: 'del',
+        description: 'usuń zapisane plany',
     });
 }

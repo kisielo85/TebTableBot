@@ -13,9 +13,9 @@ module.exports = async ({msg, dm_list,tableData}) => {
     for (p of list){
         nm=tableData.idList[p.type][p.id].short
         if (p.groups.length > 0){
-            out+=`${nm}: ${p.groups.join(',')}\n`
+            out+=`- ${nm}: ${p.groups.join(',')}\n`
         }
-        else{ out+=`${nm}\n` }
+        else{ out+=`- ${nm}\n` }
     }
     msg.reply({content: `**lista twoich zapisanych planów**\n${out}`, ephemeral: true})
 }
