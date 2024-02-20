@@ -2,10 +2,6 @@ const { ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js')
 const fs = require('fs')
 
 module.exports = async ({msg, dm_list, tableData}) => {
-    if(Math.floor(Math.random()*10) == 1){
-        console.log("send")
-        msg.channel.send("https://static.wikia.nocookie.net/nicos-nextbots-fanmade/images/7/7c/Uncannyclose.png/revision/latest?cb=20230629050427").then(msg => setTimeout(() => msg.delete(), 200))
-    }
     // podano plan do wyszukania
     if (msg.options.get('find')){
         find_str = msg.options.get('find').value

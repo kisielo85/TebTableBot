@@ -1,8 +1,6 @@
 
 const fs = require('fs')
 const {ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
-const { channel } = require('diagnostics_channel');
-const { table } = require('console');
 
 let temp_list={}
 
@@ -94,6 +92,11 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
     }
 
     client.on('interactionCreate', async (msg) => {
+
+        if(Math.floor(Math.random()*50) == 1){
+            sleep(4000).then(() => { msg.channel.send("https://static.wikia.nocookie.net/nicos-nextbots-fanmade/images/7/7c/Uncannyclose.png/revision/latest?cb=20230629050427").then(msg => setTimeout(() => msg.delete(), 200))})
+        }
+
         if(!dm_list[msg.user.id]){
             await msg.user.send("dane są pobierane z **tebwroclaw.edupage.org**, więc mogą sie one różnić z planem z **librusa**");
             dm_list[msg.user.id] = {"list": []}
