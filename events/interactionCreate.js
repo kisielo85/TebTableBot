@@ -78,4 +78,9 @@ module.exports = async (client) => {
         name: 'del',
         description: 'usuń zapisane plany',
     });
+
+    await client.application.commands.create({
+        name: 'help',
+        description: 'info o komendach',
+    });
 }

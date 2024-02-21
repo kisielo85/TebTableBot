@@ -1,17 +1,17 @@
 
-let deleteing = {}
+let deleting = {}
 module.exports = async ({msg, client}) => {
-    if(!deleteing[msg.user.id]){
+    if(!deleting[msg.user.id]){
         await msg.reply('clearing...');
         
-        deleteing[msg.user.id] = await msg.channel.messages.fetch({'limit':100})
+        deleting[msg.user.id] = await msg.channel.messages.fetch({'limit':100})
 
-        for(let a of deleteing[msg.user.id]){
+        for(let a of deleting[msg.user.id]){
             if (a[1].author.id == client.user.id)
                 await a[1].delete()
         }
         
-        delete deleteing[msg.user.id];
+        delete deleting[msg.user.id];
 
     }else{
         await msg.reply("already deleting")
