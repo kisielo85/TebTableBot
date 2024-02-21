@@ -1,6 +1,7 @@
 const config = require('../config/config.json')
 const fs = require('fs');
 const axios = require('axios');
+const { table } = require('console');
 const dniTygodnia = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota'];
 
 var cache={}
@@ -38,8 +39,8 @@ async function getTable(tableType, id, oneDay=false,addDays=0){
     // jeśli ma w cache dane sprzed (ileś tam)h to je zwraca
     if (cache[cache_id] && cache[cache_id].time > now-(1000*60*60*12)){// 6h
         let tab=cache[cache_id].data
-        let clone = [...tab]
-        for (i=0; i < tab.length; i++){clone[i]={...tab[i]}}
+        let clone = []
+        for (i=0; i < tab.length; i++){clone.push({...tab[i]})}
         clone.name=tab.name
         clone.type=tab.type
         return clone;
@@ -166,14 +167,29 @@ async function where(name){
     out=`**${found.name}**`
 
     // pobieranie planu
-    table = await getTable(found.type,found.id,true)
+    let table = await getTable(found.type,found.id,true)
     
     // sprawdza czy jest jeszcze czas przed ostatnią lekcją w planie
     now = new Date()
     now = now.getHours()*60 + now.getMinutes()
     if (table.length != 0){
-        arr = table.slice(-1)[0].endtime.split(':')
-        time_last= parseInt(arr[0])*60 + parseInt(arr[1])
+
+        let i=1
+        c=table[table.length-i]
+
+        // fix dla dyżurów u nauczycieli itp
+        while (c && c.type!='card'){
+            i++
+            c=table[table.length-i]
+        }
+
+        if (c){
+            arr = c.endtime.split(':')
+            time_last= parseInt(arr[0])*60 + parseInt(arr[1])
+        }
+        else {now = 0}
+
+        
     }
     else {now = 0}
 

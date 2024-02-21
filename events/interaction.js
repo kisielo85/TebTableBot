@@ -1,16 +1,24 @@
 
 const fs = require('fs')
 const {ActionRowBuilder, ButtonBuilder, ButtonStyle} = require("discord.js");
-
+const {sleep} = require('../utils/simpleFunctions')
 let temp_list={}
 
 
 /** @param {import('discord.js').Client} client */
 module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
     // stawia przyciski, jeśli ich za dużo to dzieli na kilka wiadomości
-    async function placeButtons(buttons, msg, content=false, reply=false){
+    async function placeButtons(buttons, msg, content=false, reply=false, guild_msg=false){
         let [first, msgGroup] = await getBtnGroup(msg)
         let channel=msg.channel
+        
+        // jeśli komende co musi być na dm zrobiono na serwerze
+        if (guild_msg && msg.guild != null){
+            
+            await msg.reply({content:guild_msg, ephemeral:true})
+            channel = msg.user
+            reply=false
+        }
 
         if (!channel && msg.interaction){
             channel=msg.interaction.channel
@@ -94,7 +102,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
     client.on('interactionCreate', async (msg) => {
 
         if(Math.floor(Math.random()*50) == 1){
-            sleep(4000).then(() => { msg.channel.send("https://static.wikia.nocookie.net/nicos-nextbots-fanmade/images/7/7c/Uncannyclose.png/revision/latest?cb=20230629050427").then(msg => setTimeout(() => msg.delete(), 200))})
+            sleep(2500).then(() => { msg.channel.send("https://static.wikia.nocookie.net/nicos-nextbots-fanmade/images/7/7c/Uncannyclose.png/revision/latest?cb=20230629050427").then(msg => setTimeout(() => msg.delete(), 600))})
         }
 
         if(!dm_list[msg.user.id]){

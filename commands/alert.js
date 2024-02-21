@@ -32,5 +32,10 @@ module.exports = async ({msg, dm_list, placeButtons}) => {
         .setStyle(ButtonStyle.Success)
     );
 
-    placeButtons(btns,msg,'wybierz na których planach chcesz powiadomienia:',true)
+    
+    // jeśli komenda była wywołana na serwerze
+    await placeButtons(btns,msg,
+        content = 'wybierz na których planach chcesz powiadomienia:',
+        reply = true,
+        guild_msg = `wysłano dm z ustawieniami powiadomień`)
 }

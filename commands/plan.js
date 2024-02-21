@@ -68,7 +68,11 @@ module.exports = async ({msg, tableData, dm_list, placeButtons}) => {
             .setLabel("x")
             .setStyle(ButtonStyle.Danger)
         );
-
-        placeButtons(btns,msg,'wybierz plan do wygenerowania:',true)
+        
+        // jeśli komenda była wywołana na serwerze
+        await placeButtons(btns,msg,
+            content = 'wybierz plan do wygenerowania:',
+            reply = true,
+            guild_msg = `wysłano dm z wyborem planu do wygenerowania`)
     }
 }

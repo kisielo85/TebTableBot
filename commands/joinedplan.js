@@ -42,5 +42,9 @@ module.exports = async ({msg, dm_list, temp_list, placeButtons}) => {
         .setStyle(ButtonStyle.Danger)
     );
 
-    placeButtons(btns,msg,'wybierz 2 plany:',true)
+    // jeśli komenda była wywołana na serwerze
+    await placeButtons(btns,msg,
+        content = 'wybierz 2 plany:',
+        reply = true,
+        guild_msg = `wysłano dm do stworzenia łączonego planu`)
 }

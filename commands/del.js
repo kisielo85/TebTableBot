@@ -28,5 +28,9 @@ module.exports = async ({msg, dm_list, placeButtons}) => {
         .setStyle(ButtonStyle.Success)
     );
 
-    placeButtons(btns,msg,'wybierz plany do usunięcia:',true)
+    // jeśli komenda była wywołana na serwerze
+    await placeButtons(btns,msg,
+    content = 'wybierz plany do usunięcia:',
+    reply = true,
+    guild_msg = `wysłano dm z wyborem planów do usunięcia`)
 }

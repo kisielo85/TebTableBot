@@ -1,6 +1,13 @@
 
 let deleting = {}
 module.exports = async ({msg, client}) => {
+
+    // jeśli na serwerze
+    if (msg.guild != null){
+        await msg.reply({content:'nie mogę clearować wiadomości na serwerze', ephemeral:true})
+        return false
+    }
+    
     if(!deleting[msg.user.id]){
         await msg.reply('clearing...');
         
