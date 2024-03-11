@@ -1,7 +1,6 @@
 const config = require('../config/config.json')
 const fs = require('fs');
 const axios = require('axios');
-const { table } = require('console');
 const dniTygodnia = ['niedziela', 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota'];
 
 var cache={}
@@ -38,11 +37,9 @@ async function getTable(tableType, id, oneDay=false,addDays=0){
 
     // jeśli ma w cache dane sprzed (ileś tam)h to je zwraca
     if (cache[cache_id] && cache[cache_id].time > now-(1000*60*60*12)){// 6h
-        let tab=cache[cache_id].data
-        let clone = []
-        for (i=0; i < tab.length; i++){clone.push({...tab[i]})}
-        clone.name=tab.name
-        clone.type=tab.type
+        let clone = JSON.parse(cache[cache_id].data)
+        clone.name=cache[cache_id].name
+        clone.type=cache[cache_id].type
         return clone;
     }
 
@@ -70,8 +67,10 @@ async function getTable(tableType, id, oneDay=false,addDays=0){
 
     // zapis do cache
     cache[cache_id]={
-        'time':now,
-        'data':tab
+        'time': now,
+        'data': JSON.stringify(tab),
+        'type': tab.type,
+        'name': tab.name
     }
 
     return tab

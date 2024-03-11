@@ -142,6 +142,19 @@ function gen_png(table, double=0,canvas=false){
         context.roundRect(cell_x, cell_y, cell_width, cell_height, [3]);
         context.fill()
         context.stroke();
+
+        // skreślenie odwołanych lekcji
+        if(!c.colors[0]){
+            context.beginPath();
+            context.lineWidth = 5;
+            context.strokeStyle = '#00000070';
+            context.moveTo(cell_x, cell_y);
+            context.lineTo(cell_x + cell_width, cell_y + cell_height);
+            context.moveTo(cell_x+cell_width, cell_y);
+            context.lineTo(cell_x, cell_y + cell_height);
+            context.stroke();
+            context.lineWidth = 1;
+        }
         
         // nazwa przedmiotu
         context.fillStyle = '#222';

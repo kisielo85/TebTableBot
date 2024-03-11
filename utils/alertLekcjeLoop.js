@@ -39,7 +39,8 @@ module.exports = async (client, dm_list, tableData) => {
                     for(let plan of dm_list[user_id].list){
                         if(!plan.alert){continue}
                         for(const c of await tableData.getTable(plan.type, plan.id, true)){
-                            if(parseInt(c.uniperiod) != timeIndex){continue}
+                            // pomijanie innych godzin i odwołanych lekcji
+                            if(parseInt(c.uniperiod) != timeIndex || !c.colors){continue}
                             let sent = []
                             
                             for(let g of c.groupnames){
