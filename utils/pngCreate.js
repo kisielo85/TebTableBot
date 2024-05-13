@@ -1,6 +1,7 @@
 const { createCanvas } = require("canvas");
 const fs = require("fs");
 const tableData=require('./tableData.js')
+
 var hsl = require('hsl-to-hex')
 var hexToHsl = require('hex-to-hsl');
 const { Console } = require("console");
@@ -144,7 +145,8 @@ function gen_png(table, double=0,canvas=false){
         context.stroke();
 
         // skreślenie odwołanych lekcji
-        if(!c.colors[0]){
+        console.log("susmogus",c.colors)
+        if(!c.colors || !c.colors[0]){
             context.beginPath();
             context.lineWidth = 5;
             context.strokeStyle = '#00000070';
