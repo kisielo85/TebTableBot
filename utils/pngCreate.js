@@ -145,7 +145,6 @@ function gen_png(table, double=0,canvas=false){
         context.stroke();
 
         // skreślenie odwołanych lekcji
-        console.log("susmogus",c.colors)
         if(!c.colors || !c.colors[0]){
             context.beginPath();
             context.lineWidth = 5;
