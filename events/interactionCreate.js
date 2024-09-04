@@ -1,10 +1,10 @@
 const { ApplicationCommandOptionType } = require("discord.js");
 module.exports = async (client) => {
 
-    let cmds = await client.application.commands.fetch()
+    /*let cmds = await client.application.commands.fetch()
     for(let a of cmds){
         await a[1].delete()
-    }
+    }*/
     
     await client.application.commands.create({
         name: 'add',

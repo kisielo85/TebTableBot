@@ -101,8 +101,8 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
 
     client.on('interactionCreate', async (msg) => {
 
-        if(Math.floor(Math.random()*50) == 1){
-            sleep(2500).then(() => { msg.channel.send("https://static.wikia.nocookie.net/nicos-nextbots-fanmade/images/7/7c/Uncannyclose.png/revision/latest?cb=20230629050427").then(msg => setTimeout(() => msg.delete(), 600))})
+        if(Math.floor(Math.random()*50) == 1 ){
+            sleep(1500).then(() => { msg.channel.send("https://static.wikia.nocookie.net/nicos-nextbots-fanmade/images/7/7c/Uncannyclose.png/revision/latest?cb=20230629050427").then(msg => setTimeout(() => msg.delete(), 1200))})
         }
 
         if(!dm_list[msg.user.id]){
