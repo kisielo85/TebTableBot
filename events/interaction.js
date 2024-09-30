@@ -329,6 +329,7 @@ module.exports = ({client, cmd, dm_list, tableData, pngCreate}) => {
                     await delBtnGroup(msg)
                 }
                 else if (type=="plan"){
+                    // TODO - sprawdzenie czy plan sie dobrze pobrał
                     const plan_data=dm_list[msg.user.id].list[msg_data[2]]
                     let tab = await tableData.getTable(plan_data.type,plan_data.id)
                     if (plan_data.groups.length!=0){

@@ -40,7 +40,7 @@ require('./events/interaction.js')({client, cmd:commands, dm_list, tableData, pn
 
 // Main
 client.on("ready", async () => {
-    console.log(client.user.username + " Logged in");
+    //console.log(client.user.username + " Logged in");
 
     // skrypt co przerwe wysyła powiadomienie o lekcji
     require('./utils/alertLekcjeLoop.js')(client, dm_list, tableData)

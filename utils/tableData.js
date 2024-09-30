@@ -82,6 +82,7 @@ async function getTable(tableType, id, oneDay=false,addDays=0){
 // pobiera id klas, nauczycieli itp. do idList
 idList={}
 async function loadInitialData(){
+    process.stdout.write('Loading data.. 0%');
     d=getDate()
     const requestData = {
     __args:['null',d.year,{
@@ -107,10 +108,15 @@ async function loadInitialData(){
         }
     }
 
+    let progress=0
+    let max=Object.keys(idList.classes).length
+
     // zapis wszystkich klas z podziałem na roczniki
     for (const c in idList.classes){
         n=idList.classes[c].short
-        process.stdout.write(n+' ');
+
+        progress+=1
+        process.stdout.write(`\rLoading data.. ${parseInt(progress/max*100)}% - ${n} `)
 
         // pobieranie grup w klasie
         cards=await getTable("classes",c)
@@ -125,12 +131,15 @@ async function loadInitialData(){
         idList.classes[c].groups = groups
         idList.classes[c].year = parseInt(n[0])
     }
+    process.stdout.write('\nDone.\n')
 }
 
 if (!config.debug){
     loadInitialData().then( ()=>{
-        //fs.writeFileSync('data/sample_data/idList.json', JSON.stringify(idList, null, 2))
+        fs.writeFileSync('data/sample_data/idList.json', JSON.stringify(idList, null, 2))
     })
+    // aktualizowanie danych co 8h
+    setInterval(loadInitialData,1000*60*60*8);
 }else{
     idList = JSON.parse(fs.readFileSync('data/sample_data/idList.json', 'utf-8'))
 }

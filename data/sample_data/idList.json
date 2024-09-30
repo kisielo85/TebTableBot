@@ -28,6 +28,10 @@
       "id": "-59",
       "short": "OC"
     },
+    "-116": {
+      "id": "-116",
+      "short": "SC"
+    },
     "-99": {
       "id": "-99",
       "short": "OD"
@@ -40,13 +44,17 @@
       "id": "-12",
       "short": "MD"
     },
-    "-101": {
-      "id": "-101",
-      "short": "AG"
+    "-121": {
+      "id": "-121",
+      "short": "MG"
     },
     "-13": {
       "id": "-13",
       "short": "KG"
+    },
+    "-122": {
+      "id": "-122",
+      "short": "SH"
     },
     "-95": {
       "id": "-95",
@@ -63,6 +71,14 @@
     "-16": {
       "id": "-16",
       "short": "AK"
+    },
+    "-119": {
+      "id": "-119",
+      "short": "KM"
+    },
+    "-131": {
+      "id": "-131",
+      "short": "KT"
     },
     "-18": {
       "id": "-18",
@@ -92,10 +108,6 @@
       "id": "-103",
       "short": "KA"
     },
-    "-104": {
-      "id": "-104",
-      "short": "ML"
-    },
     "-21": {
       "id": "-21",
       "short": "MŁ"
@@ -115,6 +127,10 @@
     "-107": {
       "id": "-107",
       "short": "MP"
+    },
+    "-123": {
+      "id": "-123",
+      "short": "M_"
     },
     "-91": {
       "id": "-91",
@@ -144,6 +160,10 @@
       "id": "-94",
       "short": "AN"
     },
+    "-132": {
+      "id": "-132",
+      "short": "NL"
+    },
     "-108": {
       "id": "-108",
       "short": "DN"
@@ -152,13 +172,13 @@
       "id": "-83",
       "short": "EOJ"
     },
-    "-29": {
-      "id": "-29",
-      "short": "Pk"
-    },
     "-1": {
       "id": "-1",
       "short": "MO"
+    },
+    "-118": {
+      "id": "-118",
+      "short": "HP"
     },
     "-30": {
       "id": "-30",
@@ -172,13 +192,25 @@
       "id": "-51",
       "short": "PD"
     },
-    "-76": {
-      "id": "-76",
-      "short": "OPK"
+    "-124": {
+      "id": "-124",
+      "short": "WR"
+    },
+    "-125": {
+      "id": "-125",
+      "short": "JS"
     },
     "-78": {
       "id": "-78",
       "short": "MS"
+    },
+    "-126": {
+      "id": "-126",
+      "short": "SM"
+    },
+    "-127": {
+      "id": "-127",
+      "short": "AS"
     },
     "-109": {
       "id": "-109",
@@ -202,23 +234,7 @@
     },
     "-89": {
       "id": "-89",
-      "short": "wakat"
-    },
-    "-110": {
-      "id": "-110",
-      "short": "f"
-    },
-    "-111": {
-      "id": "-111",
-      "short": "m"
-    },
-    "-112": {
-      "id": "-112",
-      "short": "vf"
-    },
-    "-113": {
-      "id": "-113",
-      "short": "vi"
+      "short": "w"
     },
     "-82": {
       "id": "-82",
@@ -228,13 +244,13 @@
       "id": "-87",
       "short": "PW"
     },
-    "-90": {
-      "id": "-90",
-      "short": ".."
-    },
     "-67": {
       "id": "-67",
       "short": "SW"
+    },
+    "-129": {
+      "id": "-129",
+      "short": "Wi"
     },
     "-43": {
       "id": "-43",
@@ -246,6 +262,18 @@
     },
     "-98": {
       "id": "-98",
+      "short": "KW"
+    },
+    "-120": {
+      "id": "-120",
+      "short": "WE"
+    },
+    "-133": {
+      "id": "-133",
+      "short": "WJ"
+    },
+    "-117": {
+      "id": "-117",
       "short": "KW"
     },
     "-114": {
@@ -268,6 +296,10 @@
       "id": "-115",
       "short": "WS"
     },
+    "-130": {
+      "id": "-130",
+      "short": "MZ"
+    },
     "-47": {
       "id": "-47",
       "short": "WZ"
@@ -286,6 +318,111 @@
       "id": "1",
       "name": "Zachowanie",
       "short": "Zac"
+    },
+    "-141": {
+      "id": "-141",
+      "name": "",
+      "short": ""
+    },
+    "-140": {
+      "id": "-140",
+      "name": "",
+      "short": ""
+    },
+    "-139": {
+      "id": "-139",
+      "name": "",
+      "short": ""
+    },
+    "-138": {
+      "id": "-138",
+      "name": "",
+      "short": ""
+    },
+    "-137": {
+      "id": "-137",
+      "name": "",
+      "short": ""
+    },
+    "-136": {
+      "id": "-136",
+      "name": "",
+      "short": ""
+    },
+    "-135": {
+      "id": "-135",
+      "name": "",
+      "short": ""
+    },
+    "-134": {
+      "id": "-134",
+      "name": "",
+      "short": ""
+    },
+    "-133": {
+      "id": "-133",
+      "name": "",
+      "short": ""
+    },
+    "-132": {
+      "id": "-132",
+      "name": "",
+      "short": ""
+    },
+    "-131": {
+      "id": "-131",
+      "name": "",
+      "short": ""
+    },
+    "-130": {
+      "id": "-130",
+      "name": "",
+      "short": ""
+    },
+    "-129": {
+      "id": "-129",
+      "name": "",
+      "short": ""
+    },
+    "-128": {
+      "id": "-128",
+      "name": "",
+      "short": ""
+    },
+    "-127": {
+      "id": "-127",
+      "name": "",
+      "short": ""
+    },
+    "-126": {
+      "id": "-126",
+      "name": "",
+      "short": ""
+    },
+    "-125": {
+      "id": "-125",
+      "name": "",
+      "short": ""
+    },
+    "-124": {
+      "id": "-124",
+      "name": "",
+      "short": ""
+    },
+    "-123": {
+      "id": "-123",
+      "name": "",
+      "short": ""
+    },
+    "-122": {
+      "id": "-122",
+      "name": "",
+      "short": ""
+    },
+    "-120": {
+      "id": "-120",
+      "name": "",
+      "short": ""
     },
     "-119": {
       "id": "-119",
@@ -325,7 +462,7 @@
     "-98": {
       "id": "-98",
       "name": "Aplikacje webowe",
-      "short": "apl. webowe"
+      "short": "apl. web."
     },
     "-4": {
       "id": "-4",
@@ -547,6 +684,11 @@
       "name": "Język angielski",
       "short": "ang"
     },
+    "-142": {
+      "id": "-142",
+      "name": "Język angielski (konwersatorium)",
+      "short": "ang K"
+    },
     "-30": {
       "id": "-30",
       "name": "Język angielski rozszerzony",
@@ -642,6 +784,11 @@
       "name": "Podstawy informatyki",
       "short": "podst. inf."
     },
+    "-143": {
+      "id": "-143",
+      "name": "Podstawy kosmetologii i wizażu",
+      "short": "kosmet"
+    },
     "-43": {
       "id": "-43",
       "name": "Podstawy programowania",
@@ -682,6 +829,11 @@
       "name": "Profilaktyka i leczenie chorób zwierząt w praktyce",
       "short": "prof. P"
     },
+    "-144": {
+      "id": "-144",
+      "name": "Programowanie aplikacji internetowych",
+      "short": "pai"
+    },
     "-89": {
       "id": "-89",
       "name": "Programowanie i testowanie aplikacji mobilnych oraz zaawansowanych webowych",
@@ -692,10 +844,20 @@
       "name": "Programowanie i testowanie obiektowych aplikacji desktopowych",
       "short": "progr. test. ob."
     },
+    "-145": {
+      "id": "-145",
+      "name": "Programowanie strukturalne i obiektowe",
+      "short": "pso"
+    },
     "-48": {
       "id": "-48",
       "name": "Projektowanie reklamy",
       "short": "proj. rekl."
+    },
+    "-146": {
+      "id": "-146",
+      "name": "Projektowanie stron internetowych",
+      "short": "psi"
     },
     "-49": {
       "id": "-49",
@@ -717,10 +879,20 @@
       "name": "Przygotowanie materiałów cyfrowych",
       "short": "pmc"
     },
+    "-147": {
+      "id": "-147",
+      "name": "Psychologia człowieka",
+      "short": "psych. czł."
+    },
     "-111": {
       "id": "-111",
       "name": "Realizacja kampanii reklamowej",
       "short": "real. kamp."
+    },
+    "-121": {
+      "id": "-121",
+      "name": "Realizowanie kampanii reklamowej",
+      "short": "real. KR"
     },
     "-52": {
       "id": "-52",
@@ -777,6 +949,11 @@
       "name": "Technologie chmurowe",
       "short": "tech. chm."
     },
+    "-148": {
+      "id": "-148",
+      "name": "Technologie i programowanie Cisco NetAcad",
+      "short": "netacad"
+    },
     "-59": {
       "id": "-59",
       "name": "Teoria obrazu fotograficznego",
@@ -816,6 +993,11 @@
       "id": "-94",
       "name": "Tworzenie stron i programowanie aplikacji internetowych",
       "short": "tw. str."
+    },
+    "-149": {
+      "id": "-149",
+      "name": "Tworzenie zaawansowanych aplikacji webowych",
+      "short": "tzaw"
     },
     "-63": {
       "id": "-63",
@@ -884,6 +1066,14 @@
       "id": "-4",
       "short": "106F"
     },
+    "-86": {
+      "id": "-86",
+      "short": "202F/207F"
+    },
+    "-87": {
+      "id": "-87",
+      "short": "203F"
+    },
     "-53": {
       "id": "-53",
       "short": "204F"
@@ -916,9 +1106,17 @@
       "id": "-67",
       "short": "305F"
     },
-    "-9": {
-      "id": "-9",
-      "short": "B10H"
+    "-90": {
+      "id": "-90",
+      "short": "A11H"
+    },
+    "-88": {
+      "id": "-88",
+      "short": "A1H"
+    },
+    "-89": {
+      "id": "-89",
+      "short": "A2H"
     },
     "-10": {
       "id": "-10",
@@ -1016,10 +1214,6 @@
       "id": "-20",
       "short": "C6H"
     },
-    "-70": {
-      "id": "-70",
-      "short": "C7H"
-    },
     "-21": {
       "id": "-21",
       "short": "C9H"
@@ -1044,6 +1238,10 @@
       "id": "-68",
       "short": "D:3F"
     },
+    "-91": {
+      "id": "-91",
+      "short": "D:A"
+    },
     "-41": {
       "id": "-41",
       "short": "D:B"
@@ -1056,10 +1254,6 @@
       "id": "-43",
       "short": "D:ś"
     },
-    "-44": {
-      "id": "-44",
-      "short": "D:w"
-    },
     "-50": {
       "id": "-50",
       "short": "Hasta La Vista ul. Góralska 5"
@@ -1067,306 +1261,316 @@
     "-32": {
       "id": "-32",
       "short": "Hasta La Vista ul. Góralska 5 od 7:30"
+    },
+    "-85": {
+      "id": "-85",
+      "short": "P3H"
     }
   },
   "classes": {
-    "-43": {
-      "id": "-43",
-      "name": "1Lep Liceum",
-      "short": "1Lep",
+    "-50": {
+      "id": "-50",
+      "name": "1Lego Liceum",
+      "short": "1Lego",
       "groups": [
-        "politech",
+        "1. Grupa",
         "ekonom",
+        "graf",
         "pol obcy",
-        "rel"
+        "2. Grupa",
+        "kosmet"
       ],
       "year": 1
+    },
+    "-51": {
+      "id": "-51",
+      "name": "1Lks Liceum",
+      "short": "1Lks",
+      "groups": [
+        "psych",
+        "krymin",
+        "pol obcy"
+      ],
+      "year": 1
+    },
+    "-46": {
+      "id": "-46",
+      "name": "1Tei Technikum",
+      "short": "1Tei",
+      "groups": [
+        "inf",
+        "esport",
+        "pol obcy",
+        "pol obcy rekl"
+      ],
+      "year": 1
+    },
+    "-47": {
+      "id": "-47",
+      "name": "1Tfr Technikum",
+      "short": "1Tfr",
+      "groups": [
+        "fot",
+        "rekl",
+        "pol obcy",
+        "pol obcy rekl"
+      ],
+      "year": 1
+    },
+    "-48": {
+      "id": "-48",
+      "name": "1Tpw Technikum",
+      "short": "1Tpw",
+      "groups": [
+        "wet",
+        "progr"
+      ],
+      "year": 1
+    },
+    "-49": {
+      "id": "-49",
+      "name": "1Ts Technikum",
+      "short": "1Ts",
+      "groups": [
+        "2. Grupa",
+        "1. Grupa",
+        "pol obcy",
+        "pol obcy rekl"
+      ],
+      "year": 1
+    },
+    "-43": {
+      "id": "-43",
+      "name": "2Lep Liceum",
+      "short": "2Lep",
+      "groups": [
+        "pol obcy",
+        "politech",
+        "ekonom"
+      ],
+      "year": 2
     },
     "-44": {
       "id": "-44",
-      "name": "1Lgm Liceum",
-      "short": "1Lgm",
+      "name": "2Lgm Liceum",
+      "short": "2Lgm",
       "groups": [
         "graf",
         "mik",
-        "pol obcy",
-        "rel"
+        "pol obcy"
       ],
-      "year": 1
+      "year": 2
     },
     "-45": {
       "id": "-45",
-      "name": "1Lk Liceum",
-      "short": "1Lk",
+      "name": "2Lk Liceum",
+      "short": "2Lk",
       "groups": [
         "pol obcy"
       ],
-      "year": 1
+      "year": 2
     },
     "-35": {
       "id": "-35",
-      "name": "1Te Technikum",
-      "short": "1Te",
+      "name": "2Te Technikum",
+      "short": "2Te",
       "groups": [
         "1. Grupa",
-        "2. Grupa",
-        "pol obcy"
+        "2. Grupa"
       ],
-      "year": 1
+      "year": 2
     },
     "-36": {
       "id": "-36",
-      "name": "1Tf Technikum",
-      "short": "1Tf",
-      "groups": [
-        "1. Grupa",
-        "2. Grupa",
-        "pol obcy",
-        "rel"
-      ],
-      "year": 1
-    },
-    "-37": {
-      "id": "-37",
-      "name": "1Ti Technikum",
-      "short": "1Ti",
-      "groups": [
-        "1. Grupa",
-        "2. Grupa",
-        "pol obcy",
-        "rel"
-      ],
-      "year": 1
-    },
-    "-38": {
-      "id": "-38",
-      "name": "1Tp Technikum",
-      "short": "1Tp",
-      "groups": [
-        "1. Grupa",
-        "2. Grupa",
-        "pol obcy",
-        "rel"
-      ],
-      "year": 1
-    },
-    "-39": {
-      "id": "-39",
-      "name": "1Tr Technikum",
-      "short": "1Tr",
-      "groups": [
-        "1. Grupa",
-        "2. Grupa",
-        "pol obcy"
-      ],
-      "year": 1
-    },
-    "-40": {
-      "id": "-40",
-      "name": "1Tsa Technikum",
-      "short": "1Tsa",
-      "groups": [
-        "2. Grupa",
-        "1. Grupa",
-        "pol obcy"
-      ],
-      "year": 1
-    },
-    "-41": {
-      "id": "-41",
-      "name": "1Tsb Technikum",
-      "short": "1Tsb",
-      "groups": [
-        "2. Grupa",
-        "1. Grupa",
-        "pol obcy",
-        "rel"
-      ],
-      "year": 1
-    },
-    "-42": {
-      "id": "-42",
-      "name": "1Tw Technikum",
-      "short": "1Tw",
-      "groups": [
-        "1. Grupa",
-        "2. Grupa",
-        "pol obcy"
-      ],
-      "year": 1
-    },
-    "-20": {
-      "id": "-20",
-      "name": "2Tei Technikum",
-      "short": "2Tei",
-      "groups": [
-        "esport",
-        "inf"
-      ],
-      "year": 2
-    },
-    "-23": {
-      "id": "-23",
-      "name": "2Ter Technikum",
-      "short": "2Ter",
-      "groups": [
-        "reklama",
-        "esport"
-      ],
-      "year": 2
-    },
-    "-21": {
-      "id": "-21",
       "name": "2Tf Technikum",
       "short": "2Tf",
       "groups": [
         "2. Grupa",
-        "1. Grupa",
-        "rel"
+        "1. Grupa"
       ],
       "year": 2
     },
-    "-22": {
-      "id": "-22",
+    "-37": {
+      "id": "-37",
+      "name": "2Tiw Technikum",
+      "short": "2Tiw",
+      "groups": [
+        "wet",
+        "inf1",
+        "inf2",
+        "1. Grupa",
+        "2. Grupa"
+      ],
+      "year": 2
+    },
+    "-38": {
+      "id": "-38",
       "name": "2Tp Technikum",
       "short": "2Tp",
       "groups": [
         "1. Grupa",
-        "2. Grupa",
-        "etyka"
+        "2. Grupa"
       ],
       "year": 2
     },
-    "-24": {
-      "id": "-24",
-      "name": "2Ts Technikum",
-      "short": "2Ts",
+    "-39": {
+      "id": "-39",
+      "name": "2Tr Technikum",
+      "short": "2Tr",
       "groups": [
-        "2. Grupa",
         "1. Grupa",
-        "etyka",
-        "rel"
+        "2. Grupa"
       ],
       "year": 2
     },
-    "-1": {
-      "id": "-1",
-      "name": "3Tea Technikum",
-      "short": "3Tea",
+    "-40": {
+      "id": "-40",
+      "name": "2Tsa Technikum",
+      "short": "2Tsa",
       "groups": [
         "1. Grupa",
-        "2. Grupa",
-        "rel"
+        "2. Grupa"
       ],
-      "year": 3
+      "year": 2
     },
-    "-2": {
-      "id": "-2",
-      "name": "3Teb Technikum",
-      "short": "3Teb",
+    "-41": {
+      "id": "-41",
+      "name": "2Tsb Technikum",
+      "short": "2Tsb",
       "groups": [
         "1. Grupa",
+        "2. Grupa"
+      ],
+      "year": 2
+    },
+    "-20": {
+      "id": "-20",
+      "name": "3Tei Technikum",
+      "short": "3Tei",
+      "groups": [
+        "esport",
+        "inf"
+      ],
+      "year": 3
+    },
+    "-23": {
+      "id": "-23",
+      "name": "3Ter Technikum",
+      "short": "3Ter",
+      "groups": [
+        "reklama",
+        "esport"
+      ],
+      "year": 3
+    },
+    "-21": {
+      "id": "-21",
+      "name": "3Tf Technikum",
+      "short": "3Tf",
+      "groups": [
         "2. Grupa",
-        "rel"
+        "1. Grupa"
       ],
       "year": 3
     },
-    "-3": {
-      "id": "-3",
-      "name": "3Tfr Technikum",
-      "short": "3Tfr",
-      "groups": [
-        "rekl",
-        "fot",
-        "rel"
-      ],
-      "year": 3
-    },
-    "-4": {
-      "id": "-4",
-      "name": "3Tiw Technikum",
-      "short": "3Tiw",
-      "groups": [
-        "inf",
-        "wet",
-        "rel"
-      ],
-      "year": 3
-    },
-    "-5": {
-      "id": "-5",
+    "-22": {
+      "id": "-22",
       "name": "3Tp Technikum",
       "short": "3Tp",
       "groups": [
-        "2. Grupa",
         "1. Grupa",
-        "rel"
+        "2. Grupa"
       ],
       "year": 3
     },
+    "-24": {
+      "id": "-24",
+      "name": "3Ts Technikum",
+      "short": "3Ts",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa"
+      ],
+      "year": 3
+    },
+    "-1": {
+      "id": "-1",
+      "name": "4Tea Technikum",
+      "short": "4Tea",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa"
+      ],
+      "year": 4
+    },
+    "-2": {
+      "id": "-2",
+      "name": "4Teb Technikum",
+      "short": "4Teb",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa"
+      ],
+      "year": 4
+    },
+    "-3": {
+      "id": "-3",
+      "name": "4Tfr Technikum",
+      "short": "4Tfr",
+      "groups": [
+        "rekl",
+        "fot"
+      ],
+      "year": 4
+    },
+    "-4": {
+      "id": "-4",
+      "name": "4Tiw Technikum",
+      "short": "4Tiw",
+      "groups": [
+        "wet",
+        "inf"
+      ],
+      "year": 4
+    },
+    "-5": {
+      "id": "-5",
+      "name": "4Tp Technikum",
+      "short": "4Tp",
+      "groups": [
+        "1. Grupa",
+        "2. Grupa"
+      ],
+      "year": 4
+    },
     "-7": {
       "id": "-7",
-      "name": "4Teip Technikum",
-      "short": "4Teip",
+      "name": "5Teip Technikum",
+      "short": "5Teip",
       "groups": [
         "progr",
         "esport",
         "inf"
       ],
-      "year": 4
+      "year": 5
     },
     "-25": {
       "id": "-25",
-      "name": "4Tew Technikum",
-      "short": "4Tew",
+      "name": "5Tew Technikum",
+      "short": "5Tew",
       "groups": [
         "esport",
         "wet"
       ],
-      "year": 4
+      "year": 5
     },
     "-8": {
       "id": "-8",
-      "name": "4Tf Technikum",
-      "short": "4Tf",
+      "name": "5Tf Technikum",
+      "short": "5Tf",
       "groups": [
-        "1. Grupa",
         "2. Grupa",
-        "rel"
-      ],
-      "year": 4
-    },
-    "-27": {
-      "id": "-27",
-      "name": "5Te/5 Technikum",
-      "short": "5Te/5",
-      "groups": [
-        "1. Grupa",
-        "2. Grupa",
-        "rel"
-      ],
-      "year": 5
-    },
-    "-28": {
-      "id": "-28",
-      "name": "5Tew/5 Technikum",
-      "short": "5Tew/5",
-      "groups": [
-        "inf",
-        "wet"
-      ],
-      "year": 5
-    },
-    "-29": {
-      "id": "-29",
-      "name": "5Tfi/5 Technikum",
-      "short": "5Tfi/5",
-      "groups": [
-        "inf",
-        "fot",
-        "rel",
-        "1. Grupa",
-        "2. Grupa"
+        "1. Grupa"
       ],
       "year": 5
     }
