@@ -82,7 +82,7 @@ async function getTable(tableType, id, oneDay=false,addDays=0){
 // pobiera id klas, nauczycieli itp. do idList
 idList={}
 async function loadInitialData(){
-    process.stdout.write('Loading data.. 0%');
+    process.stdout.write('Loading data.. 0%         ');
     d=getDate()
     const requestData = {
     __args:['null',d.year,{

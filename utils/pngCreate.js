@@ -145,7 +145,10 @@ function gen_png(table, double=0,canvas=false){
         context.stroke();
 
         // skreślenie odwołanych lekcji
-        if(!c.colors || !c.colors[0]){
+        
+        // okazuje się że lekcje bez "koloru" niekoniecznie są odwołane :)
+        // trzeba ogarnąć inny sposób na rozpoznawanie odwołanych
+        /*if(!c.colors || !c.colors[0]){
             context.beginPath();
             context.lineWidth = 5;
             context.strokeStyle = '#00000070';
@@ -155,7 +158,7 @@ function gen_png(table, double=0,canvas=false){
             context.lineTo(cell_x, cell_y + cell_height);
             context.stroke();
             context.lineWidth = 1;
-        }
+        }*/
         
         // nazwa przedmiotu
         context.fillStyle = '#222';
@@ -175,7 +178,7 @@ function gen_png(table, double=0,canvas=false){
 
         // sala
         context.font = "bold 14px sans-serif";
-        if (table.type != 'classrooms'){
+        if (table.type != 'classrooms' && c.classroomids[0]){
             txt=tableData.idList.classrooms[c.classroomids[0]].short
             size=context.measureText(txt)
             txt_x=cell_x+cell_width-size.width-2
@@ -184,7 +187,7 @@ function gen_png(table, double=0,canvas=false){
         }
 
         // nauczyciel
-        if (table.type != 'teachers'){
+        if (table.type != 'teachers' && c.teacherids[0]){
             txt=tableData.idList.teachers[c.teacherids[0]].short
             size=context.measureText(txt)
             if (table.type=='classrooms'){ txt_x=cell_x+cell_width-size.width-2}
@@ -203,7 +206,7 @@ function gen_png(table, double=0,canvas=false){
         }
 
         // klasa
-        if (table.type != 'classes'){
+        if (table.type != 'classes' && c.classids[0]){
             txt=tableData.idList.classes[c.classids[0]].short
             txt_x=cell_x+4
             txt_y=cell_y+cell_height-4
